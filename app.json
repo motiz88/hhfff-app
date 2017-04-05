@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "sdkVersion": "15.0.0",
+    "loading": {
+      "icon": "./data/images/logo.png",
+      "hideExponentText": true
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "otf"]
+    }
+  }
+}
