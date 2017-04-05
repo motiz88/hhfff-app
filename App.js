@@ -2,7 +2,6 @@ import Expo from "expo";
 import React, { Component } from "react";
 import { Platform } from "react-native";
 import { Actions, Scene, Router } from 'react-native-router-flux';
-import Welcome from './components/Welcome';
 import data from './data.generated';
 import FilmPage from './components/FilmPage';
 
