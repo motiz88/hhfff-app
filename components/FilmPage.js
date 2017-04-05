@@ -269,9 +269,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     backgroundColor: "#e59125",
     color: "white",
-    // textShadowColor: "black",
-    // textShadowOffset: { width: 0, height: -2 },
-    // textShadowRadius: 3,
     opacity: 0.9,
     padding: 8,
     alignSelf: "flex-end"
@@ -369,6 +366,7 @@ export default class FilmsPage extends React.Component {
           onScrollBeginDrag={this.handleScrollBeginDrag}
           onMomentumScrollEnd={this.handleMomentumScrollEnd}
           loop={false}
+          index={this._cardIndex}
         >
           {data.FilmsIndex.byStartTime.map((key, i) => (
             <SingleFilmPage filmId={key} key={key} ref={ref => {

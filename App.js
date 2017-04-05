@@ -4,9 +4,11 @@ import { Platform } from "react-native";
 import { Actions, Scene, Router } from 'react-native-router-flux';
 import data from './data.generated';
 import FilmPage from './components/FilmPage';
+import IntroPage from './components/IntroPage';
 
 const scenes = Actions.create(
   <Scene key="root" hideNavBar hideTabBar>
+    <Scene key="intro" component={IntroPage} panHandlers={null} initial />
     <Scene key="film" component={FilmPage} panHandlers={null} />
   </Scene>
 );

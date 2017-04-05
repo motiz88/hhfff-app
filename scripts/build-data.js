@@ -43,6 +43,7 @@ for (const filmId of Object.keys(Films)) {
   const film = Films[filmId];
   const date = moment(film.date, "D MMM").year(year);
   const startTime = moment(film.time.start, "h:mma");
+
   film.exactStartTime = date
     .set({
       hour: startTime.hour(),
@@ -50,8 +51,15 @@ for (const filmId of Object.keys(Films)) {
       second: startTime.second()
     })
     .toISOString();
-  film.descriptionPlain = String(markdownStripper.processSync(film.description))
-    .replace(/\\\*/g, '*');
+
+  if (film.running_time && film.running_time.endsWith("mins")) {
+    film.approxEndTime = moment(film.exactStartTime)
+      .add(parseInt(film.running_time), "minutes")
+      .toISOString();
+  }
+  film.descriptionPlain = String(
+    markdownStripper.processSync(film.description)
+  ).replace(/\\\*/g, "*");
 }
 const FilmsIndex = {
   byStartTime: Object.keys(Films).sort((a, b) =>
