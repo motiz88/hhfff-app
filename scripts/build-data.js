@@ -5,6 +5,9 @@ import * as t from "babel-types";
 import generate from "babel-generator";
 import deepMap from "deep-map";
 import traverse from "babel-traverse";
+import moment from "moment";
+
+const year = 2017;
 
 async function writeData(filename, data) {
   const dataAst = t.valueToNode(data);
@@ -33,13 +36,30 @@ const Films = YAML.safeLoad(
   fs.readFileSync(path.resolve(__dirname, "../data/films.yml"), "utf8")
 );
 
+for (const filmId of Object.keys(Films)) {
+  const film = Films[filmId];
+  const date = moment(film.date, "D MMM").year(year);
+  const startTime = moment(film.time.start, "h:mma");
+  film.exactStartTime = date
+    .set({
+      hour: startTime.hour(),
+      minute: startTime.minute(),
+      second: startTime.second()
+    })
+    .toISOString();
+}
+const FilmsIndex = {
+  byStartTime: Object.keys(Films).sort((a, b) =>
+    Films[a].exactStartTime.localeCompare(Films[b].exactStartTime))
+};
 // for (let i = 1; i <= 9; ++i) {
 //   for (const key of Object.keys(Films)) {
 //     Films[key + i] = Films[key];
 //   }
 // }
 const data = {
-  Films
+  Films,
+  FilmsIndex
 };
 
 writeData(path.resolve(__dirname, "../data.generated.js"), data).catch(e => {

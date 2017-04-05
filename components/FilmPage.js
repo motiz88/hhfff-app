@@ -70,7 +70,7 @@ function getCaptionFontSize(
 class SingleFilmPage extends React.Component {
   static defaultProps = {
     data,
-    filmId: Object.keys(data.Films)[0]
+    filmId: data.FilmsIndex.byStartTime[0]
   };
 
   state = {
@@ -86,10 +86,9 @@ class SingleFilmPage extends React.Component {
     const films = this.props.data.Films;
     const { filmId } = this.props;
     const film = films[filmId];
-    const allFilmIds = Object.keys(films);
-    const filmIndex = allFilmIds.indexOf(filmId);
-    const prevId = allFilmIds[filmIndex - 1];
-    const nextId = allFilmIds[filmIndex + 1];
+    const filmIndex = this.props.data.FilmsIndex.byStartTime.indexOf(filmId);
+    const prevId = this.props.data.FilmsIndex.byStartTime[filmIndex - 1];
+    const nextId = this.props.data.FilmsIndex.byStartTime[filmIndex + 1];
 
     const {
       title,
@@ -316,7 +315,7 @@ const styles = StyleSheet.create({
 export default class FilmsPage extends React.Component {
   static defaultProps = {
     data,
-    filmId: Object.keys(data.Films)[0]
+    filmId: data.FilmsIndex.byStartTime[0]
   };
 
   state = {
@@ -344,7 +343,7 @@ export default class FilmsPage extends React.Component {
           loadMinimal={true}
           loadMinimalSize={1}
         >
-          {Object.keys(films).map(key => (
+          {data.FilmsIndex.byStartTime.map(key => (
             <SingleFilmPage filmId={key} key={key} />
           ))}
         </Swiper>
