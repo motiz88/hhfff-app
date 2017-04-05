@@ -284,11 +284,15 @@ const styles = StyleSheet.create({
   },
   watchTrailer: {
     color: "white",
-    fontSize: 16
+    fontSize: 16,
+    marginTop: 8,
+    marginBottom: 8
   },
   locationLink: {
     color: "white",
-    fontSize: 16
+    fontSize: 16,
+    marginTop: 8,
+    marginBottom: 8
   },
   iconTextWrapper: {
     flexDirection: "row",
@@ -296,12 +300,16 @@ const styles = StyleSheet.create({
   },
   infoIcon: {
     color: "white",
-    marginRight: 4
+    marginRight: 4,
+    marginTop: 8,
+    marginBottom: 8
   },
   infoIconImage: {
     height: 16,
     width: 16,
-    marginRight: 4
+    marginRight: 4,
+    marginTop: 8,
+    marginBottom: 8
   },
   vitalStats: {
     fontSize: 16,
