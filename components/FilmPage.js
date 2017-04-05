@@ -352,8 +352,7 @@ export default class FilmsPage extends React.Component {
   }
 
   handleMomentumScrollEnd = (e, swiperState) => {
-    if (this._cardIndex !== swiperState.index) {
-      console.log('cardIndex', this._cardIndex);
+    if (this._cardIndex !== swiperState.index && this._cardRefs[this._cardIndex]) {
       this._cardRefs[this._cardIndex].resetScroll();
     }
     this._cardIndex = swiperState.index;
