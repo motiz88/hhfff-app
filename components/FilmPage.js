@@ -360,12 +360,10 @@ export default class FilmsPage extends React.Component {
     return (
       <View style={{ flex: 1, marginTop: 0 }} onLayout={this.handleLayout}>
         <Swiper
-          showsButtons={true}
+          showsButtons={false}
           showsPagination={false}
           width={width}
           height={height}
-          nextButton={<Text />}
-          prevButton={<Text />}
           loadMinimal={true}
           loadMinimalSize={1}
           onScrollBeginDrag={this.handleScrollBeginDrag}
