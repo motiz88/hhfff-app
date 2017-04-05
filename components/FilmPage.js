@@ -12,7 +12,6 @@ import {
   NavigationExperimental,
   Navigator
 } from "react-native";
-import Markdown from "react-native-simple-markdown";
 import openMapAddress from "../utils/openMapAddress";
 import { Tile, Grid, Row, Col, Button } from "react-native-elements";
 import CustomText from "./CustomText";
@@ -20,7 +19,6 @@ import { Actions } from "react-native-router-flux";
 import data from "../data.generated";
 import PageContainer from "./PageContainer";
 import Swiper from "react-native-swiper";
-import defaultMarkdownStyles from "react-native-simple-markdown/styles";
 import { SimpleLineIcons, Foundation, MaterialIcons } from "@expo/vector-icons";
 
 const InfoField = ({ label, children }) => (
@@ -104,7 +102,7 @@ class SingleFilmPage extends React.Component {
       venue,
       time,
       trailer,
-      description,
+      descriptionPlain,
       images,
       colors
     } = film;
@@ -208,24 +206,15 @@ class SingleFilmPage extends React.Component {
             </View>
           </View>
 
-          <Markdown
-            styles={{
-              paragraph: {
-                ...defaultMarkdownStyles.paragraph,
-                fontFamily: "Agenda Light",
-                fontSize: 20
-              },
-              strong: {
-                fontSize: 20,
-                fontFamily: "Agenda Light"
-              },
-              view: {
-                margin: 8
-              }
+          <CustomText
+            style={{
+              margin: 8,
+              fontSize: 20,
+              fontFamily: "Agenda Light"
             }}
           >
-            {description}
-          </Markdown>
+            {descriptionPlain}
+          </CustomText>
 
           <View
             style={{
