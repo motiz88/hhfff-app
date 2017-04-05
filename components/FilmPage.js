@@ -368,6 +368,7 @@ export default class FilmsPage extends React.Component {
           loadMinimalSize={1}
           onScrollBeginDrag={this.handleScrollBeginDrag}
           onMomentumScrollEnd={this.handleMomentumScrollEnd}
+          loop={false}
         >
           {data.FilmsIndex.byStartTime.map((key, i) => (
             <SingleFilmPage filmId={key} key={key} ref={ref => {
