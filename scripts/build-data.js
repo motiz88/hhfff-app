@@ -8,6 +8,8 @@ import traverse from "babel-traverse";
 import moment from "moment";
 import remark from "remark";
 import stripMarkdown from "strip-markdown";
+import matches from "string-matches";
+
 const year = 2017;
 
 async function writeData(filename, data) {
@@ -54,7 +56,10 @@ for (const filmId of Object.keys(Films)) {
 
   if (film.running_time && film.running_time.endsWith("mins")) {
     film.approxEndTime = moment(film.exactStartTime)
-      .add(parseInt(film.running_time), "minutes")
+      .add(
+        matches(film.running_time, /\d+/g).map(Number).reduce((a, b) => a + b),
+        "minutes"
+      )
       .toISOString();
   }
   film.descriptionPlain = String(
@@ -65,11 +70,6 @@ const FilmsIndex = {
   byStartTime: Object.keys(Films).sort((a, b) =>
     Films[a].exactStartTime.localeCompare(Films[b].exactStartTime))
 };
-// for (let i = 1; i <= 9; ++i) {
-//   for (const key of Object.keys(Films)) {
-//     Films[key + i] = Films[key];
-//   }
-// }
 const data = {
   Films,
   FilmsIndex
