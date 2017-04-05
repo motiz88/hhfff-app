@@ -6,7 +6,8 @@ import generate from "babel-generator";
 import deepMap from "deep-map";
 import traverse from "babel-traverse";
 import moment from "moment";
-
+import remark from "remark";
+import stripMarkdown from "strip-markdown";
 const year = 2017;
 
 async function writeData(filename, data) {
@@ -36,6 +37,8 @@ const Films = YAML.safeLoad(
   fs.readFileSync(path.resolve(__dirname, "../data/films.yml"), "utf8")
 );
 
+const markdownStripper = remark().use(stripMarkdown);
+
 for (const filmId of Object.keys(Films)) {
   const film = Films[filmId];
   const date = moment(film.date, "D MMM").year(year);
@@ -47,6 +50,8 @@ for (const filmId of Object.keys(Films)) {
       second: startTime.second()
     })
     .toISOString();
+  film.descriptionPlain = String(markdownStripper.processSync(film.description))
+    .replace(/\\\*/g, '*');
 }
 const FilmsIndex = {
   byStartTime: Object.keys(Films).sort((a, b) =>

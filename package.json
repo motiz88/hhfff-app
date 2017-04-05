@@ -13,7 +13,9 @@
     "jest-expo": "^0.3.0",
     "js-yaml": "^3.8.2",
     "react-native-scripts": "0.0.26",
-    "react-test-renderer": "~15.4.1"
+    "react-test-renderer": "~15.4.1",
+    "remark": "^7.0.0",
+    "strip-markdown": "^3.0.0"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
