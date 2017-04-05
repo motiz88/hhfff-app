@@ -112,7 +112,7 @@ class SingleFilmPage extends React.Component {
     const showPrev = () =>
       Actions.film({ filmId: prevId, direction: "leftToRight" });
     return (
-      <PageContainer>
+      <PageContainer ref={ref => {this._pageContainer = ref;}}>
         <View style={styles.container} onLayout={this.handleLayout}>
           {/*caption={date}*/}
           <Tile
@@ -246,6 +246,16 @@ class SingleFilmPage extends React.Component {
       </PageContainer>
     );
   }
+
+  componentWillMount() {
+    this._pageContainer = null;
+  }
+
+  resetScroll() {
+    if (this._pageContainer) {
+      this._pageContainer.resetScroll();
+    }
+  }
 }
 
 const styles = StyleSheet.create({
@@ -330,10 +340,24 @@ export default class FilmsPage extends React.Component {
     layout: Dimensions.get("window")
   };
 
+  _cardRefs = [];
+
   handleLayout = event =>
     this.setState({
       layout: event.nativeEvent.layout
     });
+
+  handleScrollBeginDrag = (e, swiperState) => {
+    this._cardIndex = swiperState.index;
+  }
+
+  handleMomentumScrollEnd = (e, swiperState) => {
+    if (this._cardIndex !== swiperState.index) {
+      console.log('cardIndex', this._cardIndex);
+      this._cardRefs[this._cardIndex].resetScroll();
+    }
+    this._cardIndex = swiperState.index;
+  }
 
   render() {
     const films = this.props.data.Films;
@@ -350,9 +374,13 @@ export default class FilmsPage extends React.Component {
           prevButton={<Text />}
           loadMinimal={true}
           loadMinimalSize={1}
+          onScrollBeginDrag={this.handleScrollBeginDrag}
+          onMomentumScrollEnd={this.handleMomentumScrollEnd}
         >
-          {data.FilmsIndex.byStartTime.map(key => (
-            <SingleFilmPage filmId={key} key={key} />
+          {data.FilmsIndex.byStartTime.map((key, i) => (
+            <SingleFilmPage filmId={key} key={key} ref={ref => {
+              this._cardRefs[i] = ref;
+            }} />
           ))}
         </Swiper>
       </View>
@@ -361,5 +389,6 @@ export default class FilmsPage extends React.Component {
 
   componentWillMount() {
     StatusBar.setHidden(true);
+    this._cardIndex = this.props.data.FilmsIndex.byStartTime.indexOf(this.props.filmId);
   }
 }
