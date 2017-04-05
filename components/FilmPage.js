@@ -79,7 +79,10 @@ class SingleFilmPage extends React.Component {
 
   handleLayout = event =>
     this.setState({
-      layout: event.nativeEvent.layout
+      layout: {
+        width: event.nativeEvent.layout.width,
+        height: event.nativeEvent.layout.height
+      }
     });
 
   render() {
@@ -344,7 +347,10 @@ export default class FilmsPage extends React.Component {
 
   handleLayout = event =>
     this.setState({
-      layout: event.nativeEvent.layout
+      layout: {
+        width: event.nativeEvent.layout.width,
+        height: event.nativeEvent.layout.height
+      }
     });
 
   handleScrollBeginDrag = (e, swiperState) => {
