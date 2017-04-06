@@ -20,6 +20,7 @@ import data from "../data.generated";
 import PageContainer from "./PageContainer";
 import Swiper from "react-native-swiper";
 import { SimpleLineIcons, Foundation, MaterialIcons } from "@expo/vector-icons";
+import Expo from "expo";
 
 const InfoField = ({ label, children }) => (
   <View style={{ flexDirection: "column", justifyContent: "flex-start" }}>
@@ -113,9 +114,35 @@ class SingleFilmPage extends React.Component {
     const showPrev = () =>
       Actions.film({ filmId: prevId, direction: "leftToRight" });
     return (
-      <PageContainer ref={ref => {this._pageContainer = ref;}}>
+      <PageContainer
+        ref={ref => {
+          this._pageContainer = ref;
+        }}
+      >
         <View style={styles.container} onLayout={this.handleLayout}>
           {/*caption={date}*/}
+          {/*<TouchableHighlight
+            onPress={() => {
+              Expo.Notifications.scheduleLocalNotificationAsync(
+                {
+                  title,
+                  body: descriptionPlain.substring(0, 100),
+                  data: JSON.stringify({
+                    film: {
+                      filmId
+                    }
+                  }),
+                  android: {
+                    color: colors.highlight,
+                    vibrate: true
+                  }
+                },
+                { time: Date.now() + 10000 }
+              );
+            }}
+          >
+            <CustomText style={{ padding: 50 }}>Show notification</CustomText>
+          </TouchableHighlight>*/}
           <Tile
             imageSrc={screenshotImage || require("../data/images/blank.png")}
             title={title.toUpperCase()}
@@ -341,18 +368,41 @@ export default class FilmsPage extends React.Component {
 
   handleScrollBeginDrag = (e, swiperState) => {
     this._cardIndex = swiperState.index;
-  }
+  };
 
   handleMomentumScrollEnd = (e, swiperState) => {
-    if (this._cardIndex !== swiperState.index && this._cardRefs[this._cardIndex]) {
+    if (
+      this._cardIndex !== swiperState.index && this._cardRefs[this._cardIndex]
+    ) {
       this._cardRefs[this._cardIndex].resetScroll();
     }
     this._cardIndex = swiperState.index;
+  };
+
+  get filmId() {
+    const { filmId, notification } = this.props;
+    if (notification) {
+      return notification.data.film.filmId;
+    }
+    return filmId;
+  }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    if (
+      nextProps.notification &&
+      nextProps.notification !== this.props.notification
+    ) {
+      const { filmId } = nextProps.notification.data.film;
+      this._swiper.scrollBy(
+        this.props.data.FilmsIndex.byStartTime.indexOf(filmId),
+        false
+      );
+    }
   }
 
   render() {
     const films = this.props.data.Films;
-    const { filmId } = this.props;
+    const { filmId } = this;
     const { width, height } = this.state.layout;
     return (
       <View style={{ flex: 1, marginTop: 0 }} onLayout={this.handleLayout}>
@@ -367,11 +417,18 @@ export default class FilmsPage extends React.Component {
           onMomentumScrollEnd={this.handleMomentumScrollEnd}
           loop={false}
           index={this._cardIndex}
+          ref={ref => {
+            this._swiper = ref;
+          }}
         >
           {data.FilmsIndex.byStartTime.map((key, i) => (
-            <SingleFilmPage filmId={key} key={key} ref={ref => {
-              this._cardRefs[i] = ref;
-            }} />
+            <SingleFilmPage
+              filmId={key}
+              key={key}
+              ref={ref => {
+                this._cardRefs[i] = ref;
+              }}
+            />
           ))}
         </Swiper>
       </View>
@@ -380,6 +437,8 @@ export default class FilmsPage extends React.Component {
 
   componentWillMount() {
     StatusBar.setHidden(true);
-    this._cardIndex = this.props.data.FilmsIndex.byStartTime.indexOf(this.props.filmId);
+    this._cardIndex = this.props.data.FilmsIndex.byStartTime.indexOf(
+      this.props.filmId
+    );
   }
 }
