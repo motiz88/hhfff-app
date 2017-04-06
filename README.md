@@ -4,6 +4,8 @@ Below you'll find information about performing common tasks. The most recent ver
 
 ## Table of Contents
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/motiz88/hhfff-app.svg?token=5b4e369a6a0219aeba7014179b64f3f39e3b40d37437cdc800d91d7fff827f36)](https://greenkeeper.io/)
+
 * [Updating to New Releases](#updating-to-new-releases)
 * [Available Scripts](#available-scripts)
   * [npm start](#npm-start)
