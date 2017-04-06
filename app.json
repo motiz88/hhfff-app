@@ -1,12 +1,23 @@
 {
   "expo": {
     "sdkVersion": "15.0.0",
+    "name": "Herne Hill Free Film Festival",
+    "icon": "./data/images/logo.png",
     "loading": {
       "icon": "./data/images/logo.png",
       "hideExponentText": true
     },
     "packagerOpts": {
-      "assetExts": ["ttf", "otf"]
+      "assetExts": [
+        "ttf",
+        "otf"
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "org.freefilmfestivals.hernehill"
+    },
+    "android": {
+      "package": "org.freefilmfestivals.hernehill"
     }
   }
 }
