@@ -10,7 +10,8 @@ import {
   Dimensions,
   StatusBar,
   NavigationExperimental,
-  Navigator
+  Navigator,
+  Platform
 } from "react-native";
 import { Tile } from "react-native-elements";
 import CustomText from "./CustomText";
@@ -390,6 +391,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 48,
     fontFamily: "DIN Condensed Bold",
-    marginTop: 20
+    marginTop: Platform.select({ios: 20, android: 0})
   }
 });
