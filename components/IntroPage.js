@@ -66,15 +66,177 @@ function getCaptionFontSize(
   );
 }
 
+const FilmstripHoleSize = {
+  width: 15,
+  height: 6,
+  outerWidth: 15 * 1.5
+};
+
+class FilmstripHole extends React.Component {
+  render() {
+    const { width, height, outerWidth } = FilmstripHoleSize;
+    return (
+      <View
+        style={[
+          {
+            height: height,
+            width: width,
+            backgroundColor: "white",
+            marginRight: outerWidth - width,
+            marginTop: 1.5 * height,
+            marginBottom: 1.5 * height,
+            borderRadius: Math.min(height, width) / 4,
+            borderTopColor: "rgba(0,0,0,0.5)",
+            borderTopWidth: 1,
+            borderRightColor: "rgba(0,0,0,0.5)",
+            borderRightWidth: 1,
+            borderBottomColor: "rgba(128,128,128,0.5)",
+            borderBottomWidth: 1,
+            borderLeftColor: "rgba(128,128,128,0.5)",
+            borderLeftWidth: 1
+          }
+        ]}
+      >
+        {}
+      </View>
+    );
+  }
+}
+class FilmstripHoles extends React.Component {
+  render() {
+    const { outerWidth: w } = FilmstripHoleSize;
+    const { width, style } = this.props;
+    const holes = [];
+    const n = Math.ceil(width / w);
+    for (let i = 0; i < n; ++i) {
+      holes.push(<FilmstripHole key={i} />);
+    }
+    return (
+      <View
+        style={[
+          {
+            flexDirection: "row"
+          },
+          style
+        ]}
+      >
+        {holes}
+      </View>
+    );
+  }
+}
+
+class FilmstripBackground extends React.Component {
+  _receiveRef = (native) => {
+      this._native = native;
+  }
+  setNativeProps(...args) {
+      return this._native.setNativeProps(...args);
+  }
+  render() {
+    const { children, style, width, ...props } = this.props;
+    return (
+      <View
+        ref={this._receiveRef}
+        style={[
+          {
+            backgroundColor: "#39bc99",
+            opacity: 1,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center"
+          },
+          style
+        ]}
+      >
+        <FilmstripHoles
+          width={width}
+          style={{ top: 0, position: "absolute" }}
+        />
+        {children}
+        <FilmstripHoles
+          width={width}
+          style={{ bottom: 0, position: "absolute" }}
+        />
+      </View>
+    );
+  }
+}
+
 class FilmstripButton extends React.Component {
   render() {
-    const { children, ...props } = this.props;
+    const { children, onPress, width, ...props } = this.props;
     return (
-      <TouchableHighlight {...props}>
-        <View style={styles.filmstrip}>
-          {children}
-        </View>
+      <TouchableHighlight onPress={onPress}>
+        <FilmstripBackground {...props} width={width} style={{ height: 90 }}>
+          <View>
+            {children}
+          </View>
+        </FilmstripBackground>
       </TouchableHighlight>
+    );
+  }
+}
+
+class LogoLine extends React.Component {
+  static defaultProps = {
+    sizeRatio: 1,
+    marginTopRatio: 0,
+    marginBottomRatio: 1,
+    rotateLeftDeg: 0
+  };
+
+  state = { layout: { width: 0, height: 0 } };
+
+  handleLayout = event =>
+    this.setState({
+      layout: {
+        width: event.nativeEvent.layout.width,
+        height: event.nativeEvent.layout.height
+      }
+    });
+
+  render() {
+    const {
+      style,
+      children,
+      parentLayout,
+      sizeRatio,
+      marginBottomRatio,
+      marginTopRatio,
+      rotateLeftDeg,
+      ...props
+    } = this.props;
+
+    const { width, height } = this.state.layout;
+
+    return (
+      <CustomText
+        onLayout={this.handleLayout}
+        {...props}
+        style={[
+          {
+            backgroundColor: "rgba(0,0,0,0)",
+            fontFamily: "London Train",
+            fontSize: sizeRatio * 58 / 666 * parentLayout.height,
+            textAlign: "right",
+            marginBottom: marginBottomRatio * -35 / 666 * parentLayout.height,
+            marginTop: marginTopRatio * -10 / 666 * parentLayout.height,
+            transform: rotateLeftDeg
+              ? [
+                  { translateX: width / 2 },
+                  { translateY: height / 2 },
+                  { rotate: "-" + rotateLeftDeg + "deg" },
+                  { translateY: -height / 2 },
+                  { translateX: -width / 2 }
+                ]
+              : []
+          },
+          style
+        ]}
+      >
+        {children}
+      </CustomText>
     );
   }
 }
@@ -105,25 +267,71 @@ export default class IntroPage extends React.Component {
         (data.Films[filmId].approxEndTime &&
           moment(data.Films[filmId].approxEndTime).isSameOrAfter(now))
     ) || data.FilmsIndex.byStartTime[0];
+    const { width, height } = this.state.layout;
+    const popcornGuySize = { width: 1080, height: 1073 };
+    const popcornGuyAspect = popcornGuySize.width / popcornGuySize.height;
+    const popcornGuyAdjustedSize = {
+      width: Math.min(popcornGuySize.width, height / popcornGuyAspect, width),
+      height: Math.min(popcornGuySize.height, width * popcornGuyAspect, height)
+    };
     return (
       <View style={styles.container} onLayout={this.handleLayout}>
         <StatusBar hidden={true} />
+        <Image
+          source={require("../data/images/popcorn-guy-rtl-1080x1073.png")}
+          style={{
+            height: popcornGuyAdjustedSize.height,
+            width: popcornGuyAdjustedSize.width,
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            transform: [{ scaleX: -1 }]
+          }}
+        />
         <View style={[styles.festivalTitle]}>
-          <CustomText
-            style={{
-              fontFamily: "London Train",
-              fontSize: 58 / 666 * this.state.layout.height,
-              textAlign: "right"
-            }}
+          <LogoLine
+            parentLayout={this.state.layout}
+            style={{ color: "#ef3f2d" }}
+            sizeRatio={1.1}
+            marginBottomRatio={1.2}
           >
-            {"HERNE HILL\nFREE\nFILM\nFESTIVAL\n2017"}
-          </CustomText>
-          <CustomText>
-            (Popcorn guy here)
-          </CustomText>
+            HERNE HILL
+          </LogoLine>
+          <LogoLine
+            parentLayout={this.state.layout}
+            style={{ color: "#da9f3d", zIndex: 1 }}
+            rotateLeftDeg={5}
+            sizeRatio={1}
+            marginBottomRatio={0.5}
+          >
+            FREE
+          </LogoLine>
+          <LogoLine
+            parentLayout={this.state.layout}
+            style={{ color: "#4a5aa8" }}
+            marginTopRatio={0.5}
+            sizeRatio={1.1}
+          >
+            FILM
+          </LogoLine>
+          <LogoLine
+            parentLayout={this.state.layout}
+            style={{ color: "#231f20" }}
+            marginTopRatio={1.2}
+          >
+            FESTIVAL
+          </LogoLine>
+          <LogoLine
+            parentLayout={this.state.layout}
+            style={{ color: "#39bc99" }}
+            marginTopRatio={-1}
+          >
+            2017
+          </LogoLine>
         </View>
         <View style={[styles.buttonsArea]}>
           <FilmstripButton
+            width={width}
             onPress={() =>
               Actions.film({
                 filmId: nextFilmId,
@@ -132,7 +340,7 @@ export default class IntroPage extends React.Component {
               })}
           >
             <CustomText style={styles.filmstripButtonText}>
-              {"See what's on >".toUpperCase()}
+              {"See what's on".toUpperCase()}
             </CustomText>
           </FilmstripButton>
         </View>
@@ -163,14 +371,13 @@ const styles = StyleSheet.create({
     right: 0
   },
   festivalTitle: {
-    borderWidth: 1,
     flex: 1
   },
   buttonsArea: {
     flexDirection: "column",
     justifyContent: "space-between",
     paddingTop: 24,
-    paddingBottom: 24
+    paddingBottom: 0
   },
   filmstrip: {
     paddingTop: 12,
@@ -180,6 +387,9 @@ const styles = StyleSheet.create({
     borderWidth: 4
   },
   filmstripButtonText: {
-    fontSize: 32
+    color: "white",
+    fontSize: 48,
+    fontFamily: "DIN Condensed Bold",
+    marginTop: 20
   }
 });

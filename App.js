@@ -58,7 +58,8 @@ export default class App extends Component {
       // Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
       "London Train": require("./data/fonts/london-train-regular.otf"),
       "Agenda Light": require("./data/fonts/AgendaLight.ttf"),
-      "Agenda Bold": require("./data/fonts/AgendaBold.ttf")
+      "Agenda Bold": require("./data/fonts/AgendaBold.ttf"),
+      "DIN Condensed Bold": require("./data/fonts/DIN Condensed Bold.ttf")
     });
 
     this._notificationSubscription = DeviceEventEmitter.addListener(
