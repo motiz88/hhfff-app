@@ -5,6 +5,7 @@ import { Actions, ActionConst, Scene, Router } from "react-native-router-flux";
 import data from "./data.generated";
 import FilmPage from "./components/FilmPage";
 import IntroPage from "./components/IntroPage";
+import setupNotifications from "./utils/setupNotifications";
 
 const scenes = Actions.create(
   <Scene key="root" hideNavBar hideTabBar>
@@ -66,6 +67,8 @@ export default class App extends Component {
       "Exponent.notification",
       this.handleNotification
     );
+    
+    await setupNotifications();
 
     this.setState({ isReady: true });
   }
