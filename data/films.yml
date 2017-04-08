@@ -63,6 +63,7 @@ competition-1:
     name: The Prince Regent
   time:
     start: '0am'
+  director: Open to all
   description: |
     **The Herne Hill Free Film Festival’s 48 Hour Film Competition is back for its fifth year, continuing its search for local filmmaking talent. If you’re not already familiar with the biggest annual filmmaking competition the SE24 postcode has ever seen, we give you a line of dialogue, a prop, a Herne Hill location and 48 hours and all you have to give us is a 2 minute short film that will make SE23 and SE25 seethe with jealousy.**
 
@@ -86,6 +87,7 @@ untold-stories-evening:
     image: require(./images/image9.jpeg)
   time:
     start: '8pm'
+  director: Ash Brennan, ?
   description: |
     **On 30 April from 8pm the Herne Hill Free Film Festival is hosting its Untold Tragedies evening at effraspace. With two films about unconnected tragedies thousands of miles apart, we want to make Herne Hill residents aware of major events that don’t get the coverage they deserve; it might come as a surprise but our Facebook feeds may not be the best way to keep us abreast of the issues we need to know about. We are grateful to The United Liberation Movement of West Papua who will attend the screening and participate in a Q&A after the evening’s films. All donations from the event will go to their campaign and we thank you in advance for your generous support.**
 
