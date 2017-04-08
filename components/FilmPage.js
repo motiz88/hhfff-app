@@ -60,7 +60,6 @@ const LocationLink = (
         style={[styles.locationLink, textStyle]}
         numberOfLines={1}
         ellipsizeMode="tail"
-        adjustsFontSizeToFit={true}
       >
         {children}
       </CustomText>
