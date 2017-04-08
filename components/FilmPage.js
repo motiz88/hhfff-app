@@ -3,14 +3,15 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
   Image,
   Linking,
   TouchableHighlight,
   Dimensions,
   StatusBar,
   NavigationExperimental,
-  Navigator
+  Navigator,
+  Animated,
+  Easing
 } from "react-native";
 import openMapAddress from "../utils/openMapAddress";
 import { Tile, Grid, Row, Col, Button } from "react-native-elements";
@@ -19,7 +20,12 @@ import { Actions } from "react-native-router-flux";
 import data from "../data.generated";
 import PageContainer from "./PageContainer";
 import Swiper from "react-native-swiper";
-import { SimpleLineIcons, Foundation, MaterialIcons } from "@expo/vector-icons";
+import {
+  SimpleLineIcons,
+  Foundation,
+  MaterialIcons,
+  FontAwesome
+} from "@expo/vector-icons";
 import Expo from "expo";
 
 const InfoField = ({ label, children }) => (
@@ -30,18 +36,32 @@ const InfoField = ({ label, children }) => (
     <View style={{ flex: 1 }}>{children}</View>
   </View>
 );
-const Trailer = ({ href }) => (
-  <TouchableHighlight onPress={() => Linking.openURL(href)}>
-    <CustomText style={styles.watchTrailer}>
-      Watch trailer
-    </CustomText>
+const Trailer = ({ href, backgroundColor, ...props }) => (
+  <TouchableHighlight onPress={() => Linking.openURL(href)} {...props}>
+    <View style={[styles.iconTextWrapper, { backgroundColor }]}>
+      <Foundation
+        name="play-video"
+        size={16}
+        style={[styles.infoIcon, styles.watchTrailerIcon]}
+      />
+      <CustomText style={[styles.watchTrailer]}>
+        Watch trailer
+      </CustomText>
+    </View>
   </TouchableHighlight>
 );
-const LocationLink = ({ location, children }) => (
-  <TouchableHighlight onPress={() => openMapAddress(location)}>
-    <View style={styles.iconTextWrapper}>
+const LocationLink = (
+  { location, children, backgroundColor, textStyle, ...props }
+) => (
+  <TouchableHighlight onPress={() => openMapAddress(location)} {...props}>
+    <View style={[styles.iconTextWrapper, { backgroundColor }]}>
       <SimpleLineIcons name="location-pin" size={16} style={styles.infoIcon} />
-      <CustomText style={styles.locationLink}>
+      <CustomText
+        style={[styles.locationLink, textStyle]}
+        numberOfLines={1}
+        ellipsizeMode="tail"
+        adjustsFontSizeToFit={true}
+      >
         {children}
       </CustomText>
     </View>
@@ -84,9 +104,11 @@ class SingleFilmPage extends React.Component {
       }
     });
 
+  _titleAnimationProgress = new Animated.Value(0);
+
   render() {
     const films = this.props.data.Films;
-    const { filmId } = this.props;
+    const { filmId, outerLayout } = this.props;
     const film = films[filmId];
     const filmIndex = this.props.data.FilmsIndex.byStartTime.indexOf(filmId);
     const prevId = this.props.data.FilmsIndex.byStartTime[filmIndex - 1];
@@ -109,10 +131,17 @@ class SingleFilmPage extends React.Component {
     } = film;
 
     const { screenshot: screenshotImage, ...otherImages } = images || {};
-    const { height, width } = this.state.layout;
+    const { height, width } = outerLayout || this.state.layout;
     const showNext = () => Actions.film({ filmId: nextId });
     const showPrev = () =>
       Actions.film({ filmId: prevId, direction: "leftToRight" });
+
+    const tileWidth = width;
+    const tileHeight = Math.round(Math.min(tileWidth * 0.8, height / 2));
+
+    const infoItemWidth = (width - 8 * 2) / 2;
+    const infoTextWidth = infoItemWidth - (16 + 4);
+
     return (
       <PageContainer
         ref={ref => {
@@ -120,55 +149,45 @@ class SingleFilmPage extends React.Component {
         }}
       >
         <View style={styles.container} onLayout={this.handleLayout}>
-          {/*caption={date}*/}
-          {/*<TouchableHighlight
-            onPress={() => {
-              Expo.Notifications.scheduleLocalNotificationAsync(
-                {
-                  title,
-                  body: descriptionPlain.substring(0, 100),
-                  data: JSON.stringify({
-                    film: {
-                      filmId
-                    }
-                  }),
-                  android: {
-                    color: colors.highlight,
-                    vibrate: true
-                  }
-                },
-                { time: Date.now() + 10000 }
-              );
+          <View
+            style={{
+              height: tileHeight,
+              width: tileWidth,
+              borderWidth: 8,
+              borderColor: colors.highlight,
+              overflow: "hidden"
             }}
           >
-            <CustomText style={{ padding: 50 }}>Show notification</CustomText>
-          </TouchableHighlight>*/}
-          <Tile
-            imageSrc={screenshotImage || require("../data/images/blank.png")}
-            title={title.toUpperCase()}
-            activeOpacity={1}
-            width={width}
-            featured
-            titleStyle={[
-              styles.headline,
-              { fontSize: getTitleFontSize(title, { height, width }) },
-              { backgroundColor: colors.highlight }
-            ]}
-            captionStyle={{
-              fontSize: getCaptionFontSize(date, { height, width })
-            }}
-            imageContainerStyle={{
-              borderWidth: 8,
-              borderColor: colors.highlight
-            }}
-            overlayContainerStyle={{
-              alignItems: "flex-end",
-              justifyContent: "flex-end",
-              paddingBottom: 0,
-              paddingRight: 0,
-              flex: 1
-            }}
-          />
+            <Image
+              source={screenshotImage || require("../data/images/blank.png")}
+              style={{
+                overflow: "visible",
+                position: "absolute",
+                minWidth: tileWidth - 8 * 2,
+                minHeight: tileHeight - 8 * 2,
+                resizeMode: "cover"
+              }}
+            />
+            <Animated.Text
+              style={[
+                styles.headline,
+                { fontSize: getTitleFontSize(title, { height, width }) },
+                { backgroundColor: colors.highlight },
+                {
+                  right: this._titleAnimationProgress.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ["-100%", "0%"]
+                  }),
+                  opacity: this._titleAnimationProgress.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0, 0.9]
+                  })
+                }
+              ]}
+            >
+              {title.toUpperCase()}
+            </Animated.Text>
+          </View>
           <CustomText style={styles.vitalStats}>
             {[year, country, running_time, certificate]
               .filter(Boolean)
@@ -177,60 +196,85 @@ class SingleFilmPage extends React.Component {
           <View
             style={{
               flexDirection: "row",
+              flexWrap: "wrap",
               alignItems: "flex-start",
-              marginBottom: 8,
               backgroundColor: colors.highlight,
-              padding: 4
+              padding: 8,
+              justifyContent: "flex-end"
             }}
           >
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "column",
-                justifyContent: "flex-start"
-              }}
-            >
-              {director
-                ? <View style={[{ flex: 1 }, styles.iconTextWrapper]}>
-                    <Image
-                      source={require("../data/icons/clapperboard-white-1.png")}
-                      style={styles.infoIconImage}
-                      resizeMode="contain"
-                    />
-                    <CustomText style={styles.infoFieldValue}>
-                      {director}
-                    </CustomText>
-                  </View>
-                : null}
-              {trailer
-                ? <View style={[{ flex: 1 }, styles.iconTextWrapper]}>
-                    <Foundation
-                      name="play-video"
-                      size={16}
-                      style={styles.infoIcon}
-                    />
-                    <Trailer href={trailer} />
-                  </View>
-                : null}
-            </View>
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "column",
-                justifyContent: "flex-start"
-              }}
-            >
-              <View style={[{ flex: 1 }, styles.iconTextWrapper]}>
-                <MaterialIcons name="event" size={16} style={styles.infoIcon} />
-                <CustomText style={styles.infoFieldValue}>
-                  {date}, {time.start}
-                </CustomText>
-              </View>
+            {director
+              ? <View
+                  style={[
+                    { flex: 0, flexBasis: infoItemWidth },
+                    styles.iconTextWrapper
+                  ]}
+                >
+                  <Image
+                    source={require("../data/icons/clapperboard-white-1.png")}
+                    style={styles.infoIconImage}
+                    resizeMode="contain"
+                  />
+                  <CustomText
+                    style={[
+                      styles.infoFieldValue,
+                      director.indexOf(",") !== -1
+                        ? {
+                            fontSize: 18
+                          }
+                        : null
+                    ]}
+                  >
+                    {director.replace(/,\s*/g, "\n")}
+                  </CustomText>
+                </View>
+              : null}
 
-              <LocationLink location={venue.location}>
-                {venue.name}
-              </LocationLink>
+            <View
+              style={[
+                { flex: 0, flexBasis: infoItemWidth },
+                styles.iconTextWrapper
+              ]}
+            >
+              <MaterialIcons name="event" size={16} style={styles.infoIcon} />
+              <CustomText style={styles.infoFieldValue}>
+                {date}, {time.start}
+              </CustomText>
             </View>
+
+            {trailer
+              ? <Trailer
+                  href={trailer}
+                  style={{ flex: 0, flexBasis: infoItemWidth }}
+                  backgroundColor={colors.highlight}
+                />
+              : null}
+
+            <LocationLink
+              location={venue.location}
+              style={{ flex: 0, flexBasis: infoItemWidth }}
+              textStyle={{ width: infoTextWidth }}
+              backgroundColor={colors.highlight}
+            >
+              {venue.name}
+            </LocationLink>
+            {venue.is_outdoor
+              ? <View
+                  style={[
+                    { flex: 0, flexBasis: infoItemWidth },
+                    styles.iconTextWrapper
+                  ]}
+                >
+                  <FontAwesome
+                    style={[styles.infoIcon, styles.outdoorIcon]}
+                    size={16}
+                    name="cloud"
+                  />
+                  <CustomText style={styles.locationLink}>
+                    Outdoor screening
+                  </CustomText>
+                </View>
+              : null}
           </View>
 
           <CustomText
@@ -239,6 +283,7 @@ class SingleFilmPage extends React.Component {
               fontSize: 20,
               fontFamily: "Agenda Light"
             }}
+            selectable
           >
             {descriptionPlain}
           </CustomText>
@@ -270,10 +315,19 @@ class SingleFilmPage extends React.Component {
     this._pageContainer = null;
   }
 
-  resetScroll() {
+  handleHide() {
     if (this._pageContainer) {
       this._pageContainer.resetScroll();
     }
+    this._titleAnimationProgress.setValue(0);
+  }
+
+  handleShow() {
+    this._titleAnimationProgress.setValue(0);
+    Animated.timing(this._titleAnimationProgress, {
+      toValue: 1,
+      duration: 250
+    }).start();
   }
 }
 
@@ -330,6 +384,10 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 8
   },
+  watchTrailerIcon: {
+    marginRight: 6,
+    marginLeft: 1
+  },
   infoIconImage: {
     height: 16,
     width: 16,
@@ -343,6 +401,9 @@ const styles = StyleSheet.create({
     marginBottom: 6,
     marginRight: 8,
     marginTop: 2
+  },
+  outdoorIcon: {
+    marginLeft: -1
   }
 });
 
@@ -371,12 +432,16 @@ export default class FilmsPage extends React.Component {
   };
 
   handleMomentumScrollEnd = (e, swiperState) => {
-    if (
-      this._cardIndex !== swiperState.index && this._cardRefs[this._cardIndex]
-    ) {
-      this._cardRefs[this._cardIndex].resetScroll();
+    if (this._cardIndex === swiperState.index) {
+      return;
+    }
+    if (this._cardRefs[this._cardIndex]) {
+      this._cardRefs[this._cardIndex].handleHide();
     }
     this._cardIndex = swiperState.index;
+    if (this._cardRefs[this._cardIndex]) {
+      this._cardRefs[this._cardIndex].handleShow();
+    }
   };
 
   get filmId() {
@@ -423,6 +488,7 @@ export default class FilmsPage extends React.Component {
         >
           {data.FilmsIndex.byStartTime.map((key, i) => (
             <SingleFilmPage
+              outerLayout={this.state.layout}
               filmId={key}
               key={key}
               ref={ref => {
@@ -440,5 +506,11 @@ export default class FilmsPage extends React.Component {
     this._cardIndex = this.props.data.FilmsIndex.byStartTime.indexOf(
       this.props.filmId
     );
+  }
+
+  componentDidMount() {
+    if (this._cardRefs[this._cardIndex]) {
+      this._cardRefs[this._cardIndex].handleShow();
+    }
   }
 }
