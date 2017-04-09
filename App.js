@@ -7,6 +7,18 @@ import FilmPage from "./components/FilmPage";
 import IntroPage from "./components/IntroPage";
 import setupNotifications from "./utils/setupNotifications";
 
+function cacheImages(images) {
+  return Promise.all(
+    images.map(image => {
+      if (typeof image === "string") {
+        return Image.prefetch(image);
+      } else {
+        return Expo.Asset.fromModule(image).downloadAsync();
+      }
+    })
+  );
+}
+
 const scenes = Actions.create(
   <Scene key="root" hideNavBar hideTabBar>
     <Scene
@@ -54,21 +66,23 @@ export default class App extends Component {
   }
 
   async componentWillMount() {
-    await Expo.Font.loadAsync({
-      // Roboto: require("native-base/Fonts/Roboto.ttf"),
-      // Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-      "London Train": require("./data/fonts/london-train-regular.otf"),
-      "Agenda Light": require("./data/fonts/AgendaLight.ttf"),
-      "Agenda Bold": require("./data/fonts/AgendaBold.ttf"),
-      "DIN Condensed Bold": require("./data/fonts/DIN Condensed Bold.ttf")
-    });
+    await Promise.all([
+      setupNotifications(),
+      cacheImages([require("./data/images/popcorn-guy-rtl-1080x1073.png")]),
+      Expo.Font.loadAsync({
+        // Roboto: require("native-base/Fonts/Roboto.ttf"),
+        // Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+        "London Train": require("./data/fonts/london-train-regular.otf"),
+        "Agenda Light": require("./data/fonts/AgendaLight.ttf"),
+        "Agenda Bold": require("./data/fonts/AgendaBold.ttf"),
+        "DIN Condensed Bold": require("./data/fonts/DIN Condensed Bold.ttf")
+      })
+    ]);
 
     this._notificationSubscription = DeviceEventEmitter.addListener(
       "Exponent.notification",
       this.handleNotification
     );
-    
-    await setupNotifications();
 
     this.setState({ isReady: true });
   }
