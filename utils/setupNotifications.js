@@ -52,7 +52,7 @@ async function setupNotifications() {
               vibrate: true
             }
           },
-          { time: notificationTime.unix() }
+          { time: notificationTime.toDate() }
         );
       })
     );
