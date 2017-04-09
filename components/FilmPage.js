@@ -141,6 +141,22 @@ class SingleFilmPage extends React.Component {
     const infoItemWidth = (width - 8 * 2) / 2;
     const infoTextWidth = infoItemWidth - (16 + 4);
 
+    const screenshotScaleFactor = !screenshotImage
+      ? 1
+      : Math.max(
+          screenshotImage.metadata.width / tileWidth,
+          screenshotImage.metadata.height / tileHeight,
+          tileWidth / screenshotImage.metadata.width,
+          tileHeight / screenshotImage.metadata.height
+        );
+
+    const screenshotWidth = !screenshotImage
+      ? undefined
+      : screenshotScaleFactor * screenshotImage.metadata.width;
+    const screenshotHeight = !screenshotImage
+      ? undefined
+      : screenshotScaleFactor * screenshotImage.metadata.height;
+
     return (
       <PageContainer
         ref={ref => {
@@ -152,27 +168,45 @@ class SingleFilmPage extends React.Component {
             style={{
               height: tileHeight,
               width: tileWidth,
-              borderWidth: 8,
+              borderWidth: 0,
               borderColor: colors.highlight,
-              overflow: "hidden"
+              overflow: "hidden",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              padding: 8
             }}
           >
             <Image
-              source={screenshotImage || require("../data/images/blank.png")}
+              source={
+                (screenshotImage && screenshotImage.source) ||
+                  require("../data/images/blank.png")
+              }
               style={{
                 overflow: "visible",
                 position: "absolute",
-                minWidth: tileWidth - 8 * 2,
-                minHeight: tileHeight - 8 * 2,
-                resizeMode: "cover"
+                top: 0,
+                width: screenshotWidth,
+                height: screenshotHeight
+              }}
+            />
+            <View
+              style={{
+                height: tileHeight,
+                width: tileWidth,
+                borderWidth: 8,
+                borderColor: colors.highlight,
+                overflow: "hidden",
+                position: "absolute"
               }}
             />
             <Animated.Text
               style={[
                 styles.headline,
                 { fontSize: getTitleFontSize(title, { height, width }) },
-                { backgroundColor: colors.highlight },
                 {
+                  flexGrow: 0,
+                  backgroundColor: colors.highlight,
                   right: this._titleAnimationProgress.interpolate({
                     inputRange: [0, 1],
                     outputRange: ["-100%", "0%"]
@@ -180,7 +214,8 @@ class SingleFilmPage extends React.Component {
                   opacity: this._titleAnimationProgress.interpolate({
                     inputRange: [0, 1],
                     outputRange: [0, 0.9]
-                  })
+                  }),
+                  maxWidth: 3 * tileWidth / 4
                 }
               ]}
             >
@@ -298,7 +333,7 @@ class SingleFilmPage extends React.Component {
           >
             {Object.keys(otherImages).map(image => (
               <Image
-                source={otherImages[image]}
+                source={otherImages[image].source}
                 key={image}
                 style={{ width: width - 2 * 8, flex: 1 }}
                 resizeMode="contain"
@@ -342,16 +377,12 @@ const styles = StyleSheet.create({
   },
   headline: {
     fontFamily: "Agenda Bold",
-    position: "absolute",
-    bottom: 0,
-    right: 0,
     fontSize: 32,
     textAlign: "center",
     backgroundColor: "#e59125",
     color: "white",
     opacity: 0.9,
-    padding: 8,
-    alignSelf: "flex-end"
+    padding: 8
   },
   infoFieldLabel: {
     fontSize: 18,
