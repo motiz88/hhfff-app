@@ -128,11 +128,11 @@ class FilmstripHoles extends React.Component {
 }
 
 class FilmstripBackground extends React.Component {
-  _receiveRef = (native) => {
-      this._native = native;
-  }
+  _receiveRef = native => {
+    this._native = native;
+  };
   setNativeProps(...args) {
-      return this._native.setNativeProps(...args);
+    return this._native.setNativeProps(...args);
   }
   render() {
     const { children, style, width, ...props } = this.props;
@@ -275,6 +275,12 @@ export default class IntroPage extends React.Component {
       width: Math.min(popcornGuySize.width, height / popcornGuyAspect, width),
       height: Math.min(popcornGuySize.height, width * popcornGuyAspect, height)
     };
+    const gotoFilmsHandler = () =>
+      Actions.film({
+        filmId: nextFilmId,
+        direction: "horizontal",
+        duration: 600
+      });
     return (
       <View style={styles.container} onLayout={this.handleLayout}>
         <StatusBar hidden={true} />
@@ -331,15 +337,7 @@ export default class IntroPage extends React.Component {
           </LogoLine>
         </View>
         <View style={[styles.buttonsArea]}>
-          <FilmstripButton
-            width={width}
-            onPress={() =>
-              Actions.film({
-                filmId: nextFilmId,
-                direction: "horizontal",
-                duration: 600
-              })}
-          >
+          <FilmstripButton width={width} onPress={gotoFilmsHandler}>
             <CustomText style={styles.filmstripButtonText}>
               {"See what's on".toUpperCase()}
             </CustomText>
@@ -391,6 +389,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 48,
     fontFamily: "DIN Condensed Bold",
-    marginTop: Platform.select({ios: 20, android: 0})
+    marginTop: Platform.select({ ios: 20, android: 0 })
   }
 });
