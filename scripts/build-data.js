@@ -9,8 +9,25 @@ import moment from "moment";
 import remark from "remark";
 import stripMarkdown from "strip-markdown";
 import matches from "string-matches";
+import imageSize from "image-size";
+import template from "babel-template";
 
 const year = 2017;
+
+const templateRequire = template(
+  `
+  require(PATH);
+`
+);
+
+const templateRequireImage = template(
+  `
+  ({
+    source: require(PATH),
+    metadata: METADATA
+  })
+`
+);
 
 async function writeData(filename, data) {
   const dataAst = t.valueToNode(data);
@@ -21,13 +38,22 @@ async function writeData(filename, data) {
       const value = path.node.value;
       const requireMatch = value.trim().match(/^require\((.+?)\)$/);
       if (requireMatch) {
-        path.replaceWith(
-          t.callExpression(t.identifier("require"), [
-            t.stringLiteral(
-              "." + fspath.sep + fspath.join("data", requireMatch[1])
-            )
-          ])
-        );
+        const filePath = "." +
+          fspath.sep +
+          fspath.join("data", requireMatch[1]);
+        const metadata = imageSize(fspath.resolve(__dirname, "..", filePath));
+        if (metadata) {
+          path.replaceWith(
+            templateRequireImage({
+              PATH: t.stringLiteral(filePath),
+              METADATA: t.valueToNode(metadata)
+            }).expression
+          );
+        } else {
+          path.replaceWith(
+            templateRequire({ PATH: t.stringLiteral(filePath) }).expression
+          );
+        }
       }
     }
   });
