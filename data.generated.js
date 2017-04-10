@@ -1127,10 +1127,10 @@ export default {
           }
         },
         screenshot: {
-          source: require("./data/images/image56.jpeg"),
+          source: require("./data/images/moana.jpeg"),
           metadata: {
-            height: 304,
-            width: 304,
+            height: 283,
+            width: 565,
             type: "jpg"
           }
         }
