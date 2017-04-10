@@ -106,7 +106,17 @@ export default {
       title: "48hr Film Competition",
       date: "30 April",
       venue: {
-        name: "The Prince Regent"
+        name: "The Prince Regent",
+        location: "69 Dulwich Rd, Brixton, London SE24 0NJ",
+        link: "www.theprinceregent.co.uk",
+        image: {
+          source: require("./data/images/image21.jpeg"),
+          metadata: {
+            height: 279,
+            width: 419,
+            type: "jpg"
+          }
+        }
       },
       time: {
         start: "0am"
@@ -116,12 +126,22 @@ export default {
       colors: {
         highlight: "#e59125"
       },
+      images: {
+        screenshot: {
+          source: require("./data/images/clock.jpg"),
+          metadata: {
+            height: 1025,
+            width: 683,
+            type: "jpg"
+          }
+        }
+      },
       exactStartTime: "2017-04-29T21:00:00.000Z",
       descriptionPlain: "The Herne Hill Free Film Festival\u2019s 48 Hour Film Competition is back for its fifth year, continuing its search for local filmmaking talent. If you\u2019re not already familiar with the biggest annual filmmaking competition the SE24 postcode has ever seen, we give you a line of dialogue, a prop, a Herne Hill location and 48 hours and all you have to give us is a 2 minute short film that will make SE23 and SE25 seethe with jealousy.\n\nThe clock starts ticking on Saturday 29 April so come to The Prince Regent from 12pm to enter, and come back 48 hours later at 12pm on 1 May with your Clockie* winner. You can use your phone, a tablet, a camera or anything else you can lay your hands on to craft your masterpiece which will be judged by our panel of Oscar winners (for once, we\u2019re being serious!) and as with previous years there are three competition categories: Under 16s; Over 16s; and Families. The awards ceremony will be taking place at effraspace at 4pm on 28 May, ahead of our Station Square screening where the winners\u2019 films will also be showcased for the cinematic education of the whole of Herne Hill. \n\n*The prize all Oscar, Palme d\u2019Or and Golden Bear winners would happily trade their awards and grandmothers for. Crafted from solid wood, ink from a pen and real (yes, real) plastic buttons, Herne Hill\u2019s Clockie is an accurate representation (with a healthy dose of artistic discretion) of Brockwell Park\u2019s famous clock tower. \n"
     },
     "untold-stories-evening": {
       title: "Untold Stories Evening",
-      certificate: "Not Rated",
+      certificate: "Not rated",
       running_time: "46 mins + 26 mins",
       trailer: "https://www.youtube.com/watch?v=33Uur4YqY78",
       date: "30 April",
@@ -141,8 +161,8 @@ export default {
       time: {
         start: "8pm"
       },
-      director: "Ash Brennan, ?",
-      description: "**On 30 April from 8pm the Herne Hill Free Film Festival is hosting its Untold Tragedies evening at effraspace. With two films about unconnected tragedies thousands of miles apart, we want to make Herne Hill residents aware of major events that don\u2019t get the coverage they deserve; it might come as a surprise but our Facebook feeds may not be the best way to keep us abreast of the issues we need to know about. We are grateful to The United Liberation Movement of West Papua who will attend the screening and participate in a Q&A after the evening\u2019s films. All donations from the event will go to their campaign and we thank you in advance for your generous support.**\n\n\\# Punks for West Papua (46 mins)\n\nCreated by Ash Brennan and narrated by Basia Bonkowski, this short film tells the story of the Australian punk scene\u2019s fight against Indonesian oppression of West Papua, in which Indonesia receives support from the Australian government. Jody Bartolo of Sydney punk band Diggers with Attitude turns a fundraising event into an Australia wide benefit involving over 50 bands in 7 cities around the country, making Punks For West Papua the biggest, and no doubt, loudest punk rock showcase in Australia\u2019s history. The documentary has been picking up awards around the world, including the Hollywood International Independent Documentary Awards and IndieFest San Diego. For more information on the punks\u2019 fight please visit www.punks4westpapua.com.\n\n\\# Marikana: Precious Metal (26 mins)\n\nA year after the Marikana massacre, where South African police opened fire and killed 34 striking miners, the women of the Wonderkop settlement decide to stage a musical play of the event.  Led by the charismatic and inspirational Primrose they struggle against forgetting and struggle for justice, in the face of ongoing violence between rival unions and the mining company Lonmin which is focused on business as usual.\n",
+      director: "Ash Brennan, Isis Thompson",
+      description: "**On 30 April from 8pm the Herne Hill Free Film Festival is hosting its Untold Tragedies evening at effraspace. With two films about unconnected tragedies thousands of miles apart, we want to make Herne Hill residents aware of major events that don\u2019t get the coverage they deserve; it might come as a surprise but our Facebook feeds may not be the best way to keep us abreast of the issues we need to know about. We are grateful to The United Liberation Movement of West Papua who will attend the screening and participate in a Q&A after the evening\u2019s films. All donations from the event will go to their campaign and we thank you in advance for your generous support.**\n\n# Punks for West Papua (46 mins)\n\nCreated by Ash Brennan and narrated by Basia Bonkowski, this short film tells the story of the Australian punk scene\u2019s fight against Indonesian oppression of West Papua, in which Indonesia receives support from the Australian government. Jody Bartolo of Sydney punk band Diggers with Attitude turns a fundraising event into an Australia wide benefit involving over 50 bands in 7 cities around the country, making Punks For West Papua the biggest, and no doubt, loudest punk rock showcase in Australia\u2019s history. The documentary has been picking up awards around the world, including the Hollywood International Independent Documentary Awards and IndieFest San Diego. For more information on the punks\u2019 fight please visit www.punks4westpapua.com.\n\n# Marikana: Precious Metal (26 mins)\n\nA year after the Marikana massacre, where South African police opened fire and killed 34 striking miners, the women of the Wonderkop settlement decide to stage a musical play of the event.  Led by the charismatic and inspirational Primrose they struggle against forgetting and struggle for justice, in the face of ongoing violence between rival unions and the mining company Lonmin which is focused on business as usual.\n",
       images: {
         cover: {
           source: require("./data/images/image7.jpeg"),
@@ -166,10 +186,10 @@ export default {
       },
       exactStartTime: "2017-04-30T17:00:00.000Z",
       approxEndTime: "2017-04-30T18:12:00.000Z",
-      descriptionPlain: "On 30 April from 8pm the Herne Hill Free Film Festival is hosting its Untold Tragedies evening at effraspace. With two films about unconnected tragedies thousands of miles apart, we want to make Herne Hill residents aware of major events that don\u2019t get the coverage they deserve; it might come as a surprise but our Facebook feeds may not be the best way to keep us abreast of the issues we need to know about. We are grateful to The United Liberation Movement of West Papua who will attend the screening and participate in a Q&A after the evening\u2019s films. All donations from the event will go to their campaign and we thank you in advance for your generous support.\n\n\\# Punks for West Papua (46 mins)\n\nCreated by Ash Brennan and narrated by Basia Bonkowski, this short film tells the story of the Australian punk scene\u2019s fight against Indonesian oppression of West Papua, in which Indonesia receives support from the Australian government. Jody Bartolo of Sydney punk band Diggers with Attitude turns a fundraising event into an Australia wide benefit involving over 50 bands in 7 cities around the country, making Punks For West Papua the biggest, and no doubt, loudest punk rock showcase in Australia\u2019s history. The documentary has been picking up awards around the world, including the Hollywood International Independent Documentary Awards and IndieFest San Diego. For more information on the punks\u2019 fight please visit www.punks4westpapua.com.\n\n\\# Marikana: Precious Metal (26 mins)\n\nA year after the Marikana massacre, where South African police opened fire and killed 34 striking miners, the women of the Wonderkop settlement decide to stage a musical play of the event.  Led by the charismatic and inspirational Primrose they struggle against forgetting and struggle for justice, in the face of ongoing violence between rival unions and the mining company Lonmin which is focused on business as usual.\n"
+      descriptionPlain: "On 30 April from 8pm the Herne Hill Free Film Festival is hosting its Untold Tragedies evening at effraspace. With two films about unconnected tragedies thousands of miles apart, we want to make Herne Hill residents aware of major events that don\u2019t get the coverage they deserve; it might come as a surprise but our Facebook feeds may not be the best way to keep us abreast of the issues we need to know about. We are grateful to The United Liberation Movement of West Papua who will attend the screening and participate in a Q&A after the evening\u2019s films. All donations from the event will go to their campaign and we thank you in advance for your generous support.\n\nPunks for West Papua (46 mins)\n\nCreated by Ash Brennan and narrated by Basia Bonkowski, this short film tells the story of the Australian punk scene\u2019s fight against Indonesian oppression of West Papua, in which Indonesia receives support from the Australian government. Jody Bartolo of Sydney punk band Diggers with Attitude turns a fundraising event into an Australia wide benefit involving over 50 bands in 7 cities around the country, making Punks For West Papua the biggest, and no doubt, loudest punk rock showcase in Australia\u2019s history. The documentary has been picking up awards around the world, including the Hollywood International Independent Documentary Awards and IndieFest San Diego. For more information on the punks\u2019 fight please visit www.punks4westpapua.com.\n\nMarikana: Precious Metal (26 mins)\n\nA year after the Marikana massacre, where South African police opened fire and killed 34 striking miners, the women of the Wonderkop settlement decide to stage a musical play of the event.  Led by the charismatic and inspirational Primrose they struggle against forgetting and struggle for justice, in the face of ongoing violence between rival unions and the mining company Lonmin which is focused on business as usual.\n"
     },
     "embrace-of-the-serpent": {
-      title: "Embrace of the Serpent",
+      title: "Embrace of the\xA0Serpent",
       director: "Ciro Guerra",
       year: 2015,
       country: "Colombia",
@@ -242,6 +262,16 @@ export default {
       colors: {
         highlight: "#e59125"
       },
+      images: {
+        screenshot: {
+          source: require("./data/images/awards.jpg"),
+          metadata: {
+            height: 887,
+            width: 984,
+            type: "jpg"
+          }
+        }
+      },
       exactStartTime: "2017-05-28T13:00:00.000Z",
       descriptionPlain: "The Herne Hill Free Film Festival\u2019s 48 Hour Film Competition is back for its fifth year, continuing its search for local filmmaking talent. If you\u2019re not already familiar with the biggest annual filmmaking competition the SE24 postcode has ever seen, we give you a line of dialogue, a prop, a Herne Hill location and 48 hours and all you have to give us is a 2 minute short film that will make SE23 and SE25 seethe with jealousy.\n\nThe clock starts ticking on Saturday 29 April so come to The Prince Regent from 12pm to enter, and come back 48 hours later at 12pm on 1 May with your Clockie* winner. You can use your phone, a tablet, a camera or anything else you can lay your hands on to craft your masterpiece which will be judged by our panel of Oscar winners (for once, we\u2019re being serious!) and as with previous years there are three competition categories: Under 16s; Over 16s; and Families. The awards ceremony will be taking place at effraspace at 4pm on 28 May, ahead of our Station Square screening where the winners\u2019 films will also be showcased for the cinematic education of the whole of Herne Hill. \n\n*The prize all Oscar, Palme d\u2019Or and Golden Bear winners would happily trade their awards and grandmothers for. Crafted from solid wood, ink from a pen and real (yes, real) plastic buttons, Herne Hill\u2019s Clockie is an accurate representation (with a healthy dose of artistic discretion) of Brockwell Park\u2019s famous clock tower. \n"
     },
@@ -250,7 +280,7 @@ export default {
       director: "Cyril Dion, Melanie Laurent",
       year: 2015,
       country: "France",
-      certificate: "?",
+      certificate: "Not rated",
       running_time: "118 mins",
       trailer: "https://www.youtube.com/watch?v=NUN0QxRB7e0",
       date: "2 May",
@@ -297,11 +327,11 @@ export default {
       descriptionPlain: "Faced with a future that scientists say is a great cause for concern, Demain optimistically identifies initiatives in ten countries around the world that have proven themselves: concrete examples of solutions to environmental and social challenges of the twenty-first century, be it agriculture, energy, economy, education and governance. Winner of the 2016 C\xE9sar Award for Best Documentary Film, the Herne Hill Free Film Festival is pleased to be screening Demain in one of its new venues, Elmgreen School on 2 May at 7:30pm. Allez!\n\nA globetrotting documentary that\u2019s more focused on solutions than problems, Demain provides a comprehensive look at ways in which activists, organisers and everyday people are trying to make the world a better, greener, more sustainable place. Co-directed by ecological rights advocate Cyril Dion and actress-filmmaker Melanie Laurent, this playfully made expos\xE9 should be required viewing for anyone wondering what they could do to pitch in and save the planet. Released theatrically in France just as 195 countries joined together to sign the landmark Paris Climate Accord, Demain offers up an alternative to big-nation (and some might say inadequate) proposals, revealing how farmers, teachers, researchers and small-town participants have found their own methods for combating issues like global warming, food shortage and general economic meltdown. \n\nWe\u2019ve broken the rules of the Herne Hill Free Film Festival for this screening and are venturing into the wild world of SE27 for the evening (don\u2019t tell, please!). So join us at Elmgreen School on 2 May at 7:30pm for an optimistic film about a pessimistic theme\u2026 but if you come along you\u2019ve just got to promise that you\u2019ll start trying to save the world from the morning of 3 May.\n"
     },
     "four-mums": {
-      title: "Four Mums in a Boat",
+      title: "Four Mums in\xA0a\xA0Boat",
       director: "Simon Tucker",
       year: 2016,
       country: "UK",
-      certificate: "Not Rated",
+      certificate: "Not rated",
       running_time: "90 mins",
       trailer: "https://www.youtube.com/watch?v=g2uWcukaSpg",
       date: "3 May",
@@ -443,7 +473,7 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#ef3f2d"
       },
       exactStartTime: "2017-05-05T16:30:00.000Z",
       approxEndTime: "2017-05-05T18:35:00.000Z",
@@ -495,18 +525,18 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#af5ea5"
       },
       exactStartTime: "2017-05-06T17:30:00.000Z",
       approxEndTime: "2017-05-06T19:48:00.000Z",
       descriptionPlain: "Shot in a single take during the early hours of 27 April 2014 in Berlin, and with most of the dialogue improvised by the small cast, Victoria received wide acclaim on its release in 2015 and won the Silver Bear for Cinematography at the 2015 Berlin International Film Festival. Over a few hours the film\u2019s young heroine goes from dancing alone in a club to flirting, an impromptu piano recital, peril and reckless criminality. So just like a regular Wednesday night in Herne Hill in that case. Anyway, the Guardian said \u201Cone shot, two hours, total triumph\u201D. We just say come to the Judith Kerr Primary School on 6 May at 7:30pm.  \n\nAfter dancing alone in a techno club in Berlin\u2019s Mitte district into the early hours Victoria runs into a pack of young men who offer to show her the real Berlin. Initially joining them for a drink on a nearby rooftop, Victoria\u2019s evening takes a twist and a turn when she finds herself in an underground parking lot with same group as they are tasked with robbing a bank to repay a debt to a local gangster. Victoria, already in way over her head, agrees to act as their driver and from this point on the film goes full-throttle into a breakneck, high-stakes heist thriller.\n\nShot in a single take between 4:30am and 7:00am in the early hours of 27 April 2014 Victoria (although the finished product was actually the third of three takes the team had budget to film) Victoria was received well on its release in 2015. While it is not the first one take film to be made, others include Alexander Sokurov\u2019s Russian Ark and Alfred Hitchcock\u2019s Rope, it is the first to take in more than one location. In fact Victoria criss-crosses an amazing 22 separate Berlin locations in its 138 minutes.\n\nWhen Spike Lee heard about Victoria he simply said \u201CI\u2019ve got to see this film\u201D as he didn\u2019t believe it was even possible. We assure you that it is, and you can see for yourself at Judith Kerr Primary School on 6 May at 7:30pm.    \n"
     },
     "adventure-film-night": {
-      title: "Adventure Film Night",
+      title: "Adventure\xA0Film Night",
       director: "Edda Grjotheim, Inge Wedde",
       year: 2014,
       country: "Norway",
-      certificate: "Not Rated",
+      certificate: "Not rated",
       running_time: "78 mins",
       date: "7 May",
       venue: {
@@ -546,7 +576,7 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#ef3f2d"
       },
       exactStartTime: "2017-05-07T17:00:00.000Z",
       approxEndTime: "2017-05-07T18:18:00.000Z",
@@ -565,10 +595,10 @@ export default {
         location: "10 Half Moon Lane, Herne Hill, London SE24 9HU",
         link: "http://www.halfmoonhernehill.co.uk/",
         image: {
-          source: require("./data/images/image30.jpeg"),
+          source: require("./data/images/image32.jpeg"),
           metadata: {
-            height: 367,
-            width: 257,
+            height: 208,
+            width: 391,
             type: "jpg"
           }
         }
@@ -580,18 +610,18 @@ export default {
       description: "**If you thought snakes on a plane had potential but was too tame, you may want to come to The Half Moon on 8 May at 8pm to see zombies on a train. And at the station. And frankly everywhere. In South Korea. As the Herne Hill Free Film Festival screens the most successful South Korean film ever made, Train to Busan. **\n\nAs a fairly traditional zombie film \u2013 albeit one with a South Korean heritage \u2013 Train to Busan is not a film that necessarily warrants a long introduction. Shortly after the titular train leaves its station in Seoul (you guessed it, on its way to Busan) a convulsing young-woman with a bite would to her leg turns into a zombie and attacks a train attendant. He then turns into a zombie and, shock horror, attacks some other people. Who turn into zombies. These zombies then attack\u2026 ok, you get the picture. Anyway before long the train is riddled with zombies and the few remaining survivors have to beat a hasty retreat to any and every safe area available to them as the train trundles towards its destination, and the inevitable quarantine zone, in Busan.\n\nThis is our first screening at The Half Moon since the great flood of 2012 and we could not be more excited to be back. So please join us on 8 May at 8pm for an evening of blood and subtitles, and clear evidence that a morning commute into Blackfriars from Herne Hill really could be worse. \n",
       images: {
         cover: {
-          source: require("./data/images/image31.jpeg"),
+          source: require("./data/images/image30.jpeg"),
           metadata: {
-            height: 219,
-            width: 408,
+            height: 367,
+            width: 257,
             type: "jpg"
           }
         },
         screenshot: {
-          source: require("./data/images/image32.jpeg"),
+          source: require("./data/images/image31.jpeg"),
           metadata: {
-            height: 208,
-            width: 391,
+            height: 219,
+            width: 408,
             type: "jpg"
           }
         }
@@ -648,7 +678,7 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#4a5aa8"
       },
       exactStartTime: "2017-05-09T17:00:00.000Z",
       approxEndTime: "2017-05-09T18:42:00.000Z",
@@ -659,8 +689,8 @@ export default {
       director: "James Marquand",
       year: 2017,
       country: "UK",
-      certificate: "???",
-      running_time: "???",
+      certificate: 15,
+      running_time: "119 min",
       date: "10 May",
       venue: {
         name: "The Half Moon",
@@ -678,8 +708,8 @@ export default {
       time: {
         start: "8pm"
       },
-      trailer: "???",
-      description: "**Screening at 8pm on 10 May at The Half Moon is this modern retelling of Shakespeare\u2019s Othello, set within the music scene of East London. Starring a number of emerging British actors and produced by locals Ascension Productions there will be cast and crew in attendance so make sure you hang around after the film for a Q&A and to meet the production team! **\n\nBeautiful Devils is a 21st Century take on Shakespeare's Othello, shifting the play\u2019s action from the streets of Venice to the music scene of East London. Oz and Ivan are lifelong friends and music producers but when Oz\xA0gets offered a lucrative recording contract, he makes the decision to separate from Ivan professionally. This rejection turns to rage, as Ivan plots to\xA0undermine Oz's success and get him kicked off the label. The plan kickstarts an escalation of jealousy and paranoia in Oz. With deadly consequences. \n\nCome down to The Half Moon on 10 May at 8pm to see this update of Shakespeare\u2019s timeless story of jealousy and betrayal. With cast and crew in attendance there will be a Q&A after the film!\n",
+      trailer: "https://www.youtube.com/watch?v=cF25pc2uWiE",
+      description: "**Screening at 8pm on 10 May at The Half Moon is this modern retelling of Shakespeare\u2019s Othello, set within the music scene of East London. Starring a number of emerging British actors and produced by locals Ascension Productions there will be cast and crew in attendance so make sure you hang around after the film for a Q&A and to meet the production team! **\n\nBeautiful Devils is a 21st Century take on Shakespeare's Othello, shifting the play\u2019s action from the streets of Venice to the music scene of East London. Oz and Ivan are lifelong friends and music producers but when Oz gets offered a lucrative recording contract, he makes the decision to separate from Ivan professionally. This rejection turns to rage, as Ivan plots to undermine Oz's success and get him kicked off the label. The plan kickstarts an escalation of jealousy and paranoia in Oz. With deadly consequences. \n\nCome down to The Half Moon on 10 May at 8pm to see this update of Shakespeare\u2019s timeless story of jealousy and betrayal. With cast and crew in attendance there will be a Q&A after the film!\n",
       images: {
         cover: {
           source: require("./data/images/image35.jpeg"),
@@ -699,10 +729,10 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#af5ea5"
       },
       exactStartTime: "2017-05-10T17:00:00.000Z",
-      descriptionPlain: "Screening at 8pm on 10 May at The Half Moon is this modern retelling of Shakespeare\u2019s Othello, set within the music scene of East London. Starring a number of emerging British actors and produced by locals Ascension Productions there will be cast and crew in attendance so make sure you hang around after the film for a Q&A and to meet the production team! \n\nBeautiful Devils is a 21st Century take on Shakespeare's Othello, shifting the play\u2019s action from the streets of Venice to the music scene of East London. Oz and Ivan are lifelong friends and music producers but when Oz\xA0gets offered a lucrative recording contract, he makes the decision to separate from Ivan professionally. This rejection turns to rage, as Ivan plots to\xA0undermine Oz's success and get him kicked off the label. The plan kickstarts an escalation of jealousy and paranoia in Oz. With deadly consequences. \n\nCome down to The Half Moon on 10 May at 8pm to see this update of Shakespeare\u2019s timeless story of jealousy and betrayal. With cast and crew in attendance there will be a Q&A after the film!\n"
+      descriptionPlain: "Screening at 8pm on 10 May at The Half Moon is this modern retelling of Shakespeare\u2019s Othello, set within the music scene of East London. Starring a number of emerging British actors and produced by locals Ascension Productions there will be cast and crew in attendance so make sure you hang around after the film for a Q&A and to meet the production team! \n\nBeautiful Devils is a 21st Century take on Shakespeare's Othello, shifting the play\u2019s action from the streets of Venice to the music scene of East London. Oz and Ivan are lifelong friends and music producers but when Oz gets offered a lucrative recording contract, he makes the decision to separate from Ivan professionally. This rejection turns to rage, as Ivan plots to undermine Oz's success and get him kicked off the label. The plan kickstarts an escalation of jealousy and paranoia in Oz. With deadly consequences. \n\nCome down to The Half Moon on 10 May at 8pm to see this update of Shakespeare\u2019s timeless story of jealousy and betrayal. With cast and crew in attendance there will be a Q&A after the film!\n"
     },
     "Easy Rider": {
       title: "Easy Rider",
@@ -749,7 +779,7 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#ef3f2d"
       },
       exactStartTime: "2017-05-11T17:00:00.000Z",
       approxEndTime: "2017-05-11T18:35:00.000Z",
@@ -851,7 +881,7 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#ef3f2d"
       },
       exactStartTime: "2017-05-13T18:00:00.000Z",
       approxEndTime: "2017-05-13T19:51:00.000Z",
@@ -882,7 +912,7 @@ export default {
         start: "8pm"
       },
       trailer: "https://www.youtube.com/watch?v=jx52F4iLTL8",
-      description: "**Cinematographer Kirsten Johnson has shot movies including Michael Moore\u2019s\xA0Fahrenheit 9/11\xA0(2004), Kirby Dick\u2019s\xA0The Invisible War\xA0(2012) and Laura Poitras\u2019s\xA0Citizenfour\xA0(2014), and in Cameraperson she has created an audacious and experimental collage-film, pulling together a mosaic of fragments from the 20 years that she has shot for other people, and also personal material about her own family. Join us at The Prince Regent on 14 May at 8pm for one of our favourite documentaries of 2016\u2026 it\u2019s one we\u2019re certain you won\u2019t want to miss!**\n\nA boxing match in Brooklyn; life in postwar Bosnia and Herzegovina; the daily routine of a Nigerian midwife; a bustling Sunday market in Herne Hill (ok, we jest); an intimate family moment at home: these scenes and others are woven by Kirsten Johnson into Cameraperson, a tapestry of footage collected over her twenty-five-year career. Through a series of episodic contrasts, Johnson explores the relationships between image makers and their subjects, the tension between the objectivity and intervention of the camera, and the complex interaction of unfiltered reality and crafted narrative. A hybrid work that combines documentary, autobiography, and ethical inquiry, Cameraperson is a moving glimpse into one filmmaker's personal journey and a thoughtful examination of what it means to train a camera on the world.\n\nEver since we saw this one late last year we\u2019ve wanted to bring it to the people of Herne Hill and our 2017 festival is the first chance for us to do so. If you like documentaries as much as we do you\u2019re going to love this one, so come on down to The Prince Regent on 14 May at 8pm for this unique and absorbing film.\n",
+      description: "**Cinematographer Kirsten Johnson has shot movies including Michael Moore\u2019s Fahrenheit 9/11 (2004), Kirby Dick\u2019s The Invisible War (2012) and Laura Poitras\u2019s Citizenfour (2014), and in Cameraperson she has created an audacious and experimental collage-film, pulling together a mosaic of fragments from the 20 years that she has shot for other people, and also personal material about her own family. Join us at The Prince Regent on 14 May at 8pm for one of our favourite documentaries of 2016\u2026 it\u2019s one we\u2019re certain you won\u2019t want to miss!**\n\nA boxing match in Brooklyn; life in postwar Bosnia and Herzegovina; the daily routine of a Nigerian midwife; a bustling Sunday market in Herne Hill (ok, we jest); an intimate family moment at home: these scenes and others are woven by Kirsten Johnson into Cameraperson, a tapestry of footage collected over her twenty-five-year career. Through a series of episodic contrasts, Johnson explores the relationships between image makers and their subjects, the tension between the objectivity and intervention of the camera, and the complex interaction of unfiltered reality and crafted narrative. A hybrid work that combines documentary, autobiography, and ethical inquiry, Cameraperson is a moving glimpse into one filmmaker's personal journey and a thoughtful examination of what it means to train a camera on the world.\n\nEver since we saw this one late last year we\u2019ve wanted to bring it to the people of Herne Hill and our 2017 festival is the first chance for us to do so. If you like documentaries as much as we do you\u2019re going to love this one, so come on down to The Prince Regent on 14 May at 8pm for this unique and absorbing film.\n",
       images: {
         cover: {
           source: require("./data/images/image46.jpeg"),
@@ -906,10 +936,10 @@ export default {
       },
       exactStartTime: "2017-05-14T17:00:00.000Z",
       approxEndTime: "2017-05-14T18:42:00.000Z",
-      descriptionPlain: "Cinematographer Kirsten Johnson has shot movies including Michael Moore\u2019s\xA0Fahrenheit 9/11\xA0(2004), Kirby Dick\u2019s\xA0The Invisible War\xA0(2012) and Laura Poitras\u2019s\xA0Citizenfour\xA0(2014), and in Cameraperson she has created an audacious and experimental collage-film, pulling together a mosaic of fragments from the 20 years that she has shot for other people, and also personal material about her own family. Join us at The Prince Regent on 14 May at 8pm for one of our favourite documentaries of 2016\u2026 it\u2019s one we\u2019re certain you won\u2019t want to miss!\n\nA boxing match in Brooklyn; life in postwar Bosnia and Herzegovina; the daily routine of a Nigerian midwife; a bustling Sunday market in Herne Hill (ok, we jest); an intimate family moment at home: these scenes and others are woven by Kirsten Johnson into Cameraperson, a tapestry of footage collected over her twenty-five-year career. Through a series of episodic contrasts, Johnson explores the relationships between image makers and their subjects, the tension between the objectivity and intervention of the camera, and the complex interaction of unfiltered reality and crafted narrative. A hybrid work that combines documentary, autobiography, and ethical inquiry, Cameraperson is a moving glimpse into one filmmaker's personal journey and a thoughtful examination of what it means to train a camera on the world.\n\nEver since we saw this one late last year we\u2019ve wanted to bring it to the people of Herne Hill and our 2017 festival is the first chance for us to do so. If you like documentaries as much as we do you\u2019re going to love this one, so come on down to The Prince Regent on 14 May at 8pm for this unique and absorbing film.\n"
+      descriptionPlain: "Cinematographer Kirsten Johnson has shot movies including Michael Moore\u2019s Fahrenheit 9/11 (2004), Kirby Dick\u2019s The Invisible War (2012) and Laura Poitras\u2019s Citizenfour (2014), and in Cameraperson she has created an audacious and experimental collage-film, pulling together a mosaic of fragments from the 20 years that she has shot for other people, and also personal material about her own family. Join us at The Prince Regent on 14 May at 8pm for one of our favourite documentaries of 2016\u2026 it\u2019s one we\u2019re certain you won\u2019t want to miss!\n\nA boxing match in Brooklyn; life in postwar Bosnia and Herzegovina; the daily routine of a Nigerian midwife; a bustling Sunday market in Herne Hill (ok, we jest); an intimate family moment at home: these scenes and others are woven by Kirsten Johnson into Cameraperson, a tapestry of footage collected over her twenty-five-year career. Through a series of episodic contrasts, Johnson explores the relationships between image makers and their subjects, the tension between the objectivity and intervention of the camera, and the complex interaction of unfiltered reality and crafted narrative. A hybrid work that combines documentary, autobiography, and ethical inquiry, Cameraperson is a moving glimpse into one filmmaker's personal journey and a thoughtful examination of what it means to train a camera on the world.\n\nEver since we saw this one late last year we\u2019ve wanted to bring it to the people of Herne Hill and our 2017 festival is the first chance for us to do so. If you like documentaries as much as we do you\u2019re going to love this one, so come on down to The Prince Regent on 14 May at 8pm for this unique and absorbing film.\n"
     },
-    "Fire at Sea/Fuocoammare": {
-      title: "Fire at Sea/Fuocoammare",
+    "fire-at-sea": {
+      title: "Fire at Sea",
       director: "Gianfranco Rosi",
       year: 2016,
       country: "Italy",
@@ -933,7 +963,7 @@ export default {
         start: "8pm"
       },
       trailer: "https://www.youtube.com/watch?v=qR5l9XDaxK0",
-      description: "**Winner of the Golden Bear at the 66th Berlin International Film Festival, Fire at Sea (or Fuocoammare) is a documentary shot on the Sicilian island of Lampedusa during the\xA0European migrant crisis, setting the migrants' dangerous Mediterranean crossing against a background of the ordinary life of the islanders. If it was meaningful enough for Italian Prime Minister\xA0Matteo Renzi to carry 27 copies of the film to a session of the\xA0European Council, one for each member state of the\xA0European Union, it should pique your interest enough to make your come to The Half Moon on 15 May at 8pm for this mid-week documentary screening.**\n\nIn his 2016 documentary, director Gianfranco Rosi contrasts the lives of the thousands of migrants landing on the shores of Lampedusa with the everyday existence of the locals. The tragic epicentre of the migrant crisis, 400,000 migrants have arrived on Lampedusa over the past 20 years and many thousands more have died making the journey in unsafe vessels refuelled in choppy seas from diesel jerry cans mid-journey. Using mainly fixed camera positions and no narrative voiceover, the film juxtaposes scenes switching between the migrants\u2019 daily, desperate landfall, and the everyday existence of one Lampedusa family and one young boy in particular. Samuel\u2019s uncle is a fisherman, he does his best at school, he slurps his pasta at dinner, and he likes cutting branches that will make handles for his slingshot.\xA0His Lampedusa, his home, is different to the one experienced by the migrants on the island, part holding tank and part cemetery. \n\nThe migrant crisis may have left our front pages but it has most certainly not gone away, and this beautifully tragic documentary is a reminder of the struggle that hundreds of thousands of people embark on every year, risking their lives and families for the chance of a better life. Join us at The Half Moon on 15 May at 8pm for this masterly and moving look at the migrant crisis. And don\u2019t forget. \n",
+      description: "**Winner of the Golden Bear at the 66th Berlin International Film Festival, Fire at Sea (or Fuocoammare) is a documentary shot on the Sicilian island of Lampedusa during the European migrant crisis, setting the migrants' dangerous Mediterranean crossing against a background of the ordinary life of the islanders. If it was meaningful enough for Italian Prime Minister Matteo Renzi to carry 27 copies of the film to a session of the European Council, one for each member state of the European Union, it should pique your interest enough to make your come to The Half Moon on 15 May at 8pm for this mid-week documentary screening.**\n\nIn his 2016 documentary, director Gianfranco Rosi contrasts the lives of the thousands of migrants landing on the shores of Lampedusa with the everyday existence of the locals. The tragic epicentre of the migrant crisis, 400,000 migrants have arrived on Lampedusa over the past 20 years and many thousands more have died making the journey in unsafe vessels refuelled in choppy seas from diesel jerry cans mid-journey. Using mainly fixed camera positions and no narrative voiceover, the film juxtaposes scenes switching between the migrants\u2019 daily, desperate landfall, and the everyday existence of one Lampedusa family and one young boy in particular. Samuel\u2019s uncle is a fisherman, he does his best at school, he slurps his pasta at dinner, and he likes cutting branches that will make handles for his slingshot. His Lampedusa, his home, is different to the one experienced by the migrants on the island, part holding tank and part cemetery. \n\nThe migrant crisis may have left our front pages but it has most certainly not gone away, and this beautifully tragic documentary is a reminder of the struggle that hundreds of thousands of people embark on every year, risking their lives and families for the chance of a better life. Join us at The Half Moon on 15 May at 8pm for this masterly and moving look at the migrant crisis. And don\u2019t forget. \n",
       images: {
         cover: {
           source: require("./data/images/image48.jpeg"),
@@ -953,18 +983,18 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#4a5aa8"
       },
       exactStartTime: "2017-05-15T17:00:00.000Z",
       approxEndTime: "2017-05-15T18:56:00.000Z",
-      descriptionPlain: "Winner of the Golden Bear at the 66th Berlin International Film Festival, Fire at Sea (or Fuocoammare) is a documentary shot on the Sicilian island of Lampedusa during the\xA0European migrant crisis, setting the migrants' dangerous Mediterranean crossing against a background of the ordinary life of the islanders. If it was meaningful enough for Italian Prime Minister\xA0Matteo Renzi to carry 27 copies of the film to a session of the\xA0European Council, one for each member state of the\xA0European Union, it should pique your interest enough to make your come to The Half Moon on 15 May at 8pm for this mid-week documentary screening.\n\nIn his 2016 documentary, director Gianfranco Rosi contrasts the lives of the thousands of migrants landing on the shores of Lampedusa with the everyday existence of the locals. The tragic epicentre of the migrant crisis, 400,000 migrants have arrived on Lampedusa over the past 20 years and many thousands more have died making the journey in unsafe vessels refuelled in choppy seas from diesel jerry cans mid-journey. Using mainly fixed camera positions and no narrative voiceover, the film juxtaposes scenes switching between the migrants\u2019 daily, desperate landfall, and the everyday existence of one Lampedusa family and one young boy in particular. Samuel\u2019s uncle is a fisherman, he does his best at school, he slurps his pasta at dinner, and he likes cutting branches that will make handles for his slingshot.\xA0His Lampedusa, his home, is different to the one experienced by the migrants on the island, part holding tank and part cemetery. \n\nThe migrant crisis may have left our front pages but it has most certainly not gone away, and this beautifully tragic documentary is a reminder of the struggle that hundreds of thousands of people embark on every year, risking their lives and families for the chance of a better life. Join us at The Half Moon on 15 May at 8pm for this masterly and moving look at the migrant crisis. And don\u2019t forget. \n"
+      descriptionPlain: "Winner of the Golden Bear at the 66th Berlin International Film Festival, Fire at Sea (or Fuocoammare) is a documentary shot on the Sicilian island of Lampedusa during the European migrant crisis, setting the migrants' dangerous Mediterranean crossing against a background of the ordinary life of the islanders. If it was meaningful enough for Italian Prime Minister Matteo Renzi to carry 27 copies of the film to a session of the European Council, one for each member state of the European Union, it should pique your interest enough to make your come to The Half Moon on 15 May at 8pm for this mid-week documentary screening.\n\nIn his 2016 documentary, director Gianfranco Rosi contrasts the lives of the thousands of migrants landing on the shores of Lampedusa with the everyday existence of the locals. The tragic epicentre of the migrant crisis, 400,000 migrants have arrived on Lampedusa over the past 20 years and many thousands more have died making the journey in unsafe vessels refuelled in choppy seas from diesel jerry cans mid-journey. Using mainly fixed camera positions and no narrative voiceover, the film juxtaposes scenes switching between the migrants\u2019 daily, desperate landfall, and the everyday existence of one Lampedusa family and one young boy in particular. Samuel\u2019s uncle is a fisherman, he does his best at school, he slurps his pasta at dinner, and he likes cutting branches that will make handles for his slingshot. His Lampedusa, his home, is different to the one experienced by the migrants on the island, part holding tank and part cemetery. \n\nThe migrant crisis may have left our front pages but it has most certainly not gone away, and this beautifully tragic documentary is a reminder of the struggle that hundreds of thousands of people embark on every year, risking their lives and families for the chance of a better life. Join us at The Half Moon on 15 May at 8pm for this masterly and moving look at the migrant crisis. And don\u2019t forget. \n"
     },
     "War of Words": {
       title: "War of Words",
       director: "Tom Worth, Craig Tuohy",
       year: 2016,
       country: "UK",
-      certificate: "???",
+      certificate: "Not rated",
       running_time: "64 mins",
       date: "16 May",
       venue: {
@@ -983,8 +1013,8 @@ export default {
       time: {
         start: "8pm"
       },
-      trailer: "???",
-      description: "**Warning: explicit language! What started as an internet phenomenon has now hit the streets, bars and even major arenas: the noble art of verbal humiliation.\xA0Rap without brakes. And the culture clash between the latest generation of American and British battle rappers is its entertaining highlight, playing centre stage at the Herne Hill Free Film Festival\u2019s screening of War of Words on 16 May at Off the Cuff at 8pm. **\n\nA besuited teacher versus a 17-year-old schoolboy are unlikely opponents in a contemporary British battle rap that has its roots in the American East Coast hip-hop scene. While it may have been darker on the other side of the pond, the British version energetically portrayed in War of Words is really just about verbally intimidating your opposition. The films centres around rap champions Marlo and Shuffle T, who look more like internet nerds than tough hip-hop guys, as they prepare for battle against\xA0Detroit legends Marv Won and Quest McCody. By explaining how the scene developed and took off, from squares and alleyways to proper venues where everyone \u2013 young, old, poor, rich, white, black, male or female \u2013 is appreciated as long as they obey the scene\u2019s\xA0unwritten rules, War of Words opens the door to a lively but unknown lyrical world.\n\nThis is a film the Herne Hill Free Film Festival has been waiting to screen for more than two years (hey, these things take time to pull together!) and for 2017 we are ecstatically happy to be bringing it to Off the Cuff on 16 May at 8pm. With cast and crew in attendance and a Q&A after the screening this is one of the high points of our programme and a film you\u2019re not going to want to miss! \n",
+      trailer: "https://www.youtube.com/watch?v=r8nfpyumv44",
+      description: "**Warning: explicit language! What started as an internet phenomenon has now hit the streets, bars and even major arenas: the noble art of verbal humiliation. Rap without brakes. And the culture clash between the latest generation of American and British battle rappers is its entertaining highlight, playing centre stage at the Herne Hill Free Film Festival\u2019s screening of War of Words on 16 May at Off the Cuff at 8pm. **\n\nA besuited teacher versus a 17-year-old schoolboy are unlikely opponents in a contemporary British battle rap that has its roots in the American East Coast hip-hop scene. While it may have been darker on the other side of the pond, the British version energetically portrayed in War of Words is really just about verbally intimidating your opposition. The films centres around rap champions Marlo and Shuffle T, who look more like internet nerds than tough hip-hop guys, as they prepare for battle against Detroit legends Marv Won and Quest McCody. By explaining how the scene developed and took off, from squares and alleyways to proper venues where everyone \u2013 young, old, poor, rich, white, black, male or female \u2013 is appreciated as long as they obey the scene\u2019s unwritten rules, War of Words opens the door to a lively but unknown lyrical world.\n\nThis is a film the Herne Hill Free Film Festival has been waiting to screen for more than two years (hey, these things take time to pull together!) and for 2017 we are ecstatically happy to be bringing it to Off the Cuff on 16 May at 8pm. With cast and crew in attendance and a Q&A after the screening this is one of the high points of our programme and a film you\u2019re not going to want to miss! \n",
       images: {
         cover: {
           source: require("./data/images/image50.jpeg"),
@@ -1004,14 +1034,14 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#af5ea5"
       },
       exactStartTime: "2017-05-16T17:00:00.000Z",
       approxEndTime: "2017-05-16T18:04:00.000Z",
-      descriptionPlain: "Warning: explicit language! What started as an internet phenomenon has now hit the streets, bars and even major arenas: the noble art of verbal humiliation.\xA0Rap without brakes. And the culture clash between the latest generation of American and British battle rappers is its entertaining highlight, playing centre stage at the Herne Hill Free Film Festival\u2019s screening of War of Words on 16 May at Off the Cuff at 8pm. \n\nA besuited teacher versus a 17-year-old schoolboy are unlikely opponents in a contemporary British battle rap that has its roots in the American East Coast hip-hop scene. While it may have been darker on the other side of the pond, the British version energetically portrayed in War of Words is really just about verbally intimidating your opposition. The films centres around rap champions Marlo and Shuffle T, who look more like internet nerds than tough hip-hop guys, as they prepare for battle against\xA0Detroit legends Marv Won and Quest McCody. By explaining how the scene developed and took off, from squares and alleyways to proper venues where everyone \u2013 young, old, poor, rich, white, black, male or female \u2013 is appreciated as long as they obey the scene\u2019s\xA0unwritten rules, War of Words opens the door to a lively but unknown lyrical world.\n\nThis is a film the Herne Hill Free Film Festival has been waiting to screen for more than two years (hey, these things take time to pull together!) and for 2017 we are ecstatically happy to be bringing it to Off the Cuff on 16 May at 8pm. With cast and crew in attendance and a Q&A after the screening this is one of the high points of our programme and a film you\u2019re not going to want to miss! \n"
+      descriptionPlain: "Warning: explicit language! What started as an internet phenomenon has now hit the streets, bars and even major arenas: the noble art of verbal humiliation. Rap without brakes. And the culture clash between the latest generation of American and British battle rappers is its entertaining highlight, playing centre stage at the Herne Hill Free Film Festival\u2019s screening of War of Words on 16 May at Off the Cuff at 8pm. \n\nA besuited teacher versus a 17-year-old schoolboy are unlikely opponents in a contemporary British battle rap that has its roots in the American East Coast hip-hop scene. While it may have been darker on the other side of the pond, the British version energetically portrayed in War of Words is really just about verbally intimidating your opposition. The films centres around rap champions Marlo and Shuffle T, who look more like internet nerds than tough hip-hop guys, as they prepare for battle against Detroit legends Marv Won and Quest McCody. By explaining how the scene developed and took off, from squares and alleyways to proper venues where everyone \u2013 young, old, poor, rich, white, black, male or female \u2013 is appreciated as long as they obey the scene\u2019s unwritten rules, War of Words opens the door to a lively but unknown lyrical world.\n\nThis is a film the Herne Hill Free Film Festival has been waiting to screen for more than two years (hey, these things take time to pull together!) and for 2017 we are ecstatically happy to be bringing it to Off the Cuff on 16 May at 8pm. With cast and crew in attendance and a Q&A after the screening this is one of the high points of our programme and a film you\u2019re not going to want to miss! \n"
     },
     "Do the Right Thing": {
-      title: "Do the Right Thing",
+      title: "Do the Right\xA0Thing",
       director: "Spike Lee",
       year: 1989,
       country: "USA",
@@ -1035,7 +1065,7 @@ export default {
         start: "8pm"
       },
       trailer: "https://www.youtube.com/watch?v=muc7xqdHudI",
-      description: "**A regular on lists of the best films of all time and the film that brought Spike Lee fame, fortune and a reputation as one of America\u2019s most vital up-and-coming directors, Do the Right Thing follows life in Brooklyn one hot summer Sunday and in doing so delivers a film about race that, impossibly, empathises with all the participants. We\u2019re excited to be bringing this modern classic \u2013 scandalously overlooked at the 1990 Academy Awards \u2013 to one of our new venues for 2017, 198 Contemporary Arts and Learning. So come along on 18 May at 8pm to see the film that made the career of one of the most influential directors of the last 30 years. You\u2019ll regret it if you don\u2019t!**\n\nEveryday Sal Fragione opens the pizza parlour he's owned for 25 years. The neighbourhood has changed considerably in the time he's been there and is now composed primarily of African-Americans and Hispanics. His son Pino hates it and would like nothing better than to relocate to their own neighbourhood. For Sal however, the restaurant represents something that is part of his life and sees it as a part of the community. What begins as a simple complaint by one of his customers, who wonders why he has only pictures of famous Italian-Americans on the wall when most of his customers are black, eventually disintegrates into violence as frustration seemingly brings out the worst in everyone.\xA0\n\nWhen Roger Ebert saw this one for the first time he had tears in his eyes, and its Oscar\u2019s snub has gone down as one of the most glaring in the Academy Awards\u2019 history. It is, quite simply, a great film that you need to see. And we\u2019re giving you the chance. All you have to do is come to 198 Contemporary Arts and Learning at 8pm on 18 May. Easy. As. That. \n",
+      description: "**A regular on lists of the best films of all time and the film that brought Spike Lee fame, fortune and a reputation as one of America\u2019s most vital up-and-coming directors, Do the Right Thing follows life in Brooklyn one hot summer Sunday and in doing so delivers a film about race that, impossibly, empathises with all the participants. We\u2019re excited to be bringing this modern classic \u2013 scandalously overlooked at the 1990 Academy Awards \u2013 to one of our new venues for 2017, 198 Contemporary Arts and Learning. So come along on 18 May at 8pm to see the film that made the career of one of the most influential directors of the last 30 years. You\u2019ll regret it if you don\u2019t!**\n\nEveryday Sal Fragione opens the pizza parlour he's owned for 25 years. The neighbourhood has changed considerably in the time he's been there and is now composed primarily of African-Americans and Hispanics. His son Pino hates it and would like nothing better than to relocate to their own neighbourhood. For Sal however, the restaurant represents something that is part of his life and sees it as a part of the community. What begins as a simple complaint by one of his customers, who wonders why he has only pictures of famous Italian-Americans on the wall when most of his customers are black, eventually disintegrates into violence as frustration seemingly brings out the worst in everyone. \n\nWhen Roger Ebert saw this one for the first time he had tears in his eyes, and its Oscar\u2019s snub has gone down as one of the most glaring in the Academy Awards\u2019 history. It is, quite simply, a great film that you need to see. And we\u2019re giving you the chance. All you have to do is come to 198 Contemporary Arts and Learning at 8pm on 18 May. Easy. As. That. \n",
       images: {
         cover: {
           source: require("./data/images/image52.png"),
@@ -1055,11 +1085,11 @@ export default {
         }
       },
       colors: {
-        highlight: "#e59125"
+        highlight: "#ef3f2d"
       },
       exactStartTime: "2017-05-18T17:00:00.000Z",
       approxEndTime: "2017-05-18T19:00:00.000Z",
-      descriptionPlain: "A regular on lists of the best films of all time and the film that brought Spike Lee fame, fortune and a reputation as one of America\u2019s most vital up-and-coming directors, Do the Right Thing follows life in Brooklyn one hot summer Sunday and in doing so delivers a film about race that, impossibly, empathises with all the participants. We\u2019re excited to be bringing this modern classic \u2013 scandalously overlooked at the 1990 Academy Awards \u2013 to one of our new venues for 2017, 198 Contemporary Arts and Learning. So come along on 18 May at 8pm to see the film that made the career of one of the most influential directors of the last 30 years. You\u2019ll regret it if you don\u2019t!\n\nEveryday Sal Fragione opens the pizza parlour he's owned for 25 years. The neighbourhood has changed considerably in the time he's been there and is now composed primarily of African-Americans and Hispanics. His son Pino hates it and would like nothing better than to relocate to their own neighbourhood. For Sal however, the restaurant represents something that is part of his life and sees it as a part of the community. What begins as a simple complaint by one of his customers, who wonders why he has only pictures of famous Italian-Americans on the wall when most of his customers are black, eventually disintegrates into violence as frustration seemingly brings out the worst in everyone.\xA0\n\nWhen Roger Ebert saw this one for the first time he had tears in his eyes, and its Oscar\u2019s snub has gone down as one of the most glaring in the Academy Awards\u2019 history. It is, quite simply, a great film that you need to see. And we\u2019re giving you the chance. All you have to do is come to 198 Contemporary Arts and Learning at 8pm on 18 May. Easy. As. That. \n"
+      descriptionPlain: "A regular on lists of the best films of all time and the film that brought Spike Lee fame, fortune and a reputation as one of America\u2019s most vital up-and-coming directors, Do the Right Thing follows life in Brooklyn one hot summer Sunday and in doing so delivers a film about race that, impossibly, empathises with all the participants. We\u2019re excited to be bringing this modern classic \u2013 scandalously overlooked at the 1990 Academy Awards \u2013 to one of our new venues for 2017, 198 Contemporary Arts and Learning. So come along on 18 May at 8pm to see the film that made the career of one of the most influential directors of the last 30 years. You\u2019ll regret it if you don\u2019t!\n\nEveryday Sal Fragione opens the pizza parlour he's owned for 25 years. The neighbourhood has changed considerably in the time he's been there and is now composed primarily of African-Americans and Hispanics. His son Pino hates it and would like nothing better than to relocate to their own neighbourhood. For Sal however, the restaurant represents something that is part of his life and sees it as a part of the community. What begins as a simple complaint by one of his customers, who wonders why he has only pictures of famous Italian-Americans on the wall when most of his customers are black, eventually disintegrates into violence as frustration seemingly brings out the worst in everyone. \n\nWhen Roger Ebert saw this one for the first time he had tears in his eyes, and its Oscar\u2019s snub has gone down as one of the most glaring in the Academy Awards\u2019 history. It is, quite simply, a great film that you need to see. And we\u2019re giving you the chance. All you have to do is come to 198 Contemporary Arts and Learning at 8pm on 18 May. Easy. As. That. \n"
     },
     Moana: {
       title: "Moana",
@@ -1111,9 +1141,416 @@ export default {
       exactStartTime: "2017-05-20T11:00:00.000Z",
       approxEndTime: "2017-05-20T12:57:00.000Z",
       descriptionPlain: "In a strong year for animation in which Disney, Pixar, Illumination, Laika and Studio Ghibli all jostled for the Oscars\u2019 crown Disney doubled down late in 2016 with Moana, the visually-stunning story of a Polynesian teenager\u2019s quest to save her homeland. The Herne Hill Free Film Festival\u2019s matinee film may well be aimed at children and those that appreciate a relaxed screening but don\u2019t worry, we won\u2019t be taking IDs at the door if anyone else wants to come along! Come down to effraspace at 3pm on 14 May to journey with us to the South Pacific in this animated fantasy.\n\nMoana (voiced by Hawaiian newcomer Auli\u2019i Cravalho) is an explorer with fire in her soul and a love for the sea who, inspired by her grandmother, ventures into the wide blue yonder on a mission to restore the Heart of Te Fiti a mystical stone needed to help rescue her island home\u2019s failing ecosystem. Ignoring her father\u2019s advice to stay within the bounds of the reef surrounding their island home of Motunui, Moana locates Maui \u2013 the tattooed demigod played by Dwayne Johnson \u2013 who guides her in her quest to become a master wayfinder in a journey that brings close encounters with a swarm of pirates and a fiery lava monster. \n\nSupported by the kind of score we\u2019ve come to expect from Disney\u2019s animation studios these days and with a script from Lin-Manuel Miranda, writer of the stage play Hamilton, Moana is a joyous animation and a film we\u2019re really looking forward to having as our matinee screening in 2017. This event is targeted at the younger audience of Herne Hill, and those that appreciate a relaxed screening, but Maui won\u2019t be on the door to bar anyone\u2019s entry. So come down to effraspace at 3pm on 14 May for an afternoon of animated enjoyment for all the family!\n"
+    },
+    Priscilla: {
+      title: "Priscilla, Queen of the\xA0Desert",
+      director: "Stephen Elliott",
+      year: 1994,
+      country: "Australia",
+      certificate: 15,
+      running_time: "104 mins",
+      date: "20 May",
+      venue: {
+        name: "Brockwell Park",
+        location: "Norwood Rd, London SE24 9BJ",
+        link: "http://www.brockwellpark.com/",
+        image: {
+          source: require("./data/images/image59.jpeg"),
+          metadata: {
+            height: 288,
+            width: 431,
+            type: "jpg"
+          }
+        }
+      },
+      time: {
+        start: "9pm"
+      },
+      trailer: "https://www.youtube.com/watch?v=QgFDIinCeYI",
+      description: "**A cult classic since its release in 1994, The Adventures of Priscilla, Queen of the Desert tells the music-heavy tale of two drag-queens and a transgender woman as they journey across Australia from Sydney to Alice Springs, encountering a number of strange characters on the way. Screening at Brockwell Park at 9pm on 20 May the night will be a sing-a-long spectacular to make the most of a legendary soundtrack of camp-classics, from ABBA to CeCe Peniston and Gloria Gaynor. Get in your shower now and get practicing\u2026 there\u2019s still time to perfect your \u201CI Will Survive\u201D!**\n\nIn The Adventures of Priscilla, Queen of the Desert the usually menacing British actor Terence Stamp does a complete turnaround as Bernadette, an aging transsexual who tours the backwaters of Australia with her stage partners, Mitzi (played by Hugo Weaving) and Adam/Felicia (played by Guy Pearce). Their act, well-known in Sydney, involves wearing lots of makeup and gowns and lip-synching to records, but Bernadette is getting a bit tired of it all and is also haunted by the bizarre death of an old loved one. Nevertheless, when Mitzi and Felicia get an offer to perform in the remote town of Alice Springs at a casino, Bernadette decides to tag along. The threesome ventures into the outback with Priscilla, a lavender-colored school bus that doubles as dressing room and home on the road. Along the way, the act encounters any number of strange characters, as well as incidents of homophobia, while Bernadette becomes increasingly concerned about the path her life has taken.\n\nJoin us at Brockwell Park on 20 May at 9pm for the sing-a-long version of this camp classic. Dress up or dress down, we don\u2019t mind, but make sure you bring your best singing voice and get ready to shake your groove thing!\n",
+      images: {
+        cover: {
+          source: require("./data/images/image57.jpeg"),
+          metadata: {
+            height: 500,
+            width: 333,
+            type: "jpg"
+          }
+        },
+        screenshot: {
+          source: require("./data/images/image58.jpeg"),
+          metadata: {
+            height: 194,
+            width: 350,
+            type: "jpg"
+          }
+        }
+      },
+      colors: {
+        highlight: "#4a5aa8"
+      },
+      exactStartTime: "2017-05-20T18:00:00.000Z",
+      approxEndTime: "2017-05-20T19:44:00.000Z",
+      descriptionPlain: "A cult classic since its release in 1994, The Adventures of Priscilla, Queen of the Desert tells the music-heavy tale of two drag-queens and a transgender woman as they journey across Australia from Sydney to Alice Springs, encountering a number of strange characters on the way. Screening at Brockwell Park at 9pm on 20 May the night will be a sing-a-long spectacular to make the most of a legendary soundtrack of camp-classics, from ABBA to CeCe Peniston and Gloria Gaynor. Get in your shower now and get practicing\u2026 there\u2019s still time to perfect your \u201CI Will Survive\u201D!\n\nIn The Adventures of Priscilla, Queen of the Desert the usually menacing British actor Terence Stamp does a complete turnaround as Bernadette, an aging transsexual who tours the backwaters of Australia with her stage partners, Mitzi (played by Hugo Weaving) and Adam/Felicia (played by Guy Pearce). Their act, well-known in Sydney, involves wearing lots of makeup and gowns and lip-synching to records, but Bernadette is getting a bit tired of it all and is also haunted by the bizarre death of an old loved one. Nevertheless, when Mitzi and Felicia get an offer to perform in the remote town of Alice Springs at a casino, Bernadette decides to tag along. The threesome ventures into the outback with Priscilla, a lavender-colored school bus that doubles as dressing room and home on the road. Along the way, the act encounters any number of strange characters, as well as incidents of homophobia, while Bernadette becomes increasingly concerned about the path her life has taken.\n\nJoin us at Brockwell Park on 20 May at 9pm for the sing-a-long version of this camp classic. Dress up or dress down, we don\u2019t mind, but make sure you bring your best singing voice and get ready to shake your groove thing!\n"
+    },
+    Murderball: {
+      title: "Murderball",
+      director: "Henry Rubin, Dana Shapiro",
+      year: 2005,
+      country: "UK",
+      certificate: 15,
+      running_time: "85 mins",
+      trailer: "https://www.youtube.com/watch?v=vbiFjp0jqto",
+      date: "21 May",
+      venue: {
+        name: "Fison Fitness",
+        location: "280 Milkwood Rd, Herne Hill, London SE24 0EZ",
+        link: "http://www.fisonfitness.co.uk/",
+        image: {
+          source: require("./data/images/image62.jpeg"),
+          metadata: {
+            height: 313,
+            width: 416,
+            type: "jpg"
+          }
+        }
+      },
+      time: {
+        start: "8pm"
+      },
+      description: "**Despite being centred on the sport of Wheelchair Basketball, Murderball isn\u2019t really a sports film. It is however one of those rare documentaries where life provides a better ending than the filmmakers could have hoped for, and a film that uses sport to see into the lives, hopes and fears of athletes who were once young men waking up in hospital beds and being told they would never walk again. Come along to Fison Fitness on 21 May at 8pm to see one of our favourite films of the 2000s and the film we\u2019re all excited to have in our 2017 programme!**\n\nHow do you eat your pizza with your elbows? It's a natural question for a little boy to ask a quadruple amputee, and Bob Lujano is happy to answer it. In fact he and the other stars of Murderball wish more people would ask more questions, instead of becoming inhibited around people in wheelchairs.\n\nMurderball charts the progress of (and the rivalry between) the US and Canadian quad rugby teams in the lead up to the 2004 Paralympic Games in Athens. Young men, most with spinal injuries, play this rough and tumble sport in special chairs, and as the film gets to know them and their families they talk frankly about their injuries, feelings in public, sex lives, competitiveness, and love of the game. \n\nWe\u2019ve not been able to forget this film since we first saw it back in 2005 which is why we hope you can make it down to Fison Fitness on 21 May at 8pm for this Sundance winner and Oscar nominee. It might sound like a clich\xE9 but remember, although we may not all be in chairs and we might not all be athletes, we do all have disabilities.\n",
+      images: {
+        cover: {
+          source: require("./data/images/image60.jpeg"),
+          metadata: {
+            height: 305,
+            width: 206,
+            type: "jpg"
+          }
+        },
+        screenshot: {
+          source: require("./data/images/image61.jpeg"),
+          metadata: {
+            height: 261,
+            width: 417,
+            type: "jpg"
+          }
+        }
+      },
+      colors: {
+        highlight: "#ef3f2d"
+      },
+      exactStartTime: "2017-05-21T17:00:00.000Z",
+      approxEndTime: "2017-05-21T18:25:00.000Z",
+      descriptionPlain: "Despite being centred on the sport of Wheelchair Basketball, Murderball isn\u2019t really a sports film. It is however one of those rare documentaries where life provides a better ending than the filmmakers could have hoped for, and a film that uses sport to see into the lives, hopes and fears of athletes who were once young men waking up in hospital beds and being told they would never walk again. Come along to Fison Fitness on 21 May at 8pm to see one of our favourite films of the 2000s and the film we\u2019re all excited to have in our 2017 programme!\n\nHow do you eat your pizza with your elbows? It's a natural question for a little boy to ask a quadruple amputee, and Bob Lujano is happy to answer it. In fact he and the other stars of Murderball wish more people would ask more questions, instead of becoming inhibited around people in wheelchairs.\n\nMurderball charts the progress of (and the rivalry between) the US and Canadian quad rugby teams in the lead up to the 2004 Paralympic Games in Athens. Young men, most with spinal injuries, play this rough and tumble sport in special chairs, and as the film gets to know them and their families they talk frankly about their injuries, feelings in public, sex lives, competitiveness, and love of the game. \n\nWe\u2019ve not been able to forget this film since we first saw it back in 2005 which is why we hope you can make it down to Fison Fitness on 21 May at 8pm for this Sundance winner and Oscar nominee. It might sound like a clich\xE9 but remember, although we may not all be in chairs and we might not all be athletes, we do all have disabilities.\n"
+    },
+    "little-shop-of-horrors": {
+      title: "Little Shop of\xA0Horrors",
+      director: "Frank Oz",
+      year: 1986,
+      country: "US",
+      certificate: "PG",
+      running_time: "94 mins",
+      trailer: "https://www.youtube.com/watch?v=nWu1Q16AV5U",
+      date: "23 May",
+      venue: {
+        name: "South London Botanical Institute",
+        location: "323 Norwood Rd, London SE24 9AQ",
+        link: "http://www.slbi.org.uk/",
+        image: {
+          source: require("./data/images/image65.jpeg"),
+          metadata: {
+            height: 336,
+            width: 580,
+            type: "jpg"
+          }
+        }
+      },
+      time: {
+        start: "8pm"
+      },
+      description: "**If the story, of a nerdy florist who finds success and romance with the help of a giant man-eating plant, doesn\u2019t make you want to come to the South London Botanical Institute on 23 May at 8pm to see this mid-1980s rock musical horror comedy (a niche genre, we agree) we don\u2019t know what will. On its release Roger Ebert said it was the kind of movie that cults are made of and that it would become one of those movies that fans want to include in their lives. Well, we\u2019re including it in our festival programme; it\u2019s up to you to come down to the South London Botanical Institute on 23 May at 8pm to make it part of your life!**\n\nStarring Rick Moranis and Steve Martin, and featuring John Candy, Christopher Guest and Bill Murray, this adaptation of the off-Broadway success of the same name tells the story of Seymour, a colleague of his at Muchnik\u2019s Flower Shop called Audrey and a plant procured from a Chinese flower shop. Left at that, we agree the film might not appeal, but if you make Seymour\u2019s plant carnivorous, humongous and musical (and you factor in Steve Martin playing a sadistic dentist in one of the roles of his career) you can see why this has become a cult classic over its 30 year history. \n\nMarking the pinnacle of Rick Moranis\u2019s career (yes, even after taking into account Honey, I Shrunk the Kids and its wholly original sequel Honey, I Blew Up the Baby) we are excited to be showing this botanical blockbuster in Herne Hill in 2017. So come down to the South London Botanical Institute on 23 May at 8pm for a floral film in a vegetal venue. We promise there\u2019ll be no more phytobiological puns (as you can tell, we\u2019ve already run out).\n",
+      images: {
+        cover: {
+          source: require("./data/images/image63.jpeg"),
+          metadata: {
+            height: 399,
+            width: 256,
+            type: "jpg"
+          }
+        },
+        screenshot: {
+          source: require("./data/images/image64.jpeg"),
+          metadata: {
+            height: 272,
+            width: 409,
+            type: "jpg"
+          }
+        }
+      },
+      colors: {
+        highlight: "#e59125"
+      },
+      exactStartTime: "2017-05-23T17:00:00.000Z",
+      approxEndTime: "2017-05-23T18:34:00.000Z",
+      descriptionPlain: "If the story, of a nerdy florist who finds success and romance with the help of a giant man-eating plant, doesn\u2019t make you want to come to the South London Botanical Institute on 23 May at 8pm to see this mid-1980s rock musical horror comedy (a niche genre, we agree) we don\u2019t know what will. On its release Roger Ebert said it was the kind of movie that cults are made of and that it would become one of those movies that fans want to include in their lives. Well, we\u2019re including it in our festival programme; it\u2019s up to you to come down to the South London Botanical Institute on 23 May at 8pm to make it part of your life!\n\nStarring Rick Moranis and Steve Martin, and featuring John Candy, Christopher Guest and Bill Murray, this adaptation of the off-Broadway success of the same name tells the story of Seymour, a colleague of his at Muchnik\u2019s Flower Shop called Audrey and a plant procured from a Chinese flower shop. Left at that, we agree the film might not appeal, but if you make Seymour\u2019s plant carnivorous, humongous and musical (and you factor in Steve Martin playing a sadistic dentist in one of the roles of his career) you can see why this has become a cult classic over its 30 year history. \n\nMarking the pinnacle of Rick Moranis\u2019s career (yes, even after taking into account Honey, I Shrunk the Kids and its wholly original sequel Honey, I Blew Up the Baby) we are excited to be showing this botanical blockbuster in Herne Hill in 2017. So come down to the South London Botanical Institute on 23 May at 8pm for a floral film in a vegetal venue. We promise there\u2019ll be no more phytobiological puns (as you can tell, we\u2019ve already run out).\n"
+    },
+    "short-film-night": {
+      title: "Short\xA0Film Night",
+      running_time: "120 mins",
+      date: "25 May",
+      venue: {
+        name: "The Prince Regent",
+        location: "69 Dulwich Rd, Brixton, London SE24 0NJ",
+        link: "www.theprinceregent.co.uk",
+        image: {
+          source: require("./data/images/image21.jpeg"),
+          metadata: {
+            height: 279,
+            width: 419,
+            type: "jpg"
+          }
+        }
+      },
+      time: {
+        start: "8pm"
+      },
+      description: "**A staple of the Herne Hill Free Film Festival\u2019s programme since we began all the way back in 2012 our Short Film Night looks set to be another eclectic evening of cinematic wonder. There\u2019s going to be short films, a few shorter films an occasional long short film and talent from SE24 and beyond. As usual we\u2019re going to have a wide range of cast and crew in attendance to talk about their films so we\u2019re certain this is going to be (yet) another great night at The Prince Regent on 25 May. The evening\u2019s activities start at 8pm and we recommend you get there early to grab a seat!**\n\nAlthough we could reveal the film programme to you now, we would have to kill you. So to make sure you get the chance to enjoy the evening we\u2019re going to keep everything tightly under wraps until 7:59pm on 25 May. \n",
+      colors: {
+        highlight: "#4a5aa8"
+      },
+      images: {
+        screenshot: {
+          source: require("./data/images/shortfilmnight.jpg"),
+          metadata: {
+            height: 576,
+            width: 1024,
+            type: "jpg"
+          }
+        }
+      },
+      exactStartTime: "2017-05-25T17:00:00.000Z",
+      approxEndTime: "2017-05-25T19:00:00.000Z",
+      descriptionPlain: "A staple of the Herne Hill Free Film Festival\u2019s programme since we began all the way back in 2012 our Short Film Night looks set to be another eclectic evening of cinematic wonder. There\u2019s going to be short films, a few shorter films an occasional long short film and talent from SE24 and beyond. As usual we\u2019re going to have a wide range of cast and crew in attendance to talk about their films so we\u2019re certain this is going to be (yet) another great night at The Prince Regent on 25 May. The evening\u2019s activities start at 8pm and we recommend you get there early to grab a seat!\n\nAlthough we could reveal the film programme to you now, we would have to kill you. So to make sure you get the chance to enjoy the evening we\u2019re going to keep everything tightly under wraps until 7:59pm on 25 May. \n"
+    },
+    "la-la-land": {
+      title: "La La Land",
+      director: "Damien Chazelle",
+      year: 2016,
+      country: "US",
+      certificate: "12A",
+      running_time: "128 mins",
+      trailer: "https://www.youtube.com/watch?v=0pdqf4P9MB8",
+      date: "26 May",
+      venue: {
+        name: "Herne Hill Velodrome",
+        location: "104 Burbage Rd, Herne Hill, London SE24 9HE",
+        link: "http://www.hernehillvelodrome.com/",
+        image: {
+          source: require("./data/images/image68.jpeg"),
+          metadata: {
+            height: 247,
+            width: 401,
+            type: "jpg"
+          }
+        }
+      },
+      time: {
+        start: "9pm"
+      },
+      description: "**In early 2017 a musical was released in UK cinemas that went unnoticed, starred a cast of unknowns and had a score that can be described as moderately foot-tapping at best. We felt sorry for the studio \u2013 which has clearly lost big-time on this one \u2013 and so in a final attempt to try to get it a bit of recognition we decided to screen it at the Herne Hill Velodrome on 26 May at 9pm. It\u2019s called La La Land. Or something like that. Come along. Or don\u2019t. You might enjoy it. Or you might not.**\n\n**The Herne Hill Velodrome has been on a long journey in recent years and we would love you to join us on the night to celebrate its new pavilion and newly secure future. Chapeau!**\n\nFrom the director of Whiplash comes La La Land, a musical romance that rushes from first love to heartache via showtunes, love songs and free jazz. With modern day Los Angeles as its backdrop the film tells the story of Mia, an aspiring actress, and Sebastian, a dedicated jazz musician, as they struggle to make ends meet while pursuing their dreams in a city known for destroying hopes and breaking hearts. \n\nDamien Chazelle wrote the screenplay in 2010 but couldn\u2019t find a studio willing to finance the film until, following the success of Whiplash, La La Land was picked up in 2014. Since premiering at Venice in the summer of 2016 the film has grossed more than $500 million worldwide, a fair return on a $30 million investment, and in 2017 it received 14 nominations at the 89th Academy Awards (tying with All About Eve and Titanic for the most Oscar nominations ever).\n\nThe story. The music. The casting. The colour. The setting. The dancing. The nostalgia. The everything. We love it all. And we suspect you will too. So come down to the Herne Hill Velodrome on 26 May at 9pm to indulge in the biggest film of 2017 so far. You may leave the screening with a tear in your eye but you\u2019ll have a song in your heart, and you\u2019ll have had amazing free night at one of the Herne Hill Free Film Festival\u2019s most iconic venues! \n",
+      images: {
+        cover: {
+          source: require("./data/images/image66.jpeg"),
+          metadata: {
+            height: 382,
+            width: 257,
+            type: "jpg"
+          }
+        },
+        screenshot: {
+          source: require("./data/images/image67.jpeg"),
+          metadata: {
+            height: 321,
+            width: 612,
+            type: "jpg"
+          }
+        }
+      },
+      colors: {
+        highlight: "#af5ea5"
+      },
+      exactStartTime: "2017-05-26T18:00:00.000Z",
+      approxEndTime: "2017-05-26T20:08:00.000Z",
+      descriptionPlain: "In early 2017 a musical was released in UK cinemas that went unnoticed, starred a cast of unknowns and had a score that can be described as moderately foot-tapping at best. We felt sorry for the studio \u2013 which has clearly lost big-time on this one \u2013 and so in a final attempt to try to get it a bit of recognition we decided to screen it at the Herne Hill Velodrome on 26 May at 9pm. It\u2019s called La La Land. Or something like that. Come along. Or don\u2019t. You might enjoy it. Or you might not.\n\nThe Herne Hill Velodrome has been on a long journey in recent years and we would love you to join us on the night to celebrate its new pavilion and newly secure future. Chapeau!\n\nFrom the director of Whiplash comes La La Land, a musical romance that rushes from first love to heartache via showtunes, love songs and free jazz. With modern day Los Angeles as its backdrop the film tells the story of Mia, an aspiring actress, and Sebastian, a dedicated jazz musician, as they struggle to make ends meet while pursuing their dreams in a city known for destroying hopes and breaking hearts. \n\nDamien Chazelle wrote the screenplay in 2010 but couldn\u2019t find a studio willing to finance the film until, following the success of Whiplash, La La Land was picked up in 2014. Since premiering at Venice in the summer of 2016 the film has grossed more than $500 million worldwide, a fair return on a $30 million investment, and in 2017 it received 14 nominations at the 89th Academy Awards (tying with All About Eve and Titanic for the most Oscar nominations ever).\n\nThe story. The music. The casting. The colour. The setting. The dancing. The nostalgia. The everything. We love it all. And we suspect you will too. So come down to the Herne Hill Velodrome on 26 May at 9pm to indulge in the biggest film of 2017 so far. You may leave the screening with a tear in your eye but you\u2019ll have a song in your heart, and you\u2019ll have had amazing free night at one of the Herne Hill Free Film Festival\u2019s most iconic venues! \n"
+    },
+    arrival: {
+      title: "Arrival",
+      director: "Denis Villeneuve",
+      year: 2016,
+      country: "US",
+      certificate: "12A",
+      running_time: "116 mins",
+      trailer: "https://www.youtube.com/watch?v=tFMo3UJ4B4g",
+      date: "27 May",
+      venue: {
+        name: "Evelyn Grace Academy",
+        location: "255 Shakespeare Road, London, SE24 0QN",
+        link: "http://evelyngraceacademy.org/"
+      },
+      time: {
+        start: "9pm"
+      },
+      description: "**We\u2019ve always thought that Zaha Hadid\u2019s Evelyn Grace Academy looks like it\u2019s come straight out of science fiction movie, so when we got the chance to screen there we couldn\u2019t think of a better film to start than Arrival. Not only does it mark our arrival at a new venue for 2017 (do you see what we did there?) but we also think it\u2019s one of the best sci-fi films we\u2019ve seen in quite some time. With a Sterling prize-winning backdrop that nowhere else in London can match, join us to meet Abbott and Costello (you\u2019ll know what we mean when you see the film!) and take in the \u201Cdreamy, freaky and audacious\u201D gravity-defying film that \u201Cskirts on the edge of absurdity\u201D.**\n\nAt its essence, Arrival is an alien invasion film with the invasion on pause; 12 mile-high question mark shaped ships appear above seemingly random points around the globe, including Devon for some reason, and then just hang there admiring the view. To work out why the aliens have arrived, and more importantly to understand any answer they might share, the US military enlists the support of Dr. Louise Banks (played by Amy Adams), an expert linguist, and theoretical physicist, Ian Donnelly (played by Jeremy Renner), to go inside one tomb-like vessel in rural Montana and chew the fat with the visitors. With mankind teetering on the verge of global war, Banks and Donnelly face a race against time decipher the aliens\u2019 complex calligraphy and, quite possibly, to save humanity. No pressure then.\n\nBased on Story of Your Life, the 1998 sci-fi short story by Ted Chiang, and nominated for 8 Oscars (but winning only one, for Best Sound Editing), the Herne Hill Free Film Festival is excited to be bringing Arrival to the Evelyn Grace Academy on 27 May at 9pm. We caught this one on its release in the cinema but it\u2019s really a film that works best in the right setting, and outdoors, in Herne Hill (we think everything\u2019s better in Herne Hill), on a late May evening and with a Sterling prize winner as the backdrop is a pretty good effort we thought!\n",
+      images: {
+        cover: {
+          source: require("./data/images/image69.jpeg"),
+          metadata: {
+            height: 268,
+            width: 182,
+            type: "jpg"
+          }
+        },
+        screenshot: {
+          source: require("./data/images/image70.jpeg"),
+          metadata: {
+            height: 261,
+            width: 393,
+            type: "jpg"
+          }
+        }
+      },
+      colors: {
+        highlight: "#ef3f2d"
+      },
+      exactStartTime: "2017-05-27T18:00:00.000Z",
+      approxEndTime: "2017-05-27T19:56:00.000Z",
+      descriptionPlain: "We\u2019ve always thought that Zaha Hadid\u2019s Evelyn Grace Academy looks like it\u2019s come straight out of science fiction movie, so when we got the chance to screen there we couldn\u2019t think of a better film to start than Arrival. Not only does it mark our arrival at a new venue for 2017 (do you see what we did there?) but we also think it\u2019s one of the best sci-fi films we\u2019ve seen in quite some time. With a Sterling prize-winning backdrop that nowhere else in London can match, join us to meet Abbott and Costello (you\u2019ll know what we mean when you see the film!) and take in the \u201Cdreamy, freaky and audacious\u201D gravity-defying film that \u201Cskirts on the edge of absurdity\u201D.\n\nAt its essence, Arrival is an alien invasion film with the invasion on pause; 12 mile-high question mark shaped ships appear above seemingly random points around the globe, including Devon for some reason, and then just hang there admiring the view. To work out why the aliens have arrived, and more importantly to understand any answer they might share, the US military enlists the support of Dr. Louise Banks (played by Amy Adams), an expert linguist, and theoretical physicist, Ian Donnelly (played by Jeremy Renner), to go inside one tomb-like vessel in rural Montana and chew the fat with the visitors. With mankind teetering on the verge of global war, Banks and Donnelly face a race against time decipher the aliens\u2019 complex calligraphy and, quite possibly, to save humanity. No pressure then.\n\nBased on Story of Your Life, the 1998 sci-fi short story by Ted Chiang, and nominated for 8 Oscars (but winning only one, for Best Sound Editing), the Herne Hill Free Film Festival is excited to be bringing Arrival to the Evelyn Grace Academy on 27 May at 9pm. We caught this one on its release in the cinema but it\u2019s really a film that works best in the right setting, and outdoors, in Herne Hill (we think everything\u2019s better in Herne Hill), on a late May evening and with a Sterling prize winner as the backdrop is a pretty good effort we thought!\n"
+    },
+    "station-square-silent": {
+      title: "The Station\xA0Square Silent\xA0Showcase",
+      country: "US",
+      certificate: "PG",
+      running_time: "90 mins",
+      date: "28 May",
+      venue: {
+        name: "Herne Hill Station",
+        location: "Herne Hill Station, Herne Hill, SE24 0JP",
+        image: {
+          source: require("./data/images/image68.jpeg"),
+          metadata: {
+            height: 247,
+            width: 401,
+            type: "jpg"
+          }
+        }
+      },
+      time: {
+        start: "9pm"
+      },
+      description: "**With the new piano now well established outside Herne Hill station the Herne Hill Free Film Festival is pleased to be bringing a night of silent cinema to Station Square on 28 May, for the final outdoor event of 2017\u2019s festival. With the UK\u2019s leading silent film accompanist and local resident Neil Brand tinkling the ivories, we are certain the triple-bill of Charlie Chaplin, Charley Chase and Laurel and Hardy will be splitting the sides of Herne Hill and mark a hilarious highpoint to a month of cinematic magic in SE24. The evenings screenings start at 9pm but get there early to grab a good seat!**\n\n# The Rink, Charlie Chaplin (30 mins)\nCharlie employs an unorthodox approach to his work as a waiter. He prepares bills by examining food stains on customers clothing, he makes a cocktail with a shimmy of his body while the cocktail shaker remains immobile in his hands and he carelessly places a broiler cover over a live cat that he serves to a startled diner. He is however also incredibly graceful on roller skates, which is how he spends his lunch break\u2026  \n\n# Limousine Love (Charley Chase) (20 mins)\nIt\u2019s Charley\u2019s wedding day and he\u2019s running late. When his chauffeur quits in a huff Charley is forced to take the wheel himself, in his formal get-up of tailcoat and top hat, and drive through a remote rural area to the wedding. After stepping away from his car for a brief moment he comes back and resumes driving unaware that he has a beautiful nude girl riding in the backseat, which is where the fun begins (for us at least!). \n\n# The Finishing Touch (Laurel and Hardy) (19 mins)\nLaurel and Hardy are contracted to build a house in one day but on completion a bird lands on the chimney and the house collapses, bit by bit. When the owner demands his money back, mayhem ensues. Somewhat unsurprisingly.\n",
+      images: {
+        cover: {
+          source: require("./data/images/image72.jpeg"),
+          metadata: {
+            height: 372,
+            width: 255,
+            type: "jpg"
+          }
+        },
+        screenshot: {
+          source: require("./data/images/image71.png"),
+          metadata: {
+            width: 403,
+            height: 323,
+            type: "png"
+          }
+        },
+        cover2: {
+          source: require("./data/images/image73.jpeg"),
+          metadata: {
+            height: 500,
+            width: 330,
+            type: "jpg"
+          }
+        },
+        screenshot2: {
+          source: require("./data/images/image74.jpeg"),
+          metadata: {
+            height: 249,
+            width: 331,
+            type: "jpg"
+          }
+        },
+        screenshot3: {
+          source: require("./data/images/image75.jpeg"),
+          metadata: {
+            height: 244,
+            width: 430,
+            type: "jpg"
+          }
+        }
+      },
+      colors: {
+        highlight: "#4a5aa8"
+      },
+      exactStartTime: "2017-05-28T18:00:00.000Z",
+      approxEndTime: "2017-05-28T19:30:00.000Z",
+      descriptionPlain: "With the new piano now well established outside Herne Hill station the Herne Hill Free Film Festival is pleased to be bringing a night of silent cinema to Station Square on 28 May, for the final outdoor event of 2017\u2019s festival. With the UK\u2019s leading silent film accompanist and local resident Neil Brand tinkling the ivories, we are certain the triple-bill of Charlie Chaplin, Charley Chase and Laurel and Hardy will be splitting the sides of Herne Hill and mark a hilarious highpoint to a month of cinematic magic in SE24. The evenings screenings start at 9pm but get there early to grab a good seat!\n\nThe Rink, Charlie Chaplin (30 mins)\n\nCharlie employs an unorthodox approach to his work as a waiter. He prepares bills by examining food stains on customers clothing, he makes a cocktail with a shimmy of his body while the cocktail shaker remains immobile in his hands and he carelessly places a broiler cover over a live cat that he serves to a startled diner. He is however also incredibly graceful on roller skates, which is how he spends his lunch break\u2026  \n\nLimousine Love (Charley Chase) (20 mins)\n\nIt\u2019s Charley\u2019s wedding day and he\u2019s running late. When his chauffeur quits in a huff Charley is forced to take the wheel himself, in his formal get-up of tailcoat and top hat, and drive through a remote rural area to the wedding. After stepping away from his car for a brief moment he comes back and resumes driving unaware that he has a beautiful nude girl riding in the backseat, which is where the fun begins (for us at least!). \n\nThe Finishing Touch (Laurel and Hardy) (19 mins)\n\nLaurel and Hardy are contracted to build a house in one day but on completion a bird lands on the chimney and the house collapses, bit by bit. When the owner demands his money back, mayhem ensues. Somewhat unsurprisingly.\n"
+    },
+    "something-better-to-come": {
+      title: "Something Better to\xA0Come",
+      director: "Hannah Polak",
+      year: 2015,
+      country: "Poland / Denmark",
+      certificate: "Unrated",
+      running_time: "98 mins",
+      trailer: "https://www.youtube.com/watch?v=9PereQR9lSk",
+      date: "29 May",
+      venue: {
+        name: "The Lido Caf\xE9",
+        location: "Brockwell Swimming Pool, Dulwich Rd, London SE24 0PA",
+        link: "http://www.thelidocafe.co.uk/",
+        image: {
+          source: require("./data/images/image12.jpeg"),
+          metadata: {
+            height: 301,
+            width: 436,
+            type: "jpg"
+          }
+        }
+      },
+      time: {
+        start: "8pm"
+      },
+      description: "**Shown to a sell-out crowd at the Barbican in March 2017, the Herne Hill Free Film Festival is excited to be bringing Hannah Polak\u2019s 2014 documentary film Something Better to Come to Herne Hill for its second screening in the UK. The film follows 10-year old Yula, living in Europe's largest junkyard on the outskirts of Moscow, for a period of 14 years as she plays innocent childhood games, finds love for the first time and, as a grown woman, has the realisation that her future lies outside of the Svalka\u2019s walls. We know you\u2019re going to enjoy this one, but we also know you\u2019re not going to get another chance to it again any time soon. So make the most of this opportunity and come down to The Lido Caf\xE9 on 29 May at 8pm. You won\u2019t be disappointed.**\n\nSituated 13 miles from the Kremlin, just on the outskirts of Putin's big showcase of a city, the Svalka is a huge mountain of trash, 17 stories high and stretching for over two miles. Although life can be grim and dismal for the Svalka's inhabitants, it also brings out the best in people; they generously share their vodka and last breadcrumbs with each other and open up their ramshackle sheds to shelter those who need it. And despite the misery that life here has to offer, people strive for normality. Yula \u2013 the 10-year old focus of the film \u2013 dreams of escaping the Svalka and, for a period of 14 years Something Better to Come, follows Yula's life. In 2000 the film\u2019s director was granted intimate access Yula and her family, and over more than a decade she builds a solid relationship of trust with those that she's filming. With year after year passing and it appears that nothing changes for Yula, however the film\u2019s epilogue \u2013 shot six years after the main bulk of the running time \u2013 gives cause for optimism.\n\nThe Herne Hill Free Film Festival is lucky to have the chance to show this documentary from Oscar nominated Polish director, cinematographer and producer Hannah Polak. The screening at The Lido Caf\xE9 on 29 May at 8pm will be its second appearance in the United Kingdom, and if you miss this chance you probably won\u2019t get the opportunity to see it again. So come down. We are certain that the film, and Yula\u2019s story, won\u2019t disappoint.\n",
+      images: {
+        cover: {
+          source: require("./data/images/image76.jpeg"),
+          metadata: {
+            height: 334,
+            width: 226,
+            type: "jpg"
+          }
+        },
+        screenshot: {
+          source: require("./data/images/image77.jpeg"),
+          metadata: {
+            height: 264,
+            width: 422,
+            type: "jpg"
+          }
+        }
+      },
+      colors: {
+        highlight: "#af5ea5"
+      },
+      exactStartTime: "2017-05-29T17:00:00.000Z",
+      approxEndTime: "2017-05-29T18:38:00.000Z",
+      descriptionPlain: "Shown to a sell-out crowd at the Barbican in March 2017, the Herne Hill Free Film Festival is excited to be bringing Hannah Polak\u2019s 2014 documentary film Something Better to Come to Herne Hill for its second screening in the UK. The film follows 10-year old Yula, living in Europe's largest junkyard on the outskirts of Moscow, for a period of 14 years as she plays innocent childhood games, finds love for the first time and, as a grown woman, has the realisation that her future lies outside of the Svalka\u2019s walls. We know you\u2019re going to enjoy this one, but we also know you\u2019re not going to get another chance to it again any time soon. So make the most of this opportunity and come down to The Lido Caf\xE9 on 29 May at 8pm. You won\u2019t be disappointed.\n\nSituated 13 miles from the Kremlin, just on the outskirts of Putin's big showcase of a city, the Svalka is a huge mountain of trash, 17 stories high and stretching for over two miles. Although life can be grim and dismal for the Svalka's inhabitants, it also brings out the best in people; they generously share their vodka and last breadcrumbs with each other and open up their ramshackle sheds to shelter those who need it. And despite the misery that life here has to offer, people strive for normality. Yula \u2013 the 10-year old focus of the film \u2013 dreams of escaping the Svalka and, for a period of 14 years Something Better to Come, follows Yula's life. In 2000 the film\u2019s director was granted intimate access Yula and her family, and over more than a decade she builds a solid relationship of trust with those that she's filming. With year after year passing and it appears that nothing changes for Yula, however the film\u2019s epilogue \u2013 shot six years after the main bulk of the running time \u2013 gives cause for optimism.\n\nThe Herne Hill Free Film Festival is lucky to have the chance to show this documentary from Oscar nominated Polish director, cinematographer and producer Hannah Polak. The screening at The Lido Caf\xE9 on 29 May at 8pm will be its second appearance in the United Kingdom, and if you miss this chance you probably won\u2019t get the opportunity to see it again. So come down. We are certain that the film, and Yula\u2019s story, won\u2019t disappoint.\n"
     }
   },
   FilmsIndex: {
-    byStartTime: ["bfg", "metropolis", "competition-1", "untold-stories-evening", "embrace-of-the-serpent", "demain", "four-mums", "adult-life-skills", "Imitation of Life", "Victoria", "adventure-film-night", "Train to Busan", "Bob Robert", "Beautiful Devils", "Easy Rider", "The BigLebowski", "Moonlight", "Cameraperson", "Fire at Sea/Fuocoammare", "War of Words", "Do the Right Thing", "Moana", "competition-awards"]
+    byStartTime: ["bfg", "metropolis", "competition-1", "untold-stories-evening", "embrace-of-the-serpent", "demain", "four-mums", "adult-life-skills", "Imitation of Life", "Victoria", "adventure-film-night", "Train to Busan", "Bob Robert", "Beautiful Devils", "Easy Rider", "The BigLebowski", "Moonlight", "Cameraperson", "fire-at-sea", "War of Words", "Do the Right Thing", "Moana", "Priscilla", "Murderball", "little-shop-of-horrors", "short-film-night", "la-la-land", "arrival", "competition-awards", "station-square-silent", "something-better-to-come"]
   }
 };
