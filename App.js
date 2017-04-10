@@ -68,7 +68,7 @@ export default class App extends Component {
   async componentWillMount() {
     await Promise.all([
       setupNotifications(),
-      cacheImages([require("./data/images/popcorn-guy-rtl-1080x1073.png")]),
+      cacheImages([require("./data/images/popcorn-guy-rtl-1080x1073.jpg")]),
       Expo.Font.loadAsync({
         "London Train": require("./data/fonts/london-train-regular.otf"),
         "Agenda Light": require("./data/fonts/AgendaLight.ttf"),

@@ -284,7 +284,7 @@ export default class IntroPage extends React.Component {
       <View style={styles.container} onLayout={this.handleLayout}>
         <StatusBar hidden={true} />
         <Image
-          source={require("../data/images/popcorn-guy-rtl-1080x1073.png")}
+          source={require("../data/images/popcorn-guy-rtl-1080x1073.jpg")}
           style={{
             height: popcornGuyAdjustedSize.height,
             width: popcornGuyAdjustedSize.width,
