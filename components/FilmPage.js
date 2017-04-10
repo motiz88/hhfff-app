@@ -551,9 +551,7 @@ export default class FilmsPage extends React.Component {
   componentWillMount() {
     StatusBar.setHidden(true);
     const { filmId } = this;
-    this._cardIndex = this.props.data.FilmsIndex.byStartTime.indexOf(
-      filmId
-    );
+    this._cardIndex = this.props.data.FilmsIndex.byStartTime.indexOf(filmId);
   }
 
   componentDidMount() {
