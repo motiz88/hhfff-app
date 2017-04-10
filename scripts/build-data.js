@@ -43,12 +43,17 @@ async function writeData(filename, data) {
           fspath.join("data", requireMatch[1]);
         const metadata = imageSize(fspath.resolve(__dirname, "..", filePath));
         if (metadata) {
-          path.replaceWith(
-            templateRequireImage({
-              PATH: t.stringLiteral(filePath),
-              METADATA: t.valueToNode(metadata)
-            }).expression
-          );
+          try {
+            path.replaceWith(
+              templateRequireImage({
+                PATH: t.stringLiteral(filePath),
+                METADATA: t.valueToNode(metadata)
+              }).expression
+            );
+          } catch (e) {
+            console.error('Error processing required asset', filePath);
+            throw e;
+          }
         } else {
           path.replaceWith(
             templateRequire({ PATH: t.stringLiteral(filePath) }).expression
