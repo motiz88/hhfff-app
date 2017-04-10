@@ -23,7 +23,8 @@ import {
   SimpleLineIcons,
   Foundation,
   MaterialIcons,
-  FontAwesome
+  FontAwesome,
+  Entypo
 } from "@expo/vector-icons";
 import Expo from "expo";
 
@@ -432,6 +433,9 @@ const styles = StyleSheet.create({
   },
   outdoorIcon: {
     marginLeft: -1
+  },
+  navButton: {
+    color: "rgba(255, 255, 255, 0.8)"
   }
 });
 
@@ -500,7 +504,7 @@ export default class FilmsPage extends React.Component {
     return (
       <View style={{ flex: 1, marginTop: 0 }} onLayout={this.handleLayout}>
         <Swiper
-          showsButtons={false}
+          showsButtons={true}
           showsPagination={false}
           width={width}
           height={height}
@@ -513,6 +517,21 @@ export default class FilmsPage extends React.Component {
           ref={ref => {
             this._swiper = ref;
           }}
+          buttonWrapperStyle={{}}
+          nextButton={
+            <Entypo
+              size={25}
+              name="chevron-thin-right"
+              style={styles.navButton}
+            />
+          }
+          prevButton={
+            <Entypo
+              size={25}
+              name="chevron-thin-left"
+              style={styles.navButton}
+            />
+          }
         >
           {data.FilmsIndex.byStartTime.map((key, i) => (
             <SingleFilmPage
