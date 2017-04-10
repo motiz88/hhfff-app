@@ -70,8 +70,6 @@ export default class App extends Component {
       setupNotifications(),
       cacheImages([require("./data/images/popcorn-guy-rtl-1080x1073.png")]),
       Expo.Font.loadAsync({
-        // Roboto: require("native-base/Fonts/Roboto.ttf"),
-        // Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
         "London Train": require("./data/fonts/london-train-regular.otf"),
         "Agenda Light": require("./data/fonts/AgendaLight.ttf"),
         "Agenda Bold": require("./data/fonts/AgendaBold.ttf"),

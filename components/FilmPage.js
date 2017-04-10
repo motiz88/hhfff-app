@@ -14,7 +14,6 @@ import {
   Easing
 } from "react-native";
 import openMapAddress from "../utils/openMapAddress";
-import { Tile, Grid, Row, Col, Button } from "react-native-elements";
 import CustomText from "./CustomText";
 import { Actions } from "react-native-router-flux";
 import data from "../data.generated";

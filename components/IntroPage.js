@@ -13,7 +13,6 @@ import {
   Navigator,
   Platform
 } from "react-native";
-import { Tile } from "react-native-elements";
 import CustomText from "./CustomText";
 import { Actions } from "react-native-router-flux";
 import data from "../data.generated";

@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView, Platform } from "react-native";
-import { Grid, Row } from "react-native-elements";
 import data from "../data.generated";
 
 export default class PageContainer extends React.Component {
