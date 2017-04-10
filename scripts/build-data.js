@@ -41,23 +41,23 @@ async function writeData(filename, data) {
         const filePath = "." +
           fspath.sep +
           fspath.join("data", requireMatch[1]);
-        const metadata = imageSize(fspath.resolve(__dirname, "..", filePath));
-        if (metadata) {
-          try {
+        try {
+          const metadata = imageSize(fspath.resolve(__dirname, "..", filePath));
+          if (metadata) {
+              path.replaceWith(
+                templateRequireImage({
+                  PATH: t.stringLiteral(filePath),
+                  METADATA: t.valueToNode(metadata)
+                }).expression
+              );
+          } else {
             path.replaceWith(
-              templateRequireImage({
-                PATH: t.stringLiteral(filePath),
-                METADATA: t.valueToNode(metadata)
-              }).expression
+              templateRequire({ PATH: t.stringLiteral(filePath) }).expression
             );
-          } catch (e) {
-            console.error('Error processing required asset', filePath);
-            throw e;
           }
-        } else {
-          path.replaceWith(
-            templateRequire({ PATH: t.stringLiteral(filePath) }).expression
-          );
+        } catch (e) {
+          console.error('Error processing required asset', filePath);
+          throw e;
         }
       }
     }
