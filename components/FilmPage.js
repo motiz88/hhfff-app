@@ -143,8 +143,6 @@ class SingleFilmPage extends React.Component {
     const screenshotScaleFactor = !screenshotImage
       ? 1
       : Math.max(
-          screenshotImage.metadata.width / tileWidth,
-          screenshotImage.metadata.height / tileHeight,
           tileWidth / screenshotImage.metadata.width,
           tileHeight / screenshotImage.metadata.height
         );
