@@ -660,7 +660,7 @@ Moana:
 
   images:
     cover: require(./images/image55.jpeg)
-    screenshot: require(./images/image56.jpeg)
+    screenshot: require(./images/moana.jpeg)
   colors:
     highlight: '#e59125'
 
