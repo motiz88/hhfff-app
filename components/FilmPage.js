@@ -184,7 +184,8 @@ class SingleFilmPage extends React.Component {
               style={{
                 overflow: "visible",
                 position: "absolute",
-                top: 0,
+                top: tileHeight / 4 - screenshotHeight / 4,
+                left: tileWidth / 2 - screenshotWidth / 2,
                 width: screenshotWidth,
                 height: screenshotHeight
               }}
