@@ -314,7 +314,8 @@ class SingleFilmPage extends React.Component {
             style={{
               margin: 8,
               fontSize: 20,
-              fontFamily: "Agenda Light"
+              fontFamily: "Agenda Light",
+              backgroundColor: "#39bc99"
             }}
             selectable
           >
