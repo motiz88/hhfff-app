@@ -27,7 +27,8 @@ async function setupNotifications() {
           descriptionPlain,
           images,
           colors,
-          exactStartTime
+          exactStartTime,
+          notification
         } = film;
         if (!exactStartTime) {
           return;
@@ -41,7 +42,8 @@ async function setupNotifications() {
           notificationTime.subtract(1, "day");
         }
         const notification = {
-          title: title + (venue.is_outdoor ? " (Outdoor screening)" : ""),
+          title: ((notification && notification.title) || title) +
+            (venue.is_outdoor ? " (Outdoor screening)" : ""),
           body: `${time.start} at ${venue.name}`,
           data: JSON.stringify({
             film: {

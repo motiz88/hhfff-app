@@ -277,6 +277,9 @@ export default {
     },
     demain: {
       title: "Demain (Tomorrow)",
+      notification: {
+        title: "Demain"
+      },
       director: "Cyril Dion, Melanie Laurent",
       year: 2015,
       country: "France",
