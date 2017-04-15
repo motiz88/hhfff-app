@@ -4,6 +4,10 @@
     "name": "Herne Hill Free Film Festival",
     "privacy": "unlisted",
     "icon": "./data/images/launcher-icon.png",
+    "notification": {
+      "icon": "./data/images/icon-white-on-alpha-48.png",
+      "color": "#42b693"
+    },
     "loading": {
       "icon": "./data/images/logo.png",
       "hideExponentText": true
