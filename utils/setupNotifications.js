@@ -52,8 +52,7 @@ async function setupNotifications() {
           }),
           android: {
             color: colors.highlight,
-            vibrate: true,
-            icon: require("../data/images/icon-white-on-alpha-96.png")
+            vibrate: true
           }
         };
         await Expo.Notifications.scheduleLocalNotificationAsync(notification, {
