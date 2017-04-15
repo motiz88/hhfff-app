@@ -2,6 +2,7 @@
   "expo": {
     "sdkVersion": "15.0.0",
     "name": "Herne Hill Free Film Festival",
+    "privacy": "unlisted",
     "icon": "./data/images/launcher-icon.png",
     "loading": {
       "icon": "./data/images/logo.png",
