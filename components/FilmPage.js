@@ -73,18 +73,7 @@ function getTitleFontSize(
   const { height, width } = layout;
   return Math.round(Math.min(32, height / Math.sqrt(text.length)));
 }
-function getCaptionFontSize(
-  text: string,
-  layout: { height: number, width: number }
-) {
-  const { height, width } = layout;
-  return Math.round(
-    Math.min(
-      1 / 2 * getTitleFontSize(text, layout),
-      height / Math.sqrt(text.length)
-    )
-  );
-}
+
 class SingleFilmPage extends React.Component {
   static defaultProps = {
     data,
@@ -202,7 +191,7 @@ class SingleFilmPage extends React.Component {
             <Animated.Text
               style={[
                 styles.headline,
-                { fontSize: getTitleFontSize(title, { height, width }) },
+                { fontSize: getTitleFontSize(title, { height: tileHeight, width: tileWidth }) },
                 {
                   flexGrow: 0,
                   backgroundColor: colors.highlight,
