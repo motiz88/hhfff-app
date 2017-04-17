@@ -1,4 +1,4 @@
-import Expo from "expo";
+import Expo, { Amplitude } from "expo";
 import React, { Component } from "react";
 import { DeviceEventEmitter } from "react-native";
 import { Actions, ActionConst, Scene, Router } from "react-native-router-flux";
@@ -84,7 +84,9 @@ export default class App extends Component {
       this.handleNotification
     );
 
-    this.setState({ isReady: true });
+    this.setState({ isReady: true }, () => {
+      Amplitude.logEvent("App loaded");
+    });
   }
   componentDidMount() {
     if (this.props.exp && this.props.exp.notification) {
@@ -95,6 +97,9 @@ export default class App extends Component {
     this.setState({ notification: notification });
     const data = JSON.parse(notification.data);
     if (notification.origin === "selected" && data && data.film) {
+      Amplitude.logEventWithProperties("Tapped film notification", {
+        filmId: data.film.filmId
+      });
       Actions.film({ notification: { ...notification, data } });
     }
   };

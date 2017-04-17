@@ -18,6 +18,7 @@ import PageContainer from "./PageContainer";
 import Swiper from "react-native-swiper";
 import { SimpleLineIcons, Foundation, MaterialIcons } from "@expo/vector-icons";
 import moment from "moment";
+import { Amplitude } from "expo";
 
 const InfoField = ({ label, children }) => (
   <View style={{ flexDirection: "column", justifyContent: "flex-start" }}>
@@ -272,12 +273,14 @@ export default class IntroPage extends React.Component {
       width: Math.min(popcornGuySize.width, height / popcornGuyAspect, width),
       height: Math.min(popcornGuySize.height, width * popcornGuyAspect, height)
     };
-    const gotoFilmsHandler = () =>
+    const gotoFilmsHandler = () => {
+      Amplitude.logEvent("Tapped See What's On");
       Actions.film({
         filmId: nextFilmId,
         direction: "horizontal",
         duration: 600
       });
+    };
     return (
       <View style={styles.container} onLayout={this.handleLayout}>
         <StatusBar hidden={true} />

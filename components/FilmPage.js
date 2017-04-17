@@ -26,7 +26,7 @@ import {
   FontAwesome,
   Entypo
 } from "@expo/vector-icons";
-import Expo from "expo";
+import Expo, { Amplitude } from "expo";
 
 const InfoField = ({ label, children }) => (
   <View style={{ flexDirection: "column", justifyContent: "flex-start" }}>
@@ -36,8 +36,16 @@ const InfoField = ({ label, children }) => (
     <View style={{ flex: 1 }}>{children}</View>
   </View>
 );
-const Trailer = ({ href, backgroundColor, ...props }) => (
-  <TouchableHighlight onPress={() => Linking.openURL(href)} {...props}>
+const Trailer = ({ href, backgroundColor, onPress, ...props }) => (
+  <TouchableHighlight
+    onPress={() => {
+      if (onPress) {
+        onPress();
+      }
+      Linking.openURL(href);
+    }}
+    {...props}
+  >
     <View style={[styles.iconTextWrapper, { backgroundColor }]}>
       <Foundation
         name="play-video"
@@ -51,9 +59,17 @@ const Trailer = ({ href, backgroundColor, ...props }) => (
   </TouchableHighlight>
 );
 const LocationLink = (
-  { location, children, backgroundColor, textStyle, ...props }
+  { location, children, backgroundColor, textStyle, onPress, ...props }
 ) => (
-  <TouchableHighlight onPress={() => openMapAddress(location)} {...props}>
+  <TouchableHighlight
+    onPress={() => {
+      if (onPress) {
+        onPress();
+      }
+      openMapAddress(location);
+    }}
+    {...props}
+  >
     <View style={[styles.iconTextWrapper, { backgroundColor }]}>
       <SimpleLineIcons name="location-pin" size={16} style={styles.infoIcon} />
       <CustomText
@@ -191,7 +207,12 @@ class SingleFilmPage extends React.Component {
             <Animated.Text
               style={[
                 styles.headline,
-                { fontSize: getTitleFontSize(title, { height: tileHeight, width: tileWidth }) },
+                {
+                  fontSize: getTitleFontSize(title, {
+                    height: tileHeight,
+                    width: tileWidth
+                  })
+                },
                 {
                   flexGrow: 0,
                   backgroundColor: colors.highlight,
@@ -266,6 +287,11 @@ class SingleFilmPage extends React.Component {
 
             {trailer
               ? <Trailer
+                  onPress={() => {
+                    Amplitude.logEventWithProperties("Watch trailer", {
+                      filmId
+                    });
+                  }}
                   href={trailer}
                   style={{ flex: 0, flexBasis: infoItemWidth }}
                   backgroundColor={colors.highlight}
@@ -273,6 +299,11 @@ class SingleFilmPage extends React.Component {
               : null}
 
             <LocationLink
+              onPress={() => {
+                Amplitude.logEventWithProperties("Tap location", {
+                  filmId
+                });
+              }}
               location={venue.location}
               style={{ flex: 0, flexBasis: infoItemWidth }}
               textStyle={{ width: infoTextWidth }}
@@ -457,14 +488,48 @@ export default class FilmsPage extends React.Component {
     if (this._cardIndex === swiperState.index) {
       return;
     }
-    if (this._cardRefs[this._cardIndex]) {
-      this._cardRefs[this._cardIndex].handleHide();
-    }
+    this.handleHideIndex(this._cardIndex);
     this._cardIndex = swiperState.index;
-    if (this._cardRefs[this._cardIndex]) {
-      this._cardRefs[this._cardIndex].handleShow();
-    }
+    this.handleShowIndex(this._cardIndex);
   };
+
+  handleHideIndex(cardIndex) {
+    if (this._cardRefs[cardIndex]) {
+      this._cardRefs[cardIndex].handleHide();
+    }
+  }
+
+  handleShowIndex(cardIndex) {
+    if (this._cardRefs[cardIndex]) {
+      this._cardRefs[cardIndex].handleShow();
+    }
+    if (
+      cardIndex > this._initialCardIndex &&
+      cardIndex === this.props.data.FilmsIndex.byStartTime.length - 1 &&
+      !this._loggedScrollToEnd
+    ) {
+      Amplitude.logEvent("Scrolled to last film");
+      this._loggedScrollToEnd = true;
+      this._loggedScrollNext = true;
+    }
+    if (cardIndex > this._initialCardIndex && !this._loggedScrollNext) {
+      Amplitude.logEvent("Scrolled right");
+      this._loggedScrollNext = true;
+    }
+    if (
+      cardIndex < this._initialCardIndex &&
+      cardIndex === 0 &&
+      !this._loggedScrollToStart
+    ) {
+      Amplitude.logEvent("Scrolled to first film");
+      this._loggedScrollToStart = true;
+      this._loggedScrollPrev = true;
+    }
+    if (cardIndex < this._initialCardIndex && !this._loggedScrollPrev) {
+      Amplitude.logEvent("Scrolled left");
+      this._loggedScrollPrev = true;
+    }
+  }
 
   get filmId() {
     const { filmId, notification } = this.props;
@@ -542,11 +607,10 @@ export default class FilmsPage extends React.Component {
     StatusBar.setHidden(true);
     const { filmId } = this;
     this._cardIndex = this.props.data.FilmsIndex.byStartTime.indexOf(filmId);
+    this._initialCardIndex = this._cardIndex;
   }
 
   componentDidMount() {
-    if (this._cardRefs[this._cardIndex]) {
-      this._cardRefs[this._cardIndex].handleShow();
-    }
+    this.handleShowIndex(this._cardIndex);
   }
 }
