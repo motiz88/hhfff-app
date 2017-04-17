@@ -9,8 +9,6 @@ import {
   TouchableHighlight,
   Dimensions,
   StatusBar,
-  NavigationExperimental,
-  Navigator,
   Platform
 } from "react-native";
 import CustomText from "./CustomText";
