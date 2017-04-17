@@ -6,6 +6,7 @@ import data from "./data.generated";
 import FilmPage from "./components/FilmPage";
 import IntroPage from "./components/IntroPage";
 import setupNotifications from "./utils/setupNotifications";
+import setupAmplitude from "./utils/setupAmplitude";
 
 function cacheImages(images) {
   return Promise.all(
@@ -67,6 +68,7 @@ export default class App extends Component {
 
   async componentWillMount() {
     await Promise.all([
+      setupAmplitude(),
       setupNotifications(),
       cacheImages([require("./data/images/popcorn-guy-rtl-1080x1073.jpg")]),
       Expo.Font.loadAsync({
