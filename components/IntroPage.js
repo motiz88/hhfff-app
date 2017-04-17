@@ -177,6 +177,8 @@ class FilmstripButton extends React.Component {
   }
 }
 
+const referenceHeight = 666;
+
 class LogoLine extends React.Component {
   static defaultProps = {
     sizeRatio: 1,
@@ -209,6 +211,8 @@ class LogoLine extends React.Component {
 
     const { width, height } = this.state.layout;
 
+    const heightFactor = parentLayout.height / referenceHeight;
+
     return (
       <CustomText
         onLayout={this.handleLayout}
@@ -217,10 +221,10 @@ class LogoLine extends React.Component {
           {
             backgroundColor: "rgba(0,0,0,0)",
             fontFamily: "London Train",
-            fontSize: sizeRatio * 58 / 666 * parentLayout.height,
+            fontSize: sizeRatio * 58 * heightFactor,
             textAlign: "right",
-            marginBottom: marginBottomRatio * -35 / 666 * parentLayout.height,
-            marginTop: marginTopRatio * -10 / 666 * parentLayout.height,
+            marginBottom: -marginBottomRatio * 35 * heightFactor,
+            marginTop: marginTopRatio * -10 * heightFactor,
             transform: rotateLeftDeg
               ? [
                   { translateX: width / 2 },
