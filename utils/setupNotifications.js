@@ -9,6 +9,12 @@ const DEV = true;
 async function setupNotifications() {
   const savedVersion = await AsyncStorage.getItem("notifications.savedVersion");
   if (savedVersion !== version || DEV) {
+    const { status } = await Expo.Permissions.askAsync(
+      Expo.Permissions.REMOTE_NOTIFICATIONS
+    );
+    if (status !== "granted") {
+      return;
+    }
     await Expo.Notifications.cancelAllScheduledNotificationsAsync();
     await Promise.all(
       data.FilmsIndex.byStartTime.map(async (filmId, i) => {
