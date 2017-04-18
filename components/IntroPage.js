@@ -9,7 +9,8 @@ import {
   TouchableHighlight,
   Dimensions,
   StatusBar,
-  Platform
+  Platform,
+  Animated
 } from "react-native";
 import CustomText from "./CustomText";
 import { Actions } from "react-native-router-flux";
@@ -19,51 +20,7 @@ import Swiper from "react-native-swiper";
 import { SimpleLineIcons, Foundation, MaterialIcons } from "@expo/vector-icons";
 import moment from "moment";
 import { Amplitude } from "expo";
-
-const InfoField = ({ label, children }) => (
-  <View style={{ flexDirection: "column", justifyContent: "flex-start" }}>
-    <View style={{ flex: 1 }}>
-      <CustomText style={styles.infoFieldLabel}>{label}</CustomText>
-    </View>
-    <View style={{ flex: 1 }}>{children}</View>
-  </View>
-);
-const Trailer = ({ href }) => (
-  <TouchableHighlight onPress={() => Linking.openURL(href)}>
-    <CustomText style={styles.watchTrailer}>
-      Watch trailer
-    </CustomText>
-  </TouchableHighlight>
-);
-const LocationLink = ({ location, children }) => (
-  <TouchableHighlight onPress={() => openMapAddress(location)}>
-    <View style={styles.iconTextWrapper}>
-      <SimpleLineIcons name="location-pin" size={16} style={styles.infoIcon} />
-      <CustomText style={styles.locationLink}>
-        {children}
-      </CustomText>
-    </View>
-  </TouchableHighlight>
-);
-function getTitleFontSize(
-  text: string,
-  layout: { height: number, width: number }
-) {
-  const { height, width } = layout;
-  return Math.round(Math.min(32, height / Math.sqrt(text.length)));
-}
-function getCaptionFontSize(
-  text: string,
-  layout: { height: number, width: number }
-) {
-  const { height, width } = layout;
-  return Math.round(
-    Math.min(
-      1 / 2 * getTitleFontSize(text, layout),
-      height / Math.sqrt(text.length)
-    )
-  );
-}
+import createRoutingLifecycle from "../state/routing/createRoutingLifecycle";
 
 const FilmstripHoleSize = {
   width: 15,
@@ -179,6 +136,8 @@ class FilmstripButton extends React.Component {
 
 const referenceHeight = 666;
 
+const AnimatedCustomText = Animated.createAnimatedComponent(CustomText);
+
 class LogoLine extends React.Component {
   static defaultProps = {
     sizeRatio: 1,
@@ -206,6 +165,7 @@ class LogoLine extends React.Component {
       marginBottomRatio,
       marginTopRatio,
       rotateLeftDeg,
+      animationProgress,
       ...props
     } = this.props;
 
@@ -214,7 +174,7 @@ class LogoLine extends React.Component {
     const heightFactor = parentLayout.height / referenceHeight;
 
     return (
-      <CustomText
+      <AnimatedCustomText
         onLayout={this.handleLayout}
         {...props}
         style={[
@@ -233,21 +193,66 @@ class LogoLine extends React.Component {
                   { translateY: -height / 2 },
                   { translateX: -width / 2 }
                 ]
-              : []
+              : [],
+            textShadowColor: "white",
+            textShadowOffset: { height: -2, width: -1 },
+            textShadowRadius: 2,
+            right: animationProgress.interpolate({
+              inputRange: [0, 1],
+              outputRange: ["-100%", "0%"]
+            })
           },
           style
         ]}
       >
         {children}
-      </CustomText>
+      </AnimatedCustomText>
     );
   }
 }
 
-export default class IntroPage extends React.Component {
+class IntroPage extends React.Component {
   static defaultProps = {
     data
   };
+
+  _logoLines = [
+    {
+      style: { color: "#ef3f2d" },
+      sizeRatio: 1.1,
+      marginBottomRatio: 1.2,
+
+      text: "HERNE HILL"
+    },
+    {
+      style: { color: "#da9f3d", zIndex: 1 },
+      rotateLeftDeg: 5,
+      sizeRatio: 1,
+      marginBottomRatio: 0.5,
+
+      text: "FREE"
+    },
+    {
+      style: { color: "#4a5aa8" },
+      marginTopRatio: 0.5,
+      sizeRatio: 1.1,
+
+      text: "FILM"
+    },
+    {
+      style: { color: "#231f20" },
+      marginTopRatio: 1.2,
+
+      text: "FESTIVAL"
+    },
+    {
+      style: { color: "#39bc99" },
+      marginTopRatio: -1,
+      text: "2017"
+    }
+  ].map(elem => ({ ...elem, animationProgress: new Animated.Value(0) }));
+
+  _seeWhatsOnAnimationProgress = new Animated.Value(0);
 
   state = {
     layout: Dimensions.get("window")
@@ -261,29 +266,35 @@ export default class IntroPage extends React.Component {
       }
     });
 
+  handleSeeWhatsOnClick = () => {
+    Amplitude.logEvent("Tapped See What's On");
+    Animated.stagger(
+      300,
+      this._getAnimsSequence({ toValue: 0 }).reverse()
+    ).start(() => {
+      const now = moment.now();
+      const { data } = this.props;
+      const nextFilmId = data.FilmsIndex.byStartTime.find(
+        filmId =>
+          moment(data.Films[filmId].exactStartTime).isSameOrAfter(now) ||
+          (data.Films[filmId].approxEndTime &&
+            moment(data.Films[filmId].approxEndTime).isSameOrAfter(now))
+      ) || data.FilmsIndex.byStartTime[0];
+      Actions.film({
+        filmId: nextFilmId,
+        direction: "horizontal",
+        duration: 300
+      });
+    });
+  };
+
   render() {
-    const now = moment.now();
-    const { data } = this.props;
-    const nextFilmId = data.FilmsIndex.byStartTime.find(
-      filmId =>
-        moment(data.Films[filmId].exactStartTime).isSameOrAfter(now) ||
-        (data.Films[filmId].approxEndTime &&
-          moment(data.Films[filmId].approxEndTime).isSameOrAfter(now))
-    ) || data.FilmsIndex.byStartTime[0];
     const { width, height } = this.state.layout;
     const popcornGuySize = { width: 1080, height: 1073 };
     const popcornGuyAspect = popcornGuySize.width / popcornGuySize.height;
     const popcornGuyAdjustedSize = {
       width: Math.min(popcornGuySize.width, height / popcornGuyAspect, width),
       height: Math.min(popcornGuySize.height, width * popcornGuyAspect, height)
-    };
-    const gotoFilmsHandler = () => {
-      Amplitude.logEvent("Tapped See What's On");
-      Actions.film({
-        filmId: nextFilmId,
-        direction: "horizontal",
-        duration: 600
-      });
     };
     return (
       <View style={styles.container} onLayout={this.handleLayout}>
@@ -294,65 +305,59 @@ export default class IntroPage extends React.Component {
             height: popcornGuyAdjustedSize.height,
             width: popcornGuyAdjustedSize.width,
             position: "absolute",
-            bottom: 0,
+            bottom: -1,
             left: 0,
             transform: [{ scaleX: -1 }]
           }}
         />
         <View style={[styles.festivalTitle]}>
-          <LogoLine
-            parentLayout={this.state.layout}
-            style={{ color: "#ef3f2d" }}
-            sizeRatio={1.1}
-            marginBottomRatio={1.2}
-          >
-            HERNE HILL
-          </LogoLine>
-          <LogoLine
-            parentLayout={this.state.layout}
-            style={{ color: "#da9f3d", zIndex: 1 }}
-            rotateLeftDeg={5}
-            sizeRatio={1}
-            marginBottomRatio={0.5}
-          >
-            FREE
-          </LogoLine>
-          <LogoLine
-            parentLayout={this.state.layout}
-            style={{ color: "#4a5aa8" }}
-            marginTopRatio={0.5}
-            sizeRatio={1.1}
-          >
-            FILM
-          </LogoLine>
-          <LogoLine
-            parentLayout={this.state.layout}
-            style={{ color: "#231f20" }}
-            marginTopRatio={1.2}
-          >
-            FESTIVAL
-          </LogoLine>
-          <LogoLine
-            parentLayout={this.state.layout}
-            style={{ color: "#39bc99" }}
-            marginTopRatio={-1}
-          >
-            2017
-          </LogoLine>
+          {this._logoLines.map(({ text, ...childProps }, i) => (
+            <LogoLine key={i} parentLayout={this.state.layout} {...childProps}>
+              {text}
+            </LogoLine>
+          ))}
         </View>
-        <View style={[styles.buttonsArea]}>
-          <FilmstripButton width={width} onPress={gotoFilmsHandler}>
+        <Animated.View
+          style={[
+            styles.buttonsArea,
+            {
+              bottom: this._seeWhatsOnAnimationProgress.interpolate({
+                inputRange: [0, 1],
+                outputRange: ["-100%", "0%"]
+              })
+            }
+          ]}
+        >
+          <FilmstripButton width={width} onPress={this.handleSeeWhatsOnClick}>
             <CustomText style={styles.filmstripButtonText}>
               {"See what's on".toUpperCase()}
             </CustomText>
           </FilmstripButton>
-        </View>
+        </Animated.View>
       </View>
     );
   }
 
   componentWillMount() {
     this._pageContainer = null;
+  }
+
+  _getAnimsSequence({ toValue = 1 } = {}) {
+    const logoAnims = this._logoLines.map(line => line.animationProgress);
+    return [
+      ...logoAnims.map(anim => Animated.spring(anim, { toValue })),
+      Animated.spring(this._seeWhatsOnAnimationProgress, {
+        toValue,
+        tension: 40,
+        friction: 10
+      })
+    ];
+  }
+
+  handleRouteChange(currentRoute) {
+    if (currentRoute.sceneKey === "intro") {
+      Animated.stagger(300, this._getAnimsSequence()).start();
+    }
   }
 
   resetScroll() {
@@ -396,3 +401,5 @@ const styles = StyleSheet.create({
     marginTop: Platform.select({ ios: 20, android: 0 })
   }
 });
+
+export default createRoutingLifecycle(IntroPage);
