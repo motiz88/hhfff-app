@@ -27,6 +27,7 @@ import {
   Entypo
 } from "@expo/vector-icons";
 import Expo, { Amplitude } from "expo";
+import createRoutingLifecycle from "../state/routing/createRoutingLifecycle";
 
 const InfoField = ({ label, children }) => (
   <View style={{ flexDirection: "column", justifyContent: "flex-start" }}>
@@ -460,7 +461,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class FilmsPage extends React.Component {
+class FilmsPage extends React.Component {
   static defaultProps = {
     data,
     filmId: data.FilmsIndex.byStartTime[0]
@@ -552,6 +553,12 @@ export default class FilmsPage extends React.Component {
     }
   }
 
+  handleRouteChange(currentRoute) {
+    if (currentRoute.sceneKey === "film") {
+      this.handleShowIndex(this._cardIndex);
+    }
+  }
+
   render() {
     const films = this.props.data.Films;
     const { filmId } = this;
@@ -609,8 +616,6 @@ export default class FilmsPage extends React.Component {
     this._cardIndex = this.props.data.FilmsIndex.byStartTime.indexOf(filmId);
     this._initialCardIndex = this._cardIndex;
   }
-
-  componentDidMount() {
-    this.handleShowIndex(this._cardIndex);
-  }
 }
+
+export default createRoutingLifecycle(FilmsPage);
