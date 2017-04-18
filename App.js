@@ -1,12 +1,21 @@
 import Expo, { Amplitude } from "expo";
 import React, { Component } from "react";
 import { DeviceEventEmitter } from "react-native";
-import { Actions, ActionConst, Scene, Router } from "react-native-router-flux";
+import {
+  Actions,
+  ActionConst,
+  Scene,
+  Router,
+  Reducer
+} from "react-native-router-flux";
 import data from "./data.generated";
 import FilmPage from "./components/FilmPage";
 import IntroPage from "./components/IntroPage";
 import setupNotifications from "./utils/setupNotifications";
 import setupAmplitude from "./utils/setupAmplitude";
+import configureStore from "./state/configureStore";
+import { Provider } from "react-redux";
+import { setRoutingState } from "./state/routing/actions";
 
 function cacheImages(images) {
   return Promise.all(
@@ -64,6 +73,7 @@ export default class App extends Component {
       isReady: false,
       notification: {}
     };
+    this.store = configureStore();
   }
 
   async componentWillMount() {
@@ -93,6 +103,7 @@ export default class App extends Component {
       this.handleNotification(this.props.exp.notification);
     }
   }
+
   handleNotification = notification => {
     this.setState({ notification: notification });
     const data = JSON.parse(notification.data);
@@ -104,10 +115,27 @@ export default class App extends Component {
     }
   };
 
+  _createReducer = params => {
+    const defaultReducer = Reducer(params);
+    return (state, action) => {
+      state = defaultReducer(state, action);
+      this.store.dispatch(setRoutingState(state));
+      return state;
+    };
+  };
+
   render() {
     if (!this.state.isReady) {
       return <Expo.AppLoading />;
     }
-    return <Router scenes={scenes} getSceneStyle={getSceneStyle} />;
+    return (
+      <Provider store={this.store}>
+        <Router
+          createReducer={this._createReducer}
+          scenes={scenes}
+          getSceneStyle={getSceneStyle}
+        />
+      </Provider>
+    );
   }
 }
