@@ -119,7 +119,7 @@ export default {
         }
       },
       time: {
-        start: "0am"
+        start: "12pm"
       },
       director: "Open to all",
       description: "**The Herne Hill Free Film Festival\u2019s 48 Hour Film Competition is back for its fifth year, continuing its search for local filmmaking talent. If you\u2019re not already familiar with the biggest annual filmmaking competition the SE24 postcode has ever seen, we give you a line of dialogue, a prop, a Herne Hill location and 48 hours and all you have to give us is a 2 minute short film that will make SE23 and SE25 seethe with jealousy.**\n\nThe clock starts ticking on Saturday 29 April so come to The Prince Regent from 12pm to enter, and come back 48 hours later at 12pm on 1 May with your Clockie* winner. You can use your phone, a tablet, a camera or anything else you can lay your hands on to craft your masterpiece which will be judged by our panel of Oscar winners (for once, we\u2019re being serious!) and as with previous years there are three competition categories: Under 16s; Over 16s; and Families. The awards ceremony will be taking place at effraspace at 4pm on 28 May, ahead of our Station Square screening where the winners\u2019 films will also be showcased for the cinematic education of the whole of Herne Hill. \n\n*The prize all Oscar, Palme d\u2019Or and Golden Bear winners would happily trade their awards and grandmothers for. Crafted from solid wood, ink from a pen and real (yes, real) plastic buttons, Herne Hill\u2019s Clockie is an accurate representation (with a healthy dose of artistic discretion) of Brockwell Park\u2019s famous clock tower. \n",
@@ -136,7 +136,7 @@ export default {
           }
         }
       },
-      exactStartTime: "2017-04-29T23:00:00.000Z",
+      exactStartTime: "2017-04-30T11:00:00.000Z",
       descriptionPlain: "The Herne Hill Free Film Festival\u2019s 48 Hour Film Competition is back for its fifth year, continuing its search for local filmmaking talent. If you\u2019re not already familiar with the biggest annual filmmaking competition the SE24 postcode has ever seen, we give you a line of dialogue, a prop, a Herne Hill location and 48 hours and all you have to give us is a 2 minute short film that will make SE23 and SE25 seethe with jealousy.\n\nThe clock starts ticking on Saturday 29 April so come to The Prince Regent from 12pm to enter, and come back 48 hours later at 12pm on 1 May with your Clockie* winner. You can use your phone, a tablet, a camera or anything else you can lay your hands on to craft your masterpiece which will be judged by our panel of Oscar winners (for once, we\u2019re being serious!) and as with previous years there are three competition categories: Under 16s; Over 16s; and Families. The awards ceremony will be taking place at effraspace at 4pm on 28 May, ahead of our Station Square screening where the winners\u2019 films will also be showcased for the cinematic education of the whole of Herne Hill. \n\n*The prize all Oscar, Palme d\u2019Or and Golden Bear winners would happily trade their awards and grandmothers for. Crafted from solid wood, ink from a pen and real (yes, real) plastic buttons, Herne Hill\u2019s Clockie is an accurate representation (with a healthy dose of artistic discretion) of Brockwell Park\u2019s famous clock tower. \n"
     },
     "untold-stories-evening": {
