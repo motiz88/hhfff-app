@@ -37,7 +37,7 @@ const InfoField = ({ label, children }) => (
     <View style={{ flex: 1 }}>{children}</View>
   </View>
 );
-const Trailer = ({ href, backgroundColor, onPress, ...props }) => (
+const Trailer = ({ href, backgroundColor, onPress, fontSize, ...props }) => (
   <TouchableHighlight
     onPress={() => {
       if (onPress) {
@@ -53,7 +53,7 @@ const Trailer = ({ href, backgroundColor, onPress, ...props }) => (
         size={16}
         style={[styles.infoIcon, styles.watchTrailerIcon]}
       />
-      <CustomText style={[styles.watchTrailer]}>
+      <CustomText style={[styles.watchTrailer, { fontSize }]}>
         Watch trailer
       </CustomText>
     </View>
@@ -88,12 +88,20 @@ const LocationLink = ({
     </View>
   </TouchableHighlight>
 );
-function getTitleFontSize(
+function getResponsiveFontSize(
   text: string,
-  layout: { height: number, width: number }
+  baseSize: number,
+  layout: { height: number, width: number },
+  referenceLayout: { height: number, width: number },
+  minSize?: number
 ) {
   const { height, width } = layout;
-  return Math.round(Math.min(32, height / Math.sqrt(text.length)));
+  const heightRatio = height / referenceLayout.height;
+  const widthRatio = width / referenceLayout.width;
+  const finalSize = Math.round(
+    Math.max(minSize || 0, Math.min(1, heightRatio, widthRatio) * baseSize)
+  );
+  return finalSize;
 }
 
 class SingleFilmPage extends React.Component {
@@ -166,6 +174,20 @@ class SingleFilmPage extends React.Component {
       ? undefined
       : screenshotScaleFactor * screenshotImage.metadata.height;
 
+    const infoFieldFontSize = getResponsiveFontSize(
+      "infoField",
+      20,
+      outerLayout,
+      { height: 667, width: 375 },
+      15
+    );
+
+    const smallInfoFieldFontSize = Math.round(18 * infoFieldFontSize / 20);
+
+    const infoFieldPadding = Math.round(8 * infoFieldFontSize / 20);
+
+    const vitalStatsFontSize = Math.round(16 * infoFieldFontSize / 20);
+
     return (
       <PageContainer
         ref={ref => {
@@ -211,13 +233,19 @@ class SingleFilmPage extends React.Component {
               }}
             />
             <Animated.Text
+              textBreakStrategy="balanced"
               style={[
                 styles.headline,
                 {
-                  fontSize: getTitleFontSize(title, {
-                    height: tileHeight,
-                    width: tileWidth
-                  })
+                  fontSize: getResponsiveFontSize(
+                    title,
+                    36,
+                    {
+                      height: tileHeight,
+                      width: tileWidth
+                    },
+                    { height: 216, width: 414 }
+                  )
                 },
                 {
                   flexGrow: 0,
@@ -237,7 +265,9 @@ class SingleFilmPage extends React.Component {
               {title.toUpperCase()}
             </Animated.Text>
           </View>
-          <CustomText style={styles.vitalStats}>
+          <CustomText
+            style={[styles.vitalStats, { fontSize: vitalStatsFontSize }]}
+          >
             {[year, country, running_time, certificate]
               .filter(Boolean)
               .join(" / ")}
@@ -248,7 +278,7 @@ class SingleFilmPage extends React.Component {
               flexWrap: "wrap",
               alignItems: "flex-start",
               backgroundColor: colors.highlight,
-              padding: 8,
+              padding: infoFieldPadding,
               justifyContent: "flex-end"
             }}
           >
@@ -267,9 +297,10 @@ class SingleFilmPage extends React.Component {
                   <CustomText
                     style={[
                       styles.infoFieldValue,
+                      { fontSize: infoFieldFontSize },
                       director.indexOf(",") !== -1
                         ? {
-                            fontSize: 18
+                            fontSize: smallInfoFieldFontSize
                           }
                         : null
                     ]}
@@ -286,7 +317,9 @@ class SingleFilmPage extends React.Component {
               ]}
             >
               <MaterialIcons name="event" size={16} style={styles.infoIcon} />
-              <CustomText style={styles.infoFieldValue}>
+              <CustomText
+                style={[styles.infoFieldValue, { fontSize: infoFieldFontSize }]}
+              >
                 {date}, {time.start}
               </CustomText>
             </View>
@@ -301,6 +334,7 @@ class SingleFilmPage extends React.Component {
                   href={trailer}
                   style={{ flex: 0, flexBasis: infoItemWidth }}
                   backgroundColor={colors.highlight}
+                  fontSize={infoFieldFontSize}
                 />
               : null}
 
@@ -312,7 +346,7 @@ class SingleFilmPage extends React.Component {
               }}
               location={venue.location}
               style={{ flex: 0, flexBasis: infoItemWidth }}
-              textStyle={{ width: infoTextWidth }}
+              textStyle={{ width: infoTextWidth, fontSize: infoFieldFontSize }}
               backgroundColor={colors.highlight}
             >
               {venue.name}
@@ -329,7 +363,12 @@ class SingleFilmPage extends React.Component {
                     size={16}
                     name="cloud"
                   />
-                  <CustomText style={styles.locationLink}>
+                  <CustomText
+                    style={[
+                      styles.locationLink,
+                      { fontSize: infoFieldFontSize }
+                    ]}
+                  >
                     Outdoor screening
                   </CustomText>
                 </View>
@@ -339,7 +378,7 @@ class SingleFilmPage extends React.Component {
           <CustomText
             style={{
               margin: 8,
-              fontSize: 20,
+              fontSize: infoFieldFontSize,
               fontFamily: "Agenda Light",
               backgroundColor: "#39bc99"
             }}
