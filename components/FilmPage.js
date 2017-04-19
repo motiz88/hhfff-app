@@ -59,9 +59,14 @@ const Trailer = ({ href, backgroundColor, onPress, ...props }) => (
     </View>
   </TouchableHighlight>
 );
-const LocationLink = (
-  { location, children, backgroundColor, textStyle, onPress, ...props }
-) => (
+const LocationLink = ({
+  location,
+  children,
+  backgroundColor,
+  textStyle,
+  onPress,
+  ...props
+}) => (
   <TouchableHighlight
     onPress={() => {
       if (onPress) {
