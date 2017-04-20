@@ -256,6 +256,7 @@ export default {
     "competition-awards": {
       title: "48hr Film Competition Awards",
       date: "28 May",
+      director: "The winners",
       venue: {
         name: "effraspace",
         location: "21 Effra Parade, Brixton, London SW2 1PX",
@@ -1376,6 +1377,7 @@ export default {
     },
     "short-film-night": {
       title: "Short Film Night",
+      director: "(Come and see)",
       running_time: "120 mins",
       date: "25 May",
       venue: {
@@ -1515,6 +1517,7 @@ export default {
     },
     "station-square-silent": {
       title: "Station Square Silent Showcase",
+      director: "Charlie Chaplin, Clyde Bruckman, Fred Guiol",
       country: "US",
       certificate: "PG",
       running_time: "90 mins",
