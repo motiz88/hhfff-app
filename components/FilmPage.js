@@ -28,6 +28,7 @@ import {
 } from "@expo/vector-icons";
 import Expo, { Amplitude } from "expo";
 import createRoutingLifecycle from "../state/routing/createRoutingLifecycle";
+import getResponsiveFontSize from "../utils/getResponsiveFontSize";
 
 const InfoField = ({ label, children }) => (
   <View style={{ flexDirection: "column", justifyContent: "flex-start" }}>
@@ -88,21 +89,6 @@ const LocationLink = ({
     </View>
   </TouchableHighlight>
 );
-function getResponsiveFontSize(
-  text: string,
-  baseSize: number,
-  layout: { height: number, width: number },
-  referenceLayout: { height: number, width: number },
-  minSize?: number
-) {
-  const { height, width } = layout;
-  const heightRatio = height / referenceLayout.height;
-  const widthRatio = width / referenceLayout.width;
-  const finalSize = Math.round(
-    Math.max(minSize || 0, Math.min(1, heightRatio, widthRatio) * baseSize)
-  );
-  return finalSize;
-}
 
 class SingleFilmPage extends React.Component {
   static defaultProps = {

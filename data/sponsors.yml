@@ -1,0 +1,9 @@
+[
+  require(./images/sponsors/pedder.jpg),
+  require(./images/sponsors/southeastern.jpg),
+  require(./images/sponsors/veolia.jpg),
+  require(./images/sponsors/the-lido-cafe.jpg),
+  require(./images/sponsors/flannery-media.jpg),
+  require(./images/sponsors/llewelyns.jpg),
+  require(./images/sponsors/yesmum.jpg)
+]

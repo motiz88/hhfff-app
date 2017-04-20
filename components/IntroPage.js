@@ -10,7 +10,8 @@ import {
   Dimensions,
   StatusBar,
   Platform,
-  Animated
+  Animated,
+  Easing
 } from "react-native";
 import CustomText from "./CustomText";
 import { Actions } from "react-native-router-flux";
@@ -21,6 +22,8 @@ import { SimpleLineIcons, Foundation, MaterialIcons } from "@expo/vector-icons";
 import moment from "moment";
 import { Amplitude } from "expo";
 import createRoutingLifecycle from "../state/routing/createRoutingLifecycle";
+import getResponsiveFontSize from "../utils/getResponsiveFontSize";
+import path from "path";
 
 const FilmstripHoleSize = {
   width: 15,
@@ -121,10 +124,10 @@ class FilmstripBackground extends React.Component {
 
 class FilmstripButton extends React.Component {
   render() {
-    const { children, onPress, width, ...props } = this.props;
+    const { children, onPress, width, height, ...props } = this.props;
     return (
       <TouchableHighlight onPress={onPress}>
-        <FilmstripBackground {...props} width={width} style={{ height: 90 }}>
+        <FilmstripBackground {...props} width={width} style={{ height }}>
           <View>
             {children}
           </View>
@@ -213,7 +216,8 @@ class LogoLine extends React.Component {
 
 class IntroPage extends React.Component {
   static defaultProps = {
-    data
+    data,
+    defaultSponsor: 0
   };
 
   _logoLines = [
@@ -253,10 +257,81 @@ class IntroPage extends React.Component {
   ].map(elem => ({ ...elem, animationProgress: new Animated.Value(0) }));
 
   _seeWhatsOnAnimationProgress = new Animated.Value(0);
+  _popcornGuyOpacityProgress = new Animated.Value(0);
+  _sponsorFadeProgress = new Animated.Value(0);
+  _sponsorGlobalProgress = new Animated.Value(0);
 
   state = {
-    layout: Dimensions.get("window")
+    layout: Dimensions.get("window"),
+    sponsorIn: null,
+    sponsorOut: null,
+    sponsorImpressions: {}
   };
+
+  async triggerSponsorCycle() {
+    this._sponsorFadeProgress.setValue(0);
+    await new Promise(resolve =>
+      Animated.timing(this._sponsorFadeProgress, {
+        delay: 1000,
+        duration: 1000,
+        toValue: 1
+      }).start(resolve)
+    );
+    this.setState(
+      state => ({
+        sponsorOut: state.sponsorIn,
+        sponsorIn: (state.sponsorIn + 1) % this.props.data.Sponsors.length
+      }),
+      () => {
+        if (this.state.showSponsors) {
+          this.triggerSponsorCycle();
+        }
+      }
+    );
+  }
+
+  addSponsorImpression(index = this.state.sponsorOut) {
+    let { filename } = this.props.data.Sponsors[this.state.sponsorOut].metadata;
+    filename = path.basename(filename, path.extname(filename));
+
+    const { sponsorImpressions } = this.state;
+    this.setState(
+      {
+        sponsorImpressions: {
+          ...sponsorImpressions,
+          [filename]: (sponsorImpressions[filename] || 0) + 1
+        }
+      },
+      () => {
+        if (this.state.sponsorImpressions[filename] === 1) {
+          Amplitude.logEventWithProperties("Sponsor logo impression", {
+            logo: filename
+          });
+        }
+      }
+    );
+  }
+
+  resetSponsorImpressions() {
+    const prev = this.state.sponsorImpressions;
+    this.setState({
+      sponsorImpressions: {}
+    });
+    return prev;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.showSponsors !== this.state.showSponsors) {
+      if (this.state.showSponsors) {
+        this.triggerSponsorCycle();
+      }
+    }
+    if (
+      this.state.showSponsors && prevState.sponsorOut !== this.state.sponsorOut
+    ) {
+      this.addSponsorImpression(this.state.sponsorOut);
+    }
+  }
 
   handleLayout = event =>
     this.setState({
@@ -268,22 +343,24 @@ class IntroPage extends React.Component {
 
   handleSeeWhatsOnClick = () => {
     Amplitude.logEvent("Tapped See What's On");
-    Animated.stagger(
-      300,
-      this._getAnimsSequence({ toValue: 0 }).reverse()
-    ).start(() => {
-      const now = moment.now();
-      const { data } = this.props;
-      const nextFilmId = data.FilmsIndex.byStartTime.find(
-        filmId =>
-          moment(data.Films[filmId].exactStartTime).isSameOrAfter(now) ||
-          (data.Films[filmId].approxEndTime &&
-            moment(data.Films[filmId].approxEndTime).isSameOrAfter(now))
-      ) || data.FilmsIndex.byStartTime[0];
-      Actions.film({
-        filmId: nextFilmId,
-        direction: "horizontal",
-        duration: 300
+    this._getReverseAnimation().start(() => {
+      this.setState({ showSponsors: false }, () => {
+        this.resetSponsorImpressions();
+        const now = moment.now();
+        const { data } = this.props;
+        const nextFilmId =
+          data.FilmsIndex.byStartTime.find(
+            filmId =>
+              moment(data.Films[filmId].exactStartTime).isSameOrAfter(now) ||
+              (data.Films[filmId].approxEndTime &&
+                moment(data.Films[filmId].approxEndTime).isSameOrAfter(now))
+          ) || data.FilmsIndex.byStartTime[0];
+
+        Actions.film({
+          filmId: nextFilmId,
+          direction: "horizontal",
+          duration: 300
+        });
       });
     });
   };
@@ -292,22 +369,66 @@ class IntroPage extends React.Component {
     const { width, height } = this.state.layout;
     const popcornGuySize = { width: 1080, height: 1073 };
     const popcornGuyAspect = popcornGuySize.width / popcornGuySize.height;
+    const popcornGuyTargetWidth = 0.75 * width;
     const popcornGuyAdjustedSize = {
-      width: Math.min(popcornGuySize.width, height / popcornGuyAspect, width),
-      height: Math.min(popcornGuySize.height, width * popcornGuyAspect, height)
+      width: Math.min(
+        popcornGuyTargetWidth,
+        popcornGuySize.width,
+        height / popcornGuyAspect,
+        width
+      ),
+      height: Math.min(
+        popcornGuySize.height,
+        popcornGuyTargetWidth * popcornGuyAspect,
+        width * popcornGuyAspect,
+        height
+      )
     };
+    const sponsorSizeCaps = {
+      width: Math.min(150, 0.3 * width),
+      height: Math.min(80, 0.2 * height)
+    };
+    const sponsorSizes = this.props.data.Sponsors.map((sponsor, i) => {
+      const { height, width } = sponsor.metadata;
+      const aspect = width / height;
+      return {
+        width: Math.min(
+          width,
+          sponsorSizeCaps.width,
+          sponsorSizeCaps.height * aspect
+        ),
+        height: Math.min(
+          height,
+          sponsorSizeCaps.width / aspect,
+          sponsorSizeCaps.height
+        )
+      };
+    });
+    const sponsorMaxExtents = {
+      height: Math.max(...sponsorSizes.map(size => size.height)),
+      width: Math.max(...sponsorSizes.map(size => size.width))
+    };
+    const seeWhatsOnHeight = Math.max(75, height / 6);
     return (
       <View style={styles.container} onLayout={this.handleLayout}>
         <StatusBar hidden={true} />
-        <Image
+        <Animated.Image
           source={require("../data/images/popcorn-guy-rtl-1080x1073.jpg")}
           style={{
             height: popcornGuyAdjustedSize.height,
             width: popcornGuyAdjustedSize.width,
             position: "absolute",
-            bottom: -1,
+            top: 1 +
+              Math.max(
+                0,
+                height - popcornGuyAdjustedSize.height - seeWhatsOnHeight
+              ),
             left: 0,
-            transform: [{ scaleX: -1 }]
+            transform: [{ scaleX: -1 }],
+            opacity: this._popcornGuyOpacityProgress.interpolate({
+              inputRange: [0, 1],
+              outputRange: [0, 0.9]
+            })
           }}
         />
         <View style={[styles.festivalTitle]}>
@@ -316,6 +437,80 @@ class IntroPage extends React.Component {
               {text}
             </LogoLine>
           ))}
+          <Animated.View
+            style={{
+              position: "absolute",
+              ...sponsorMaxExtents,
+              bottom: 4,
+              right: 4
+            }}
+          >
+            {this.props.data.Sponsors.map((sponsor, i) => {
+              const { height, width } = sponsorSizes[i];
+              let opacity;
+              if (i === this.state.sponsorIn) {
+                opacity = this._sponsorFadeProgress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, 0.9]
+                });
+              } else if (i === this.state.sponsorOut) {
+                opacity = this._sponsorFadeProgress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0.9, 0]
+                });
+              } else {
+                opacity = 0;
+              }
+              if (opacity) {
+                opacity = Animated.multiply(
+                  this._sponsorGlobalProgress.interpolate({
+                    inputRange: [0, 0.5, 1],
+                    outputRange: [0, 1, 0]
+                  }),
+                  opacity
+                );
+              }
+              return (
+                <Animated.Image
+                  key={i}
+                  resizeMode="stretch"
+                  source={sponsor.source}
+                  style={{
+                    opacity,
+                    position: "absolute",
+                    top: sponsorMaxExtents.height / 2 - height / 2,
+                    right: sponsorMaxExtents.width / 2 - width / 2,
+                    height,
+                    width,
+                    transform: [
+                      {
+                        translateY: this._sponsorGlobalProgress.interpolate({
+                          inputRange: [0, 0.5, 1],
+                          outputRange: [
+                            sponsorMaxExtents.height + 4,
+                            0,
+                            -sponsorMaxExtents.height
+                          ]
+                        })
+                      },
+                      {
+                        scaleX: this._sponsorGlobalProgress.interpolate({
+                          inputRange: [0, 0.5, 1],
+                          outputRange: [0.01, 1, 0.01]
+                        })
+                      },
+                      {
+                        scaleY: this._sponsorGlobalProgress.interpolate({
+                          inputRange: [0, 0.5, 1],
+                          outputRange: [0.01, 1, 0.01]
+                        })
+                      }
+                    ]
+                  }}
+                />
+              );
+            })}
+          </Animated.View>
         </View>
         <Animated.View
           style={[
@@ -328,8 +523,25 @@ class IntroPage extends React.Component {
             }
           ]}
         >
-          <FilmstripButton width={width} onPress={this.handleSeeWhatsOnClick}>
-            <CustomText style={styles.filmstripButtonText}>
+          <FilmstripButton
+            width={width}
+            height={seeWhatsOnHeight}
+            onPress={this.handleSeeWhatsOnClick}
+          >
+            <CustomText
+              style={[
+                styles.filmstripButtonText,
+                {
+                  fontSize: getResponsiveFontSize(
+                    "See what's on".toUpperCase(),
+                    48,
+                    { height: seeWhatsOnHeight, width: 100 },
+                    { height: 90, width: 100 },
+                    16
+                  )
+                }
+              ]}
+            >
               {"See what's on".toUpperCase()}
             </CustomText>
           </FilmstripButton>
@@ -340,9 +552,20 @@ class IntroPage extends React.Component {
 
   componentWillMount() {
     this._pageContainer = null;
+    this.setState({
+      sponsorImpressions: {},
+      sponsorIn: ((this.props.defaultSponsor || 0) + 1) %
+        this.props.data.Sponsors.length,
+      sponsorOut: (this.props.defaultSponsor || 0) %
+        this.props.data.Sponsors.length
+    });
   }
 
-  _getAnimsSequence({ toValue = 1 } = {}) {
+  componentDidMount() {
+    this.addSponsorImpression(this.state.sponsorOut);
+  }
+
+  _getStaggeredAnims({ toValue = 1 } = {}) {
     const logoAnims = this._logoLines.map(line => line.animationProgress);
     return [
       ...logoAnims.map(anim => Animated.spring(anim, { toValue })),
@@ -354,9 +577,51 @@ class IntroPage extends React.Component {
     ];
   }
 
+  _getPopcornGuyAnim({ toValue = 1 } = {}) {
+    // return Animated.spring(this._popcornGuyOpacityProgress, {
+    //   toValue,
+    //   tension: 40,
+    //   friction: 50
+    // });
+    return Animated.timing(this._popcornGuyOpacityProgress, {
+      toValue
+    });
+  }
+
+  _getSponsorGlobalAnim({ toValue = 1 } = {}) {
+    return Animated.spring(this._sponsorGlobalProgress, {
+      toValue,
+      tension: 1,
+      friction: 8
+    });
+  }
+
+  _getForwardAnimation() {
+    this._sponsorGlobalProgress.setValue(0);
+    return Animated.sequence([
+      Animated.stagger(300, this._getStaggeredAnims({ toValue: 1 })),
+      this._getPopcornGuyAnim({ toValue: 1 }),
+      this._getSponsorGlobalAnim({ toValue: 0.5 })
+    ]);
+  }
+
+  _getReverseAnimation() {
+    return Animated.parallel([
+      this._getSponsorGlobalAnim({ toValue: 1 }),
+      Animated.sequence([
+        this._getPopcornGuyAnim({ toValue: 0 }),
+        Animated.stagger(300, this._getStaggeredAnims({ toValue: 0 }).reverse())
+      ])
+    ]);
+  }
+
   handleRouteChange(currentRoute) {
     if (currentRoute.sceneKey === "intro") {
-      Animated.stagger(300, this._getAnimsSequence()).start();
+      this._getForwardAnimation().start(() =>
+        this.setState({
+          showSponsors: true
+        })
+      );
     }
   }
 
@@ -384,7 +649,7 @@ const styles = StyleSheet.create({
   buttonsArea: {
     flexDirection: "column",
     justifyContent: "space-between",
-    paddingTop: 24,
+    paddingTop: 0,
     paddingBottom: 0
   },
   filmstrip: {

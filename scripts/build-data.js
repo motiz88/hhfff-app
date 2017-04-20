@@ -42,25 +42,27 @@ async function writeData(filename, data) {
       const value = path.node.value;
       const requireMatch = value.trim().match(/^require\((.+?)\)$/);
       if (requireMatch) {
-        const filePath = "." +
-          fspath.sep +
-          fspath.join("data", requireMatch[1]);
+        const filePath =
+          "." + fspath.sep + fspath.join("data", requireMatch[1]);
         try {
           const metadata = imageSize(fspath.resolve(__dirname, "..", filePath));
           if (metadata) {
-              path.replaceWith(
-                templateRequireImage({
-                  PATH: t.stringLiteral(filePath),
-                  METADATA: t.valueToNode(metadata)
-                }).expression
-              );
+            path.replaceWith(
+              templateRequireImage({
+                PATH: t.stringLiteral(filePath),
+                METADATA: t.valueToNode({
+                  ...metadata,
+                  filename: fspath.basename(filePath)
+                })
+              }).expression
+            );
           } else {
             path.replaceWith(
               templateRequire({ PATH: t.stringLiteral(filePath) }).expression
             );
           }
         } catch (e) {
-          console.error('Error processing required asset', filePath);
+          console.error("Error processing required asset", filePath);
           throw e;
         }
       }
@@ -72,6 +74,9 @@ async function writeData(filename, data) {
 
 const Films = YAML.safeLoad(
   fs.readFileSync(path.resolve(__dirname, "../data/films.yml"), "utf8")
+);
+const Sponsors = YAML.safeLoad(
+  fs.readFileSync(path.resolve(__dirname, "../data/sponsors.yml"), "utf8")
 );
 
 const markdownStripper = remark().use(stripMarkdown);
@@ -103,11 +108,13 @@ for (const filmId of Object.keys(Films)) {
 }
 const FilmsIndex = {
   byStartTime: Object.keys(Films).sort((a, b) =>
-    Films[a].exactStartTime.localeCompare(Films[b].exactStartTime))
+    Films[a].exactStartTime.localeCompare(Films[b].exactStartTime)
+  )
 };
 const data = {
   Films,
-  FilmsIndex
+  FilmsIndex,
+  Sponsors
 };
 
 writeData(path.resolve(__dirname, "../data.generated.js"), data).catch(e => {

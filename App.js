@@ -29,6 +29,12 @@ function cacheImages(images) {
   );
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 const scenes = Actions.create(
   <Scene key="root" hideNavBar hideTabBar>
     <Scene
@@ -37,6 +43,8 @@ const scenes = Actions.create(
       panHandlers={null}
       initial
       type={ActionConst.RESET}
+      passProps
+      defaultSponsor={getRandomInt(0, data.Sponsors.length)}
     />
     <Scene
       key="film"
@@ -80,7 +88,10 @@ export default class App extends Component {
     await Promise.all([
       setupAmplitude(),
       setupNotifications(),
-      cacheImages([require("./data/images/popcorn-guy-rtl-1080x1073.jpg")]),
+      cacheImages([
+        require("./data/images/popcorn-guy-rtl-1080x1073.jpg"),
+        ...data.Sponsors.map(sponsor => sponsor.source)
+      ]),
       Expo.Font.loadAsync({
         "London Train": require("./data/fonts/london-train-regular.otf"),
         "Agenda Light": require("./data/fonts/AgendaLight.ttf"),

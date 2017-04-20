@@ -17,7 +17,8 @@ export default {
           metadata: {
             height: 293,
             width: 388,
-            type: "jpg"
+            type: "jpg",
+            filename: "image3.jpeg"
           }
         }
       },
@@ -32,7 +33,8 @@ export default {
           metadata: {
             height: 382,
             width: 258,
-            type: "jpg"
+            type: "jpg",
+            filename: "image1.jpeg"
           }
         },
         screenshot: {
@@ -40,7 +42,8 @@ export default {
           metadata: {
             height: 231,
             width: 417,
-            type: "jpg"
+            type: "jpg",
+            filename: "image2.jpeg"
           }
         }
       },
@@ -69,7 +72,8 @@ export default {
           metadata: {
             height: 200,
             width: 200,
-            type: "jpg"
+            type: "jpg",
+            filename: "image6.jpeg"
           }
         }
       },
@@ -83,7 +87,8 @@ export default {
           metadata: {
             height: 363,
             width: 256,
-            type: "jpg"
+            type: "jpg",
+            filename: "image4.jpeg"
           }
         },
         screenshot: {
@@ -91,7 +96,8 @@ export default {
           metadata: {
             height: 204,
             width: 418,
-            type: "jpg"
+            type: "jpg",
+            filename: "image5.jpeg"
           }
         }
       },
@@ -114,7 +120,8 @@ export default {
           metadata: {
             height: 279,
             width: 419,
-            type: "jpg"
+            type: "jpg",
+            filename: "image21.jpeg"
           }
         }
       },
@@ -132,7 +139,8 @@ export default {
           metadata: {
             height: 1025,
             width: 683,
-            type: "jpg"
+            type: "jpg",
+            filename: "clock.jpg"
           }
         }
       },
@@ -154,7 +162,8 @@ export default {
           metadata: {
             height: 400,
             width: 400,
-            type: "jpg"
+            type: "jpg",
+            filename: "image9.jpeg"
           }
         }
       },
@@ -169,7 +178,8 @@ export default {
           metadata: {
             height: 383,
             width: 259,
-            type: "jpg"
+            type: "jpg",
+            filename: "image7.jpeg"
           }
         },
         screenshot: {
@@ -177,7 +187,8 @@ export default {
           metadata: {
             height: 268,
             width: 480,
-            type: "jpg"
+            type: "jpg",
+            filename: "image8.jpeg"
           }
         }
       },
@@ -206,7 +217,8 @@ export default {
           metadata: {
             height: 301,
             width: 436,
-            type: "jpg"
+            type: "jpg",
+            filename: "image12.jpeg"
           }
         }
       },
@@ -220,7 +232,8 @@ export default {
           metadata: {
             height: 362,
             width: 256,
-            type: "jpg"
+            type: "jpg",
+            filename: "image10.jpeg"
           }
         },
         screenshot: {
@@ -228,7 +241,8 @@ export default {
           metadata: {
             height: 238,
             width: 397,
-            type: "jpg"
+            type: "jpg",
+            filename: "image11.jpeg"
           }
         }
       },
@@ -251,7 +265,8 @@ export default {
           metadata: {
             height: 400,
             width: 400,
-            type: "jpg"
+            type: "jpg",
+            filename: "image9.jpeg"
           }
         }
       },
@@ -268,7 +283,8 @@ export default {
           metadata: {
             height: 887,
             width: 984,
-            type: "jpg"
+            type: "jpg",
+            filename: "awards.jpg"
           }
         }
       },
@@ -296,7 +312,8 @@ export default {
           metadata: {
             height: 279,
             width: 399,
-            type: "jpg"
+            type: "jpg",
+            filename: "image15.jpeg"
           }
         }
       },
@@ -310,7 +327,8 @@ export default {
           metadata: {
             height: 365,
             width: 258,
-            type: "jpg"
+            type: "jpg",
+            filename: "image13.jpeg"
           }
         },
         screenshot: {
@@ -318,7 +336,8 @@ export default {
           metadata: {
             height: 215,
             width: 407,
-            type: "jpg"
+            type: "jpg",
+            filename: "image14.jpeg"
           }
         }
       },
@@ -347,7 +366,8 @@ export default {
           metadata: {
             height: 289,
             width: 386,
-            type: "jpg"
+            type: "jpg",
+            filename: "image18.jpeg"
           }
         }
       },
@@ -361,7 +381,8 @@ export default {
           metadata: {
             height: 256,
             width: 385,
-            type: "jpg"
+            type: "jpg",
+            filename: "image16.jpeg"
           }
         },
         screenshot: {
@@ -369,7 +390,8 @@ export default {
           metadata: {
             height: 223,
             width: 398,
-            type: "jpg"
+            type: "jpg",
+            filename: "image17.jpeg"
           }
         }
       },
@@ -398,7 +420,8 @@ export default {
           metadata: {
             height: 279,
             width: 419,
-            type: "jpg"
+            type: "jpg",
+            filename: "image21.jpeg"
           }
         }
       },
@@ -412,7 +435,8 @@ export default {
           metadata: {
             height: 363,
             width: 256,
-            type: "jpg"
+            type: "jpg",
+            filename: "image19.jpeg"
           }
         },
         screenshot: {
@@ -420,7 +444,8 @@ export default {
           metadata: {
             height: 257,
             width: 428,
-            type: "jpg"
+            type: "jpg",
+            filename: "image20.jpeg"
           }
         }
       },
@@ -448,7 +473,8 @@ export default {
           metadata: {
             height: 343,
             width: 257,
-            type: "jpg"
+            type: "jpg",
+            filename: "image24.jpeg"
           }
         }
       },
@@ -463,7 +489,8 @@ export default {
           metadata: {
             height: 371,
             width: 255,
-            type: "jpg"
+            type: "jpg",
+            filename: "image22.jpeg"
           }
         },
         screenshot: {
@@ -471,7 +498,8 @@ export default {
           metadata: {
             height: 229,
             width: 430,
-            type: "jpg"
+            type: "jpg",
+            filename: "image23.jpeg"
           }
         }
       },
@@ -500,7 +528,8 @@ export default {
           metadata: {
             height: 312,
             width: 416,
-            type: "jpg"
+            type: "jpg",
+            filename: "image27.jpeg"
           }
         }
       },
@@ -515,7 +544,8 @@ export default {
           metadata: {
             height: 362,
             width: 255,
-            type: "jpg"
+            type: "jpg",
+            filename: "image25.jpeg"
           }
         },
         screenshot: {
@@ -523,7 +553,8 @@ export default {
           metadata: {
             height: 232,
             width: 412,
-            type: "jpg"
+            type: "jpg",
+            filename: "image26.jpeg"
           }
         }
       },
@@ -551,7 +582,8 @@ export default {
           metadata: {
             height: 279,
             width: 419,
-            type: "jpg"
+            type: "jpg",
+            filename: "image21.jpeg"
           }
         }
       },
@@ -566,7 +598,8 @@ export default {
           metadata: {
             height: 346,
             width: 259,
-            type: "jpg"
+            type: "jpg",
+            filename: "image28.jpeg"
           }
         },
         screenshot: {
@@ -574,7 +607,8 @@ export default {
           metadata: {
             height: 219,
             width: 389,
-            type: "jpg"
+            type: "jpg",
+            filename: "image29.jpeg"
           }
         }
       },
@@ -602,7 +636,8 @@ export default {
           metadata: {
             height: 208,
             width: 391,
-            type: "jpg"
+            type: "jpg",
+            filename: "image32.jpeg"
           }
         }
       },
@@ -617,7 +652,8 @@ export default {
           metadata: {
             height: 367,
             width: 257,
-            type: "jpg"
+            type: "jpg",
+            filename: "image30.jpeg"
           }
         },
         screenshot: {
@@ -625,7 +661,8 @@ export default {
           metadata: {
             height: 219,
             width: 408,
-            type: "jpg"
+            type: "jpg",
+            filename: "image31.jpeg"
           }
         }
       },
@@ -653,7 +690,8 @@ export default {
           metadata: {
             height: 367,
             width: 257,
-            type: "jpg"
+            type: "jpg",
+            filename: "image30.jpeg"
           }
         }
       },
@@ -668,7 +706,8 @@ export default {
           metadata: {
             height: 331,
             width: 220,
-            type: "jpg"
+            type: "jpg",
+            filename: "image33.jpeg"
           }
         },
         screenshot: {
@@ -676,7 +715,8 @@ export default {
           metadata: {
             height: 263,
             width: 399,
-            type: "jpg"
+            type: "jpg",
+            filename: "image34.jpeg"
           }
         }
       },
@@ -704,7 +744,8 @@ export default {
           metadata: {
             height: 343,
             width: 257,
-            type: "jpg"
+            type: "jpg",
+            filename: "image24.jpeg"
           }
         }
       },
@@ -719,7 +760,8 @@ export default {
           metadata: {
             height: 365,
             width: 260,
-            type: "jpg"
+            type: "jpg",
+            filename: "image35.jpeg"
           }
         },
         screenshot: {
@@ -727,7 +769,8 @@ export default {
           metadata: {
             height: 260,
             width: 390,
-            type: "jpg"
+            type: "jpg",
+            filename: "image36.jpeg"
           }
         }
       },
@@ -754,7 +797,8 @@ export default {
           metadata: {
             height: 331,
             width: 331,
-            type: "jpg"
+            type: "jpg",
+            filename: "image39.jpeg"
           }
         }
       },
@@ -769,7 +813,8 @@ export default {
           metadata: {
             height: 362,
             width: 256,
-            type: "jpg"
+            type: "jpg",
+            filename: "image37.jpeg"
           }
         },
         screenshot: {
@@ -777,7 +822,8 @@ export default {
           metadata: {
             height: 227,
             width: 404,
-            type: "jpg"
+            type: "jpg",
+            filename: "image38.jpeg"
           }
         }
       },
@@ -805,7 +851,8 @@ export default {
           metadata: {
             height: 240,
             width: 382,
-            type: "jpg"
+            type: "jpg",
+            filename: "image42.jpeg"
           }
         }
       },
@@ -820,7 +867,8 @@ export default {
           metadata: {
             height: 363,
             width: 250,
-            type: "jpg"
+            type: "jpg",
+            filename: "image40.jpeg"
           }
         },
         screenshot: {
@@ -828,7 +876,8 @@ export default {
           metadata: {
             height: 349,
             width: 620,
-            type: "jpg"
+            type: "jpg",
+            filename: "image41.jpeg"
           }
         }
       },
@@ -856,7 +905,8 @@ export default {
           metadata: {
             height: 374,
             width: 258,
-            type: "jpg"
+            type: "jpg",
+            filename: "image43.jpeg"
           }
         }
       },
@@ -871,7 +921,8 @@ export default {
           metadata: {
             height: 300,
             width: 300,
-            type: "jpg"
+            type: "jpg",
+            filename: "image44.jpeg"
           }
         },
         screenshot: {
@@ -879,7 +930,8 @@ export default {
           metadata: {
             height: 230,
             width: 411,
-            type: "jpg"
+            type: "jpg",
+            filename: "image45.jpeg"
           }
         }
       },
@@ -907,7 +959,8 @@ export default {
           metadata: {
             height: 279,
             width: 419,
-            type: "jpg"
+            type: "jpg",
+            filename: "image21.jpeg"
           }
         }
       },
@@ -922,7 +975,8 @@ export default {
           metadata: {
             height: 268,
             width: 182,
-            type: "jpg"
+            type: "jpg",
+            filename: "image46.jpeg"
           }
         },
         screenshot: {
@@ -930,7 +984,8 @@ export default {
           metadata: {
             height: 234,
             width: 416,
-            type: "jpg"
+            type: "jpg",
+            filename: "image47.jpeg"
           }
         }
       },
@@ -958,7 +1013,8 @@ export default {
           metadata: {
             height: 208,
             width: 391,
-            type: "jpg"
+            type: "jpg",
+            filename: "image32.jpeg"
           }
         }
       },
@@ -973,7 +1029,8 @@ export default {
           metadata: {
             height: 268,
             width: 182,
-            type: "jpg"
+            type: "jpg",
+            filename: "image48.jpeg"
           }
         },
         screenshot: {
@@ -981,7 +1038,8 @@ export default {
           metadata: {
             height: 226,
             width: 402,
-            type: "jpg"
+            type: "jpg",
+            filename: "image49.jpeg"
           }
         }
       },
@@ -1009,7 +1067,8 @@ export default {
           metadata: {
             height: 240,
             width: 382,
-            type: "jpg"
+            type: "jpg",
+            filename: "image42.jpeg"
           }
         }
       },
@@ -1024,7 +1083,8 @@ export default {
           metadata: {
             height: 257,
             width: 257,
-            type: "jpg"
+            type: "jpg",
+            filename: "image50.jpeg"
           }
         },
         screenshot: {
@@ -1032,7 +1092,8 @@ export default {
           metadata: {
             height: 238,
             width: 422,
-            type: "jpg"
+            type: "jpg",
+            filename: "image51.jpeg"
           }
         }
       },
@@ -1060,7 +1121,8 @@ export default {
           metadata: {
             height: 269,
             width: 406,
-            type: "jpg"
+            type: "jpg",
+            filename: "image54.jpeg"
           }
         }
       },
@@ -1075,7 +1137,8 @@ export default {
           metadata: {
             width: 220,
             height: 325,
-            type: "png"
+            type: "png",
+            filename: "image52.png"
           }
         },
         screenshot: {
@@ -1083,7 +1146,8 @@ export default {
           metadata: {
             height: 236,
             width: 413,
-            type: "jpg"
+            type: "jpg",
+            filename: "image53.jpeg"
           }
         }
       },
@@ -1111,7 +1175,8 @@ export default {
           metadata: {
             height: 400,
             width: 400,
-            type: "jpg"
+            type: "jpg",
+            filename: "image9.jpeg"
           }
         }
       },
@@ -1126,7 +1191,8 @@ export default {
           metadata: {
             height: 352,
             width: 253,
-            type: "jpg"
+            type: "jpg",
+            filename: "image55.jpeg"
           }
         },
         screenshot: {
@@ -1134,7 +1200,8 @@ export default {
           metadata: {
             height: 283,
             width: 565,
-            type: "jpg"
+            type: "jpg",
+            filename: "moana.jpeg"
           }
         }
       },
@@ -1162,7 +1229,8 @@ export default {
           metadata: {
             height: 288,
             width: 431,
-            type: "jpg"
+            type: "jpg",
+            filename: "image59.jpeg"
           }
         }
       },
@@ -1177,7 +1245,8 @@ export default {
           metadata: {
             height: 500,
             width: 333,
-            type: "jpg"
+            type: "jpg",
+            filename: "image57.jpeg"
           }
         },
         screenshot: {
@@ -1185,7 +1254,8 @@ export default {
           metadata: {
             height: 194,
             width: 350,
-            type: "jpg"
+            type: "jpg",
+            filename: "image58.jpeg"
           }
         }
       },
@@ -1214,7 +1284,8 @@ export default {
           metadata: {
             height: 313,
             width: 416,
-            type: "jpg"
+            type: "jpg",
+            filename: "image62.jpeg"
           }
         }
       },
@@ -1228,7 +1299,8 @@ export default {
           metadata: {
             height: 305,
             width: 206,
-            type: "jpg"
+            type: "jpg",
+            filename: "image60.jpeg"
           }
         },
         screenshot: {
@@ -1236,7 +1308,8 @@ export default {
           metadata: {
             height: 261,
             width: 417,
-            type: "jpg"
+            type: "jpg",
+            filename: "image61.jpeg"
           }
         }
       },
@@ -1265,7 +1338,8 @@ export default {
           metadata: {
             height: 336,
             width: 580,
-            type: "jpg"
+            type: "jpg",
+            filename: "image65.jpeg"
           }
         }
       },
@@ -1279,7 +1353,8 @@ export default {
           metadata: {
             height: 399,
             width: 256,
-            type: "jpg"
+            type: "jpg",
+            filename: "image63.jpeg"
           }
         },
         screenshot: {
@@ -1287,7 +1362,8 @@ export default {
           metadata: {
             height: 272,
             width: 409,
-            type: "jpg"
+            type: "jpg",
+            filename: "image64.jpeg"
           }
         }
       },
@@ -1311,7 +1387,8 @@ export default {
           metadata: {
             height: 279,
             width: 419,
-            type: "jpg"
+            type: "jpg",
+            filename: "image21.jpeg"
           }
         }
       },
@@ -1328,7 +1405,8 @@ export default {
           metadata: {
             height: 576,
             width: 1024,
-            type: "jpg"
+            type: "jpg",
+            filename: "shortfilmnight.jpg"
           }
         }
       },
@@ -1354,7 +1432,8 @@ export default {
           metadata: {
             height: 247,
             width: 401,
-            type: "jpg"
+            type: "jpg",
+            filename: "image68.jpeg"
           }
         }
       },
@@ -1368,7 +1447,8 @@ export default {
           metadata: {
             height: 382,
             width: 257,
-            type: "jpg"
+            type: "jpg",
+            filename: "image66.jpeg"
           }
         },
         screenshot: {
@@ -1376,7 +1456,8 @@ export default {
           metadata: {
             height: 321,
             width: 612,
-            type: "jpg"
+            type: "jpg",
+            filename: "image67.jpeg"
           }
         }
       },
@@ -1411,7 +1492,8 @@ export default {
           metadata: {
             height: 268,
             width: 182,
-            type: "jpg"
+            type: "jpg",
+            filename: "image69.jpeg"
           }
         },
         screenshot: {
@@ -1419,7 +1501,8 @@ export default {
           metadata: {
             height: 261,
             width: 393,
-            type: "jpg"
+            type: "jpg",
+            filename: "image70.jpeg"
           }
         }
       },
@@ -1444,7 +1527,8 @@ export default {
           metadata: {
             height: 247,
             width: 401,
-            type: "jpg"
+            type: "jpg",
+            filename: "image68.jpeg"
           }
         }
       },
@@ -1458,7 +1542,8 @@ export default {
           metadata: {
             height: 372,
             width: 255,
-            type: "jpg"
+            type: "jpg",
+            filename: "image72.jpeg"
           }
         },
         screenshot: {
@@ -1466,7 +1551,8 @@ export default {
           metadata: {
             width: 403,
             height: 323,
-            type: "png"
+            type: "png",
+            filename: "image71.png"
           }
         },
         cover2: {
@@ -1474,7 +1560,8 @@ export default {
           metadata: {
             height: 500,
             width: 330,
-            type: "jpg"
+            type: "jpg",
+            filename: "image73.jpeg"
           }
         },
         screenshot2: {
@@ -1482,7 +1569,8 @@ export default {
           metadata: {
             height: 249,
             width: 331,
-            type: "jpg"
+            type: "jpg",
+            filename: "image74.jpeg"
           }
         },
         screenshot3: {
@@ -1490,7 +1578,8 @@ export default {
           metadata: {
             height: 244,
             width: 430,
-            type: "jpg"
+            type: "jpg",
+            filename: "image75.jpeg"
           }
         }
       },
@@ -1519,7 +1608,8 @@ export default {
           metadata: {
             height: 301,
             width: 436,
-            type: "jpg"
+            type: "jpg",
+            filename: "image12.jpeg"
           }
         }
       },
@@ -1533,7 +1623,8 @@ export default {
           metadata: {
             height: 334,
             width: 226,
-            type: "jpg"
+            type: "jpg",
+            filename: "image76.jpeg"
           }
         },
         screenshot: {
@@ -1541,7 +1632,8 @@ export default {
           metadata: {
             height: 264,
             width: 422,
-            type: "jpg"
+            type: "jpg",
+            filename: "image77.jpeg"
           }
         }
       },
@@ -1555,5 +1647,62 @@ export default {
   },
   FilmsIndex: {
     byStartTime: ["bfg", "metropolis", "competition-1", "untold-stories-evening", "embrace-of-the-serpent", "demain", "four-mums", "adult-life-skills", "Imitation of Life", "Victoria", "adventure-film-night", "Train to Busan", "Bob Robert", "Beautiful Devils", "Easy Rider", "The BigLebowski", "Moonlight", "Cameraperson", "fire-at-sea", "War of Words", "Do the Right Thing", "Moana", "Priscilla", "Murderball", "little-shop-of-horrors", "short-film-night", "la-la-land", "arrival", "competition-awards", "station-square-silent", "something-better-to-come"]
-  }
+  },
+  Sponsors: [{
+    source: require("./data/images/sponsors/pedder.jpg"),
+    metadata: {
+      height: 142,
+      width: 409,
+      type: "jpg",
+      filename: "pedder.jpg"
+    }
+  }, {
+    source: require("./data/images/sponsors/southeastern.jpg"),
+    metadata: {
+      height: 80,
+      width: 681,
+      type: "jpg",
+      filename: "southeastern.jpg"
+    }
+  }, {
+    source: require("./data/images/sponsors/veolia.jpg"),
+    metadata: {
+      height: 208,
+      width: 806,
+      type: "jpg",
+      filename: "veolia.jpg"
+    }
+  }, {
+    source: require("./data/images/sponsors/the-lido-cafe.jpg"),
+    metadata: {
+      height: 294,
+      width: 293,
+      type: "jpg",
+      filename: "the-lido-cafe.jpg"
+    }
+  }, {
+    source: require("./data/images/sponsors/flannery-media.jpg"),
+    metadata: {
+      height: 262,
+      width: 263,
+      type: "jpg",
+      filename: "flannery-media.jpg"
+    }
+  }, {
+    source: require("./data/images/sponsors/llewelyns.jpg"),
+    metadata: {
+      height: 100,
+      width: 451,
+      type: "jpg",
+      filename: "llewelyns.jpg"
+    }
+  }, {
+    source: require("./data/images/sponsors/yesmum.jpg"),
+    metadata: {
+      height: 90,
+      width: 402,
+      type: "jpg",
+      filename: "yesmum.jpg"
+    }
+  }]
 };
