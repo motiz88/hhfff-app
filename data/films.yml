@@ -17,7 +17,7 @@ bfg:
   description: |
     **Directed by Steven Spielberg and starring Mark Rylance, BFG is the hopscotchy adaptation of Roald Dahl’s book about a young orphan named Sophie and the dream-blowing Big Friendly Giant. Since it was released in 1982 the BFG has sold more than 37 million copies worldwide and the Herne Hill Free Film Festival is delumptiously happy to be bringing this most recent film adaptation to Rosendale Primary School on 28 April at 7:30pm for the 2017 festival’s opening film!**
 
-    Mark Rylance, the voice of the BFG, a local resident and one of the greatest stage actors of his generation will be appearing for a Q&A after the screening. How whoopsy whiffling is that!
+    Mark Rylance, the voice of the BFG, a local resident and one of the greatest stage actors of his generation will be appearing for a Q&A after the screening. How whoopsy whiffling is that?!
 
     After discovering a mysterious cloaked figure blowing something through a trumpet-shaped object into a nearby bedroom window, the orphan Sophie is taken to Giant Land by the BFG. There she gets to learn about frobscottle, whizpopping and snozcumbers but also the lives of the BFG’s less than friendly neighbours and their less than savoury activities. With Sophie’s help the BFG manages to convince the Queen of England of the need to imprison the unfriendly giants and, with the British Army and Royal Air Force behind her (it would hardly be believable otherwise!), the Fleshlumpeater, Bloodbottler, Gizzardgulper and Childchewer all find themselves suspended from helicopters rotoring their way to an ucky-mucky end in a subterranean prison. 
 
@@ -38,7 +38,7 @@ metropolis:
   trailer: https://www.youtube.com/watch?v=7j8Ba9rWhUg
   date: 29 April
   venue:
-    name: All Saints Church
+    name: All Saints’ Church
     location: Lovelace Rd, London SE21 8JY
     link: http://www.all-saints.org.uk/
     image: require(./images/image6.jpeg)
@@ -49,7 +49,7 @@ metropolis:
 
     Metropolis employed vast sets, 25,000 extras and astonishing special effects decades ahead of its time to create a world of two parts, each ignorant of the other. Both are run by the businessman-dictator Joh Fredersen: the great city of Metropolis, with its stadiums, skyscrapers and expressways in the sky is starkly contrasted with the subterranean workers’ city, where the clock face shows 10 hours to cram another day into the work week. Joh’s son Freder is in the Pleasure Gardens one day when Maria, a woman from the subterranean city, brings a group of workers' children to the surface. Struck by Maria’s beauty and astonished to learn of the life led by the workers, Freder seeks out the demented genius Rotwang, who knows the secrets of the lower world.
 
-    We know you’ve heard of Metropolis – hey, it’s one of the most influential films ever made – but we also know you’ve probably never had the opportunity to see it in a setting as spectacular as All Saints Church. Lang filmed for nearly a year, driven by obsession, often cruel to his colleagues, a perfectionist madman. All we’re asking for is one evening. It’d be rude not to come along on 29 April at 7:30pm!
+    We know you’ve heard of Metropolis – hey, it’s one of the most influential films ever made – but we also know you’ve probably never had the opportunity to see it in a setting as spectacular as All Saints’ Church. Lang filmed for nearly a year, driven by obsession, often cruel to his colleagues, a perfectionist madman. All we’re asking for is one evening. It’d be rude not to come along on 29 April at 7:30pm!
   images:
     cover: require(./images/image4.jpeg)
     screenshot: require(./images/image5.jpeg)
