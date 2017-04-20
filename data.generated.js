@@ -1079,12 +1079,12 @@ export default {
       description: "**Warning: explicit language! What started as an internet phenomenon has now hit the streets, bars and even major arenas: the noble art of verbal humiliation. Rap without brakes. And the culture clash between the latest generation of American and British battle rappers is its entertaining highlight, playing centre stage at the Herne Hill Free Film Festival\u2019s screening of War of Words on 16 May at Off the Cuff at 8pm. **\n\nA besuited teacher versus a 17-year-old schoolboy are unlikely opponents in a contemporary British battle rap that has its roots in the American East Coast hip-hop scene. While it may have been darker on the other side of the pond, the British version energetically portrayed in War of Words is really just about verbally intimidating your opposition. The films centres around rap champions Marlo and Shuffle T, who look more like internet nerds than tough hip-hop guys, as they prepare for battle against Detroit legends Marv Won and Quest McCody. By explaining how the scene developed and took off, from squares and alleyways to proper venues where everyone \u2013 young, old, poor, rich, white, black, male or female \u2013 is appreciated as long as they obey the scene\u2019s unwritten rules, War of Words opens the door to a lively but unknown lyrical world.\n\nThis is a film the Herne Hill Free Film Festival has been waiting to screen for more than two years (hey, these things take time to pull together!) and for 2017 we are ecstatically happy to be bringing it to Off the Cuff on 16 May at 8pm. With cast and crew in attendance and a Q&A after the screening this is one of the high points of our programme and a film you\u2019re not going to want to miss! \n",
       images: {
         cover: {
-          source: require("./data/images/image50.jpeg"),
+          source: require("./data/images/war-of-words.jpg"),
           metadata: {
-            height: 257,
-            width: 257,
+            height: 2864,
+            width: 2025,
             type: "jpg",
-            filename: "image50.jpeg"
+            filename: "war-of-words.jpg"
           }
         },
         screenshot: {

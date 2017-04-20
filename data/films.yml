@@ -602,7 +602,7 @@ War of Words:
     This is a film the Herne Hill Free Film Festival has been waiting to screen for more than two years (hey, these things take time to pull together!) and for 2017 we are ecstatically happy to be bringing it to Off the Cuff on 16 May at 8pm. With cast and crew in attendance and a Q&A after the screening this is one of the high points of our programme and a film you’re not going to want to miss! 
 
   images:
-    cover: require(./images/image50.jpeg)
+    cover: require(./images/war-of-words.jpg)
     screenshot: require(./images/image51.jpeg)
   colors:
     highlight: '#af5ea5'
