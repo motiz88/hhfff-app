@@ -10,7 +10,10 @@
     "babel-traverse": "^6.23.1",
     "babel-types": "^6.23.0",
     "clone-deep": "^0.2.4",
+    "datauri": "^1.0.5",
     "deep-map": "^1.4.2",
+    "dot-prop": "^4.1.1",
+    "es6-string-html-template": "^1.0.2",
     "image-size": "^0.5.1",
     "jest-expo": "^0.3.0",
     "js-yaml": "^3.8.2",
@@ -28,7 +31,7 @@
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
     "data": "babel-node scripts/build-data",
-    "watch:data": "chokidar 'data' -c 'npm run data'"
+    "watch:data": "chokidar scripts/build-data.js 'data' -c 'npm run data'"
   },
   "jest": {
     "preset": "jest-expo"

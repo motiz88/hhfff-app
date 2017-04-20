@@ -11,6 +11,10 @@ import stripMarkdown from "strip-markdown";
 import matches from "string-matches";
 import imageSize from "image-size";
 import template from "babel-template";
+import { html, escape, raw } from "es6-string-html-template";
+import { get, has } from "dot-prop";
+import url from "url";
+import datauri from "datauri";
 
 const year = 2017;
 
@@ -110,3 +114,70 @@ writeData(path.resolve(__dirname, "../data.generated.js"), data).catch(e => {
   console.error(e.stack || e);
   process.exit(64);
 });
+
+fs.writeFileSync(
+  "docs/films.html",
+  html`
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="films.css">
+  </head>
+  <body>
+  ${raw(data.FilmsIndex.byStartTime
+      .map(filmId => data.Films[filmId])
+      .map(film => {
+        function formatValue(value, fields = typeof value === "object" && Object.keys(value)) {
+          if (typeof value === "object") {
+            return html`
+              <table>
+                ${fields.map(key => formatField(value, key))}
+              </table>
+            `;
+          }
+          if (typeof value === "string") {
+            const requireMatch = value.trim().match(/^require\((.+?)\)$/);
+            if (requireMatch) {
+              return html`<img src="${datauri.sync(path.resolve(__dirname, "../data", requireMatch[1]))}">`;
+            }
+            const asUrl = url.parse(value);
+            if (asUrl.protocol) {
+              return html`<a href="${value}" target="_blank">${value}</a>`;
+            }
+          }
+          return value;
+        }
+        function formatField(object, key) {
+          let label = key;
+          if (Array.isArray(key)) {
+            [key, label] = key;
+          }
+          return has(object, key) ? html`
+            <tr class="field">
+              <td class="label label-${key.replace(/\./g, "-")}">${label}</td>
+              <td class="value value-${key.replace(/\./g, "-")}">${formatValue(get(object, key))}</td>
+            </tr>
+           ` : "";
+        }
+        return html`
+          <article>
+            <h1 style="background-color: ${film.colors.highlight}">${film.title}</h1>
+            ${formatValue(film, [
+          "title",
+          "director",
+          "year",
+          "country",
+          "certificate",
+          "running_time",
+          "date",
+          "venue",
+          "time.start",
+          "trailer",
+          ["descriptionPlain", "description"],
+          "images"
+        ])}
+          </article>
+        `;
+      })
+      .join("\n"))}
+    </body>`
+);
