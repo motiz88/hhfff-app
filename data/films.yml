@@ -128,7 +128,7 @@ embrace-of-the-serpent:
   description: |
     **A winner at Cannes and a nominee for the 2015 Best Foreign Language Oscar (Colombia’s first ever Oscar nomination), Embrace of the Serpent tells two tales – separated by more than 30 years – of European scientists searching for the yakruna, a mystical and fictional flower. Join us at The Lido Café, one of our favourite venues, on 1 May at 8pm for Ciro Guerra’s dreamlike journey to the Amazon.**
 
-    In one sense Embrace of the Serpent is a drama about the effect of European colonialisation on the Amazon but in another it is an attempt by Colombian director Ciro Guerra to build a bridge between western and Amazonian storytelling. Shot on location in the Colombian jungle over 8 weeks the film tells two stories of European explorers searching for a fictional flower, set more than 30 years apart. Based on the journals of two real-life explorers, the film weaves these stories around a shamen called Karamakate who is the last surviving member of the Cohiuano tribe. An old and a young Karamakate puts the Europeans’ materialism and vanity into perspective but in this 2hr visual indulgence these characters also offer an indigenous viewpoint to the terror and violence of the colonial era.
+    In one sense Embrace of the Serpent is a drama about the effect of European colonialisation on the Amazon but in another it is an attempt by Colombian director Ciro Guerra to build a bridge between western and Amazonian storytelling. Shot on location in the Colombian jungle over 8 weeks the film tells two stories of European explorers searching for a fictional flower, set more than 30 years apart. Based on the journals of two real-life explorers, the film weaves these stories around a shaman called Karamakate who is the last surviving member of the Cohiuano tribe. An old and a young Karamakate puts the Europeans’ materialism and vanity into perspective but in this 2hr visual indulgence these characters also offer an indigenous viewpoint to the terror and violence of the colonial era.
 
     With breath-taking cinematography and a soundtrack that blends indigenous song with contemporary instrumentation this is a film you can’t miss. The Guardian called it an “extraordinary, hypnotic work” and we were certainly extraordinarily hypnotised when we saw it during its too-narrow UK release in 2016. If you want to see for yourself, and we recommend that you do, join us at The Lido Café on 1 May at 8pm!
   images:
@@ -208,15 +208,14 @@ four-mums:
   time:
     start: '8pm'
   description: |
-    **My mum created me, so I’ve been proud of her all my life. However when I caught a glimpse of Four Mums in a Boat and what other people’s madres are really capable of, I started asking questions. In particular I wanted to know why my old lady wasn’t, at her tender age, even pedalo’ing across the lake in Dulwich Park let alone rowing the Atlantic Ocean. If you want to go through the same personal crisis as me, come down to The Florence on 3 May at 8pm and be blown over by a short film about a long journey, and four incredible women from Yorkshire.**
+    **Centred around the documentary Four Mums in a Boat, about four mums from Yorkshire who met on the school run and decided to row across the Atlantic, our Future is Female evening will showcase documentaries and short films designed to give a voice to and empower women, young and old.**
 
-    **We are particularly excited about this one as the filmmaker, Simon Tucker, will be coming to the screening to answer questions after the film… And if that’s not enough there will also be a number of inspiring short films on the night (which we’re keeping under wraps to preserve their inspirationalness… but we assure you they’re worth the trip on their own)!**
+    The event will take place in the Ida Lupino room at The Florence, named after the actor and pioneering woman director and producer. Not only was Lupino was the only woman working in the 1950s Hollywood system to take on these roles but she was born right here, in Herne Hill, on Ardberg Road, in 1918. As an actor though she was frequently suspended from her work at Warner Brothers for refusing roles that she thought were beneath her dignity as an actor.
 
-    In December 2015, 27 crews paddled out from La Gomera, the start line of the Talisker Whiskey Atlantic Challenge and attempted to row over 3,000 miles to Antigua. Among the crews were some of the toughest endurance athletes in the world. And four mums from Yorkshire. With absolutely no endurance or adventure experience to speak of.
+    The Future is Female event is about celebrating the bravery of ordinary women doing extraordinary things: women who speak out against injustice, who despite repeated attempts at being silenced, have persisted and inspired millions around the world to embrace the strength within themselves and empower each other with knowledge, unity and togetherness.
 
-    Four Mums in a Boat tells the tale of how four women from Yorkshire became the oldest all-female crew to row across any ocean, despite meeting a hurricane and losing power, water and their steering along the way. Screened as part of the Banff Mountain Film Festival World Tour we’re glad that it’s making a stop in SE24 on 3 May, so come on down to The Florence at 8pm to be overOARed (we know, our wit knows no bounds) and inspired by four people’s mums. Simon Tucker, the filmmaker, will be coming along to answer questions after the screening and we will also be showing a number of short films to cap yet another amazing night in Herne Hill.
   images:
-    cover: require(./images/image16.jpeg)
+    cover: require(./images/ida.jpg)
     screenshot: require(./images/image17.jpeg)
   colors:
     highlight: '#4a5aa8'
