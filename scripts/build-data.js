@@ -102,9 +102,9 @@ for (const filmId of Object.keys(Films)) {
       )
       .toISOString();
   }
-  film.descriptionPlain = String(
-    markdownStripper.processSync(film.description)
-  ).replace(/\\\*/g, "*");
+  film.descriptionPlain = String(markdownStripper.processSync(film.description))
+    .replace(/\\\*/g, "*")
+    .trim();
 }
 const FilmsIndex = {
   byStartTime: Object.keys(Films).sort((a, b) =>
