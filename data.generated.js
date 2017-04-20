@@ -756,12 +756,12 @@ export default {
       description: "**Screening at 8pm on 10 May at The Half Moon is this modern retelling of Shakespeare\u2019s Othello, set within the music scene of East London. Starring a number of emerging British actors and produced by locals Ascension Productions there will be cast and crew in attendance so make sure you hang around after the film for a Q&A and to meet the production team! **\n\nBeautiful Devils is a 21st Century take on Shakespeare's Othello, shifting the play\u2019s action from the streets of Venice to the music scene of East London. Oz and Ivan are lifelong friends and music producers but when Oz gets offered a lucrative recording contract, he makes the decision to separate from Ivan professionally. This rejection turns to rage, as Ivan plots to undermine Oz's success and get him kicked off the label. The plan kickstarts an escalation of jealousy and paranoia in Oz. With deadly consequences. \n\nCome down to The Half Moon on 10 May at 8pm to see this update of Shakespeare\u2019s timeless story of jealousy and betrayal. With cast and crew in attendance there will be a Q&A after the film!\n",
       images: {
         cover: {
-          source: require("./data/images/image35.jpeg"),
+          source: require("./data/images/beautiful-devils-poster.jpg"),
           metadata: {
-            height: 365,
-            width: 260,
+            height: 1200,
+            width: 819,
             type: "jpg",
-            filename: "image35.jpeg"
+            filename: "beautiful-devils-poster.jpg"
           }
         },
         screenshot: {

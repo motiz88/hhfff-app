@@ -425,7 +425,7 @@ Beautiful Devils:
     Come down to The Half Moon on 10 May at 8pm to see this update of Shakespeare’s timeless story of jealousy and betrayal. With cast and crew in attendance there will be a Q&A after the film!
 
   images:
-    cover: require(./images/image35.jpeg)
+    cover: require(./images/beautiful-devils-poster.jpg)
     screenshot: require(./images/image36.jpeg)
   colors:
     highlight: '#af5ea5'
