@@ -901,12 +901,12 @@ export default {
         location: "Dulwich Rd, London SE24 0PA",
         link: "http://www.brockwelllido.com/",
         image: {
-          source: require("./data/images/image43.jpeg"),
+          source: require("./data/images/image45.jpeg"),
           metadata: {
-            height: 374,
-            width: 258,
+            height: 230,
+            width: 411,
             type: "jpg",
-            filename: "image43.jpeg"
+            filename: "image45.jpeg"
           }
         }
       },
@@ -917,21 +917,21 @@ export default {
       description: "**To try and sell Moonlight to you as the winner of the 2017 Best Picture Oscar would be true, but it also wouldn\u2019t give the film, its writers, its director, its cast, its cinematographers, and so on, the credit they deserve. This one knocked us for six. Straight out the ballpark. So much so that we don\u2019t even know what we\u2019re doing with our metaphors. It\u2019s a challenging and moving story brilliantly translated into our favourite film of the year. And we can\u2019t quite believe how lucky we are to have the chance to show it on 13 May at 9pm at Brockwell Lido. We\u2019re expecting this to be a popular screening so make sure you get there early to grab a spot!   **\n\nChiron is a reticent child, different from the other kids at school. There\u2019s something about the way he walks, the way he talks, that has others guessing before he does, in an environment where queerness is just not an option. His mother is no help in navigating these waters, so Chiron turns to local drug kingpin Juan, who offers the kind of leadership and emotional support that he so sorely needs. \n\nBased on the play In Moonlight Black Boys Look Blue by Tarell Alvin McCraney and journeying across three time periods, we witness key moments in the formation of Chiron\u2019s masculinity and how in turn, these moments come to define his sexuality. Barry Jenkins\u2019 debut feature Medicine For Melancholy earned him many fans, and Moonlight makes good on that film\u2019s promise, delivering a restrained yet intoxicating story with genuine emotional power. It\u2019s consistently surprising and brims with formal invention, from camera movement to the richly evocative imagery.\n\nA combination of our favourite film of the year and our favourite venue makes Moonlight at Brockwell Lido one of the highlights of our 2017 programme. When we heard we\u2019d managed to secure an early licence we almost couldn\u2019t believe it but we\u2019ve calmed down now and can assure you it is happening. So leave your swimsuits at home, bring something to sit on and take it in. If you haven\u2019t seen it yet, now\u2019s your chance. If you have, it\u2019s even better the second time around.\n",
       images: {
         cover: {
+          source: require("./data/images/image43.jpeg"),
+          metadata: {
+            height: 374,
+            width: 258,
+            type: "jpg",
+            filename: "image43.jpeg"
+          }
+        },
+        screenshot: {
           source: require("./data/images/image44.jpeg"),
           metadata: {
             height: 300,
             width: 300,
             type: "jpg",
             filename: "image44.jpeg"
-          }
-        },
-        screenshot: {
-          source: require("./data/images/image45.jpeg"),
-          metadata: {
-            height: 230,
-            width: 411,
-            type: "jpg",
-            filename: "image45.jpeg"
           }
         }
       },
