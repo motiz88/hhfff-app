@@ -382,14 +382,22 @@ class SingleFilmPage extends React.Component {
               flex: 1
             }}
           >
-            {Object.keys(otherImages).map(image => (
-              <Image
-                source={otherImages[image].source}
-                key={image}
-                style={{ width: width - 2 * 8, flex: 1 }}
-                resizeMode="contain"
-              />
-            ))}
+            {Object.keys(otherImages).map(key => {
+              const image = otherImages[key];
+              const aspect = image.metadata.width / image.metadata.height;
+              const adjusted = {
+                width: width - 2 * 8,
+                height: (width - 2 * 8) / aspect
+              };
+
+              return (
+                <Image
+                  source={otherImages[key].source}
+                  key={key}
+                  style={{ ...adjusted, flex: 1 }}
+                />
+              );
+            })}
           </View>
         </View>
       </PageContainer>
