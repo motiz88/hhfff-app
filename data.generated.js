@@ -61,7 +61,7 @@ export default {
       country: "Germany",
       certificate: "PG",
       running_time: "153 mins",
-      trailer: "https://www.youtube.com/watch?v=ZSExdX0tds4",
+      trailer: "https://www.youtube.com/watch?v=7j8Ba9rWhUg",
       date: "29 April",
       venue: {
         name: "All Saints Church",
@@ -356,7 +356,7 @@ export default {
       country: "UK",
       certificate: "Not rated",
       running_time: "90 mins",
-      trailer: "https://www.youtube.com/watch?v=g2uWcukaSpg",
+      trailer: "https://vimeo.com/177771714",
       date: "3 May",
       venue: {
         name: "The Florence",
