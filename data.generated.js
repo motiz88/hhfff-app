@@ -114,7 +114,7 @@ export default {
       venue: {
         name: "The Prince Regent",
         location: "69 Dulwich Rd, Brixton, London SE24 0NJ",
-        link: "www.theprinceregent.co.uk",
+        link: "http://www.theprinceregent.co.uk",
         image: {
           source: require("./data/images/image21.jpeg"),
           metadata: {
@@ -468,7 +468,7 @@ export default {
       venue: {
         name: "Holy Trinity Church",
         location: "Holy Trinity Church, Trinity Rise, London SW2 2QP",
-        link: "www.htth.org.uk",
+        link: "http://www.htth.org.uk",
         image: {
           source: require("./data/images/image24.jpeg"),
           metadata: {
@@ -577,7 +577,7 @@ export default {
       venue: {
         name: "The Prince Regent",
         location: "69 Dulwich Rd, Brixton, London SE24 0NJ",
-        link: "www.theprinceregent.co.uk",
+        link: "http://www.theprinceregent.co.uk",
         image: {
           source: require("./data/images/image21.jpeg"),
           metadata: {
@@ -792,7 +792,7 @@ export default {
       venue: {
         name: "Canopy Beer Co",
         location: "Bath Factory Estate, 41 Norwood Rd, SE24 9AJ",
-        link: "www.canopybeer.com/",
+        link: "http://www.canopybeer.com/",
         image: {
           source: require("./data/images/image39.jpeg"),
           metadata: {
@@ -954,7 +954,7 @@ export default {
       venue: {
         name: "The Prince Regent",
         location: "69 Dulwich Rd, Brixton, London SE24 0NJ",
-        link: "www.theprinceregent.co.uk/",
+        link: "http://www.theprinceregent.co.uk/",
         image: {
           source: require("./data/images/image21.jpeg"),
           metadata: {
@@ -1383,7 +1383,7 @@ export default {
       venue: {
         name: "The Prince Regent",
         location: "69 Dulwich Rd, Brixton, London SE24 0NJ",
-        link: "www.theprinceregent.co.uk",
+        link: "http://www.theprinceregent.co.uk",
         image: {
           source: require("./data/images/image21.jpeg"),
           metadata: {
