@@ -469,7 +469,7 @@ The BigLebowski:
   date: 12 May
   venue:
     name: Off the Cuff
-    location: Arch 645, 301-303 Railton Rd, Herne Hill SE24 0JN
+    location: 301-303 Railton Rd, Herne Hill SE24 0JN
     link: http://www.thelivemusicbar.com/
     image: require(./images/image42.jpeg)
   time:
@@ -588,7 +588,7 @@ War of Words:
   date: 16 May
   venue:
     name: Off the Cuff
-    location: Arch 645, 301-303 Railton Rd, Herne Hill SE24 0JN
+    location: 301-303 Railton Rd, Herne Hill SE24 0JN
     link: http://www.thelivemusicbar.com/
     image: require(./images/image42.jpeg)
   time:
@@ -741,7 +741,7 @@ little-shop-of-horrors:
   trailer: https://www.youtube.com/watch?v=nWu1Q16AV5U
   date: 23 May
   venue:
-    name: South London Botanical Institute
+    name: SLBI
     location: 323 Norwood Rd, London SE24 9AQ
     link: http://www.slbi.org.uk/
     image: require(./images/image65.jpeg)

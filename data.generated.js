@@ -845,7 +845,7 @@ export default {
       date: "12 May",
       venue: {
         name: "Off the Cuff",
-        location: "Arch 645, 301-303 Railton Rd, Herne Hill SE24 0JN",
+        location: "301-303 Railton Rd, Herne Hill SE24 0JN",
         link: "http://www.thelivemusicbar.com/",
         image: {
           source: require("./data/images/image42.jpeg"),
@@ -1061,7 +1061,7 @@ export default {
       date: "16 May",
       venue: {
         name: "Off the Cuff",
-        location: "Arch 645, 301-303 Railton Rd, Herne Hill SE24 0JN",
+        location: "301-303 Railton Rd, Herne Hill SE24 0JN",
         link: "http://www.thelivemusicbar.com/",
         image: {
           source: require("./data/images/image42.jpeg"),
@@ -1331,7 +1331,7 @@ export default {
       trailer: "https://www.youtube.com/watch?v=nWu1Q16AV5U",
       date: "23 May",
       venue: {
-        name: "South London Botanical Institute",
+        name: "SLBI",
         location: "323 Norwood Rd, London SE24 9AQ",
         link: "http://www.slbi.org.uk/",
         image: {
