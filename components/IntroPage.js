@@ -124,9 +124,19 @@ class FilmstripBackground extends React.Component {
 
 class FilmstripButton extends React.Component {
   render() {
-    const { children, onPress, width, height, ...props } = this.props;
+    const {
+      children,
+      onPress,
+      width,
+      height,
+      parentHeight,
+      ...props
+    } = this.props;
     return (
-      <TouchableHighlight onPress={onPress}>
+      <TouchableHighlight
+        onPress={onPress}
+        hitSlop={{ top: Math.max(0, (parentHeight || 0) - height + 1) }}
+      >
         <FilmstripBackground {...props} width={width} style={{ height }}>
           <View>
             {children}
@@ -524,6 +534,7 @@ class IntroPage extends React.Component {
           ]}
         >
           <FilmstripButton
+            parentHeight={height}
             width={width}
             height={seeWhatsOnHeight}
             onPress={this.handleSeeWhatsOnClick}
