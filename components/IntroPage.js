@@ -419,6 +419,13 @@ class IntroPage extends React.Component {
       width: Math.max(...sponsorSizes.map(size => size.width))
     };
     const seeWhatsOnHeight = Math.max(75, height / 6);
+    const seeWhatsOnFontSize = getResponsiveFontSize(
+      "See what's on".toUpperCase(),
+      Math.min(seeWhatsOnHeight - 2 * (2.5 * FilmstripHoleSize.height)),
+      { height: seeWhatsOnHeight, width },
+      { height: 90, width: 500 },
+      16
+    );
     return (
       <View style={styles.container} onLayout={this.handleLayout}>
         <StatusBar hidden={true} />
@@ -543,13 +550,16 @@ class IntroPage extends React.Component {
               style={[
                 styles.filmstripButtonText,
                 {
-                  fontSize: getResponsiveFontSize(
-                    "See what's on".toUpperCase(),
-                    48,
-                    { height: seeWhatsOnHeight, width: 100 },
-                    { height: 90, width: 100 },
-                    16
-                  )
+                  fontSize: seeWhatsOnFontSize,
+                  position: "relative",
+                  transform: [
+                    {
+                      translateY: Platform.select({
+                        ios: 0.5 * seeWhatsOnFontSize * 0.45,
+                        android: 0
+                      })
+                    }
+                  ]
                 }
               ]}
             >
@@ -673,8 +683,7 @@ const styles = StyleSheet.create({
   filmstripButtonText: {
     color: "white",
     fontSize: 48,
-    fontFamily: "DIN Condensed Bold",
-    marginTop: Platform.select({ ios: 20, android: 0 })
+    fontFamily: "DIN Condensed Bold"
   }
 });
 
