@@ -460,7 +460,7 @@ Easy Rider:
     highlight: '#ef3f2d'
 
 The BigLebowski:
-  title: 'The Big Lebowski'
+  title: 'Big Lebowski Happening'
   director: Joel Coen, Ethan Coen
   year: 1998
   country: USA
@@ -473,14 +473,20 @@ The BigLebowski:
     link: http://www.thelivemusicbar.com/
     image: require(./images/image42.jpeg)
   time:
-    start: '8pm'
+    start: '7:30pm'
   trailer: https://www.youtube.com/watch?v=cd-go0oBF4Y
   description: |
-    **It’s The Big Lebowski, it’s free (although we’d really appreciate your donations) and there’s gonna be White Russians. We might also rig up a bit of Nintendo bowling action so you can arrive early to Off the Cuff on 12 May before our 8pm screening to get in the mood for the Coen brothers’ 1998 classic. What more do you need to know, man? Yeah, we thought so!**
+    **It’s The Big Lebowski, it’s free (although we’d really appreciate your donations) and there’s gonna be White Russians. What more do you need to know, man? Yeah, we thought so!**
+
+    * DOORS OPEN 6:30PM
+    * QUIZ 7:30PM
+    * FILM STARTS 8:00PM
+    * DUDE DANCE 10:00PM
+    (Prizes will be awarded for the most dude-like outfits.)
 
     There’s kidnapping, ransom money, a porno king, a reclusive millionaire, a runaway girl, the Malibu police, a woman who paints while nude and strapped to an overhead harness, and the last act of the disagreement between Vietnam veterans and Flower Power. It also features a considerable amount of bowling, has more quotable lines of dialogue than any other 1990s film and includes star turns from Jeff Bridges, John Goodman, Steve Buscemi, John Turturo, Philip Seymour Hoffman… we could go on. The film has also inspired an annual convention and the Church of the Latter-Day Dude and when Jeff Bridges collected his Oscar in 2010 for Crazy Heart people were distraught when his acceptance speech didn’t begin with the words “The Dude abides”.
 
-    If you’ve seen it before you need to see it again. If you’ve never seen it, see it now. And then come to Off the Cuff at 8pm on 12 May to see it a second time with us. Just grab a White Russian, sit back, relax and indulge. We won’t judge you. We promise.
+    If you’ve seen it before you need to see it again. If you’ve never seen it, see it now. And then come to Off the Cuff at 7:30pm on 12 May to see it a second time with us. Just grab a White Russian, sit back, relax and indulge. We won’t judge you. We promise.
 
   images:
     cover: require(./images/image40.jpeg)
