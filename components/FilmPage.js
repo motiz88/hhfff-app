@@ -176,6 +176,7 @@ class SingleFilmPage extends React.Component {
 
     return (
       <PageContainer
+        scrollTrackInfo={{ filmId }}
         ref={ref => {
           this._pageContainer = ref;
         }}
