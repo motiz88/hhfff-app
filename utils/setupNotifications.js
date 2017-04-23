@@ -4,7 +4,7 @@ import Expo from "expo";
 import { version } from "../package.json";
 import moment from "moment";
 
-const DEV = true;
+const DEV = false;
 
 async function setupNotifications() {
   const savedVersion = await AsyncStorage.getItem("notifications.savedVersion");
