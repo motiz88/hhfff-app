@@ -18,7 +18,9 @@
       ]
     },
     "ios": {
-      "bundleIdentifier": "org.freefilmfestivals.hernehill"
+      "bundleIdentifier": "org.freefilmfestivals.hernehill",
+      "supportsTablet": false,
+      "isRemoteJSEnabled": false
     },
     "android": {
       "package": "org.freefilmfestivals.hernehill"
