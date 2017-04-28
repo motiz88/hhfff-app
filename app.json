@@ -23,7 +23,8 @@
       "isRemoteJSEnabled": false
     },
     "android": {
-      "package": "org.freefilmfestivals.hernehill"
+      "package": "org.freefilmfestivals.hernehill",
+      "versionCode": 2
     }
   }
 }
