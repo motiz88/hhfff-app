@@ -5,10 +5,11 @@ import { version } from "../package.json";
 import moment from "moment";
 
 const DEV = false;
+const ALWAYS_RESCHEDULE = true;
 
 async function setupNotifications() {
   const savedVersion = await AsyncStorage.getItem("notifications.savedVersion");
-  if (savedVersion !== version || DEV) {
+  if (savedVersion !== version || ALWAYS_RESCHEDULE || DEV) {
     const { status } = await Expo.Permissions.askAsync(
       Expo.Permissions.REMOTE_NOTIFICATIONS
     );
